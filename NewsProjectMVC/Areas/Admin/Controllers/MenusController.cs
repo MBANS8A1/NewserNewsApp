@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NewsProjectMVC.Models.Db;
 
+[Area("Admin")]
 public class MenusController : Controller
 {
     private readonly MyNewsContext _context;
