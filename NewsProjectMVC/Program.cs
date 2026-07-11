@@ -1,4 +1,12 @@
+using Microsoft.EntityFrameworkCore;
+using NewsProjectMVC.Models.Db;
 var builder = WebApplication.CreateBuilder(args);
+var connectionString = builder.Configuration.GetConnectionString("MyNewsContext") ?? throw new InvalidOperationException("Connection string 'MyNewsContext' not found.");
+
+builder.Services.AddDbContext<MyNewsContext>(options => options.UseSqlServer(connectionString));
+
+
+
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
