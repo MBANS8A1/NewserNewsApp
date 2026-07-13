@@ -1,294 +1,746 @@
 ﻿<!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="utf-8">
-    <title>Newsers - Free HTML Magazine Template</title>
-    <meta content="width=device-width, initial-scale=1.0" name="viewport">
-    <meta content="" name="keywords">
-    <meta content="" name="description">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <title>Kaiadmin - Bootstrap 5 Admin Dashboard</title>
+    <meta content="width=device-width, initial-scale=1.0, shrink-to-fit=no"
+          name="viewport" />
+    <link rel="icon"
+          href="assets/img/kaiadmin/favicon.ico"
+          type="image/x-icon" />
 
-    <!-- Google Web Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Raleway:wght@100;600;800&display=swap" rel="stylesheet">
+    <!-- Fonts and icons -->
+    <script src="assets/js/plugin/webfont/webfont.min.js"></script>
+    <script>
+        WebFont.load({
+        google: { families: ["Public Sans:300,400,500,600,700"] },
+        custom: {
+        families: [
+        "Font Awesome 5 Solid",
+        "Font Awesome 5 Regular",
+        "Font Awesome 5 Brands",
+        "simple-line-icons",
+        ],
+        urls: ["assets/css/fonts.min.css"],
+        },
+        active: function () {
+        sessionStorage.fonts = true;
+        },
+        });
+    </script>
 
-    <!-- Icon Font Stylesheet -->
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" />
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet">
+    <!-- CSS Files -->
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/plugins.min.css" />
+    <link rel="stylesheet" href="assets/css/kaiadmin.min.css" />
 
-    <!-- Libraries Stylesheet CRAZY -->
-    <link href="/user/lib/animate/animate.css" rel="stylesheet">
-    <link href="/user/lib/owlcarousel/assets/owl.carousel.css" rel="stylesheet">
-
-
-    <!-- Customized Bootstrap Stylesheet -->
-    <link href="/user/css/bootstrap.min.css" rel="stylesheet">
-
-    <!-- Template Stylesheet -->
-    <link href="/user/css/style.css" rel="stylesheet">
+    <!-- CSS Just for demo purpose, don't include it in your project -->
+    <link rel="stylesheet" href="assets/css/demo.css" />
 </head>
-
 <body>
-
-    <!-- Spinner Start -->
-    <div id="spinner" class="show w-100 vh-100 bg-white position-fixed translate-middle top-50 start-50  d-flex align-items-center justify-content-center">
-        <div class="spinner-grow text-primary" role="status"></div>
-    </div>
-    <!-- Spinner End -->
-    <!-- Navbar start -->
-    <div class="container-fluid sticky-top px-0">
-        <div class="container-fluid topbar bg-dark d-none d-lg-block">
-            <div class="container px-0">
-                <div class="topbar-top d-flex justify-content-between flex-lg-wrap">
-                    <div class="top-info flex-grow-0">
-                        <span class="rounded-circle btn-sm-square bg-primary me-2">
-                            <i class="fas fa-bolt text-white"></i>
-                        </span>
-                        <div class="pe-2 me-3 border-end border-white d-flex align-items-center">
-                            <p class="mb-0 text-white fs-6 fw-normal">Trending</p>
-                        </div>
-                        <div class="overflow-hidden" style="width: 735px;">
-                            <div id="note" class="ps-2">
-                                <img src="../../user/img/features-fashion.jpg" class="img-fluid rounded-circle border border-3 border-primary me-2" style="width: 30px; height: 30px;" alt="">
-                                <a href="#"><p class="text-white mb-0 link-hover">Newsan unknown printer took a galley of type andscrambled Newsan.</p></a>
+    <div class="wrapper">
+        <!-- Sidebar -->
+        <div class="sidebar" data-background-color="dark">
+            <div class="sidebar-logo">
+                <!-- Logo Header -->
+                <div class="logo-header" data-background-color="dark">
+                    <a href="index.html" class="logo">
+                        <img src="assets/img/kaiadmin/logo_light.svg"
+                             alt="navbar brand"
+                             class="navbar-brand"
+                             height="20" />
+                    </a>
+                    <div class="nav-toggle">
+                        <button class="btn btn-toggle toggle-sidebar">
+                            <i class="gg-menu-right"></i>
+                        </button>
+                        <button class="btn btn-toggle sidenav-toggler">
+                            <i class="gg-menu-left"></i>
+                        </button>
+                    </div>
+                    <button class="topbar-toggler more">
+                        <i class="gg-more-vertical-alt"></i>
+                    </button>
+                </div>
+                <!-- End Logo Header -->
+            </div>
+            <div class="sidebar-wrapper scrollbar scrollbar-inner">
+                <div class="sidebar-content">
+                    <ul class="nav nav-secondary">
+                        <li class="nav-item active">
+                            <a data-bs-toggle="collapse"
+                               href="#dashboard"
+                               class="collapsed"
+                               aria-expanded="false">
+                                <i class="fas fa-home"></i>
+                                <p>Dashboard</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="dashboard">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="../demo1/index.html">
+                                            <span class="sub-item">Dashboard 1</span>
+                                        </a>
+                                    </li>
+                                </ul>
                             </div>
-                        </div>
-                    </div>
-                    <div class="top-link flex-lg-wrap">
-                        <i class="fas fa-calendar-alt text-white border-end border-secondary pe-2 me-2"> <span class="text-body">Tuesday, Sep 12, 2024</span></i>
-                        <div class="d-flex icon">
-                            <p class="mb-0 text-white me-2">Follow Us:</p>
-                            <a href="" class="me-2"><i class="fab fa-facebook-f text-body link-hover"></i></a>
-                            <a href="" class="me-2"><i class="fab fa-twitter text-body link-hover"></i></a>
-                            <a href="" class="me-2"><i class="fab fa-instagram text-body link-hover"></i></a>
-                            <a href="" class="me-2"><i class="fab fa-youtube text-body link-hover"></i></a>
-                            <a href="" class="me-2"><i class="fab fa-linkedin-in text-body link-hover"></i></a>
-                            <a href="" class="me-2"><i class="fab fa-skype text-body link-hover"></i></a>
-                            <a href="" class=""><i class="fab fa-pinterest-p text-body link-hover"></i></a>
-                        </div>
-                    </div>
+                        </li>
+                        <li class="nav-section">
+                            <span class="sidebar-mini-icon">
+                                <i class="fa fa-ellipsis-h"></i>
+                            </span>
+                            <h4 class="text-section">Components</h4>
+                        </li>
+                        <li class="nav-item">
+                            <a data-bs-toggle="collapse" href="#base">
+                                <i class="fas fa-layer-group"></i>
+                                <p>Base</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="base">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="components/avatars.html">
+                                            <span class="sub-item">Avatars</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="components/buttons.html">
+                                            <span class="sub-item">Buttons</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="components/gridsystem.html">
+                                            <span class="sub-item">Grid System</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="components/panels.html">
+                                            <span class="sub-item">Panels</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="components/notifications.html">
+                                            <span class="sub-item">Notifications</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="components/sweetalert.html">
+                                            <span class="sub-item">Sweet Alert</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="components/font-awesome-icons.html">
+                                            <span class="sub-item">Font Awesome Icons</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="components/simple-line-icons.html">
+                                            <span class="sub-item">Simple Line Icons</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="components/typography.html">
+                                            <span class="sub-item">Typography</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a data-bs-toggle="collapse" href="#sidebarLayouts">
+                                <i class="fas fa-th-list"></i>
+                                <p>Sidebar Layouts</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="sidebarLayouts">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="sidebar-style-2.html">
+                                            <span class="sub-item">Sidebar Style 2</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="icon-menu.html">
+                                            <span class="sub-item">Icon Menu</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a data-bs-toggle="collapse" href="#forms">
+                                <i class="fas fa-pen-square"></i>
+                                <p>Forms</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="forms">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="forms/forms.html">
+                                            <span class="sub-item">Basic Form</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a data-bs-toggle="collapse" href="#tables">
+                                <i class="fas fa-table"></i>
+                                <p>Tables</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="tables">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="tables/tables.html">
+                                            <span class="sub-item">Basic Table</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="tables/datatables.html">
+                                            <span class="sub-item">Datatables</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a data-bs-toggle="collapse" href="#maps">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <p>Maps</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="maps">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="maps/googlemaps.html">
+                                            <span class="sub-item">Google Maps</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="maps/jsvectormap.html">
+                                            <span class="sub-item">Jsvectormap</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a data-bs-toggle="collapse" href="#charts">
+                                <i class="far fa-chart-bar"></i>
+                                <p>Charts</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="charts">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a href="charts/charts.html">
+                                            <span class="sub-item">Chart Js</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a href="charts/sparkline.html">
+                                            <span class="sub-item">Sparkline</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="nav-item">
+                            <a href="widgets.html">
+                                <i class="fas fa-desktop"></i>
+                                <p>Widgets</p>
+                                <span class="badge badge-success">4</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="../../documentation/index.html">
+                                <i class="fas fa-file"></i>
+                                <p>Documentation</p>
+                                <span class="badge badge-secondary">1</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a data-bs-toggle="collapse" href="#submenu">
+                                <i class="fas fa-bars"></i>
+                                <p>Menu Levels</p>
+                                <span class="caret"></span>
+                            </a>
+                            <div class="collapse" id="submenu">
+                                <ul class="nav nav-collapse">
+                                    <li>
+                                        <a data-bs-toggle="collapse" href="#subnav1">
+                                            <span class="sub-item">Level 1</span>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <div class="collapse" id="subnav1">
+                                            <ul class="nav nav-collapse subnav">
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="sub-item">Level 2</span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="sub-item">Level 2</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a data-bs-toggle="collapse" href="#subnav2">
+                                            <span class="sub-item">Level 1</span>
+                                            <span class="caret"></span>
+                                        </a>
+                                        <div class="collapse" id="subnav2">
+                                            <ul class="nav nav-collapse subnav">
+                                                <li>
+                                                    <a href="#">
+                                                        <span class="sub-item">Level 2</span>
+                                                    </a>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a href="#">
+                                            <span class="sub-item">Level 1</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
                 </div>
             </div>
         </div>
-        <div class="container-fluid bg-light">
-            <div class="container px-0">
-                <nav class="navbar navbar-light navbar-expand-xl">
-                    <a href="index.html" class="navbar-brand mt-3">
-                        <p class="text-primary display-6 mb-2" style="line-height: 0;">Newsers</p>
-                        <small class="text-body fw-normal" style="letter-spacing: 12px;">Nespaper</small>
-                    </a>
-                    <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse">
-                        <span class="fa fa-bars text-primary"></span>
-                    </button>
-                    <div class="collapse navbar-collapse bg-light py-3" id="navbarCollapse">
-                        <div class="navbar-nav mx-auto border-top">
-                            <a href="index.html" class="nav-item nav-link active">Home</a>
-                            <a href="detail-page.html" class="nav-item nav-link">Detail  Page</a>
-                            <a href="404.html" class="nav-item nav-link">404 Page</a>
-                            <div class="nav-item dropdown">
-                                <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dropdown</a>
-                                <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                    <a href="#" class="dropdown-item">Dropdown 1</a>
-                                    <a href="#" class="dropdown-item">Dropdown 2</a>
-                                    <a href="#" class="dropdown-item">Dropdown 3</a>
-                                    <a href="#" class="dropdown-item">Dropdown 4</a>
-                                </div>
-                            </div>
-                            <a href="contact.html" class="nav-item nav-link">Contact Us</a>
+        <!-- End Sidebar -->
+
+        <div class="main-panel">
+            <div class="main-header">
+                <div class="main-header-logo">
+                    <!-- Logo Header -->
+                    <div class="logo-header" data-background-color="dark">
+                        <a href="index.html" class="logo">
+                            <img src="assets/img/kaiadmin/logo_light.svg"
+                                 alt="navbar brand"
+                                 class="navbar-brand"
+                                 height="20" />
+                        </a>
+                        <div class="nav-toggle">
+                            <button class="btn btn-toggle toggle-sidebar">
+                                <i class="gg-menu-right"></i>
+                            </button>
+                            <button class="btn btn-toggle sidenav-toggler">
+                                <i class="gg-menu-left"></i>
+                            </button>
                         </div>
-                        <div class="d-flex flex-nowrap border-top pt-3 pt-xl-0">
-                            <div class="d-flex">
-                                <img src="../../user/img/weather-icon.png" class="img-fluid w-100 me-2" alt="">
-                                <div class="d-flex align-items-center">
-                                    <strong class="fs-4 text-secondary">31°C</strong>
-                                    <div class="d-flex flex-column ms-2" style="width: 150px;">
-                                        <span class="text-body">NEW YORK,</span>
-                                        <small>Mon. 10 jun 2024</small>
+                        <button class="topbar-toggler more">
+                            <i class="gg-more-vertical-alt"></i>
+                        </button>
+                    </div>
+                    <!-- End Logo Header -->
+                </div>
+                <!-- Navbar Header -->
+                <nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
+                    <div class="container-fluid">
+                        <nav class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
+                            <div class="input-group">
+                                <div class="input-group-prepend">
+                                    <button type="submit" class="btn btn-search pe-1">
+                                        <i class="fa fa-search search-icon"></i>
+                                    </button>
+                                </div>
+                                <input type="text"
+                                       placeholder="Search ..."
+                                       class="form-control" />
+                            </div>
+                        </nav>
+
+                        <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+                            <li class="nav-item topbar-icon dropdown hidden-caret d-flex d-lg-none">
+                                <a class="nav-link dropdown-toggle"
+                                   data-bs-toggle="dropdown"
+                                   href="#"
+                                   role="button"
+                                   aria-expanded="false"
+                                   aria-haspopup="true">
+                                    <i class="fa fa-search"></i>
+                                </a>
+                                <ul class="dropdown-menu dropdown-search animated fadeIn">
+                                    <form class="navbar-left navbar-form nav-search">
+                                        <div class="input-group">
+                                            <input type="text"
+                                                   placeholder="Search ..."
+                                                   class="form-control" />
+                                        </div>
+                                    </form>
+                                </ul>
+                            </li>
+                            <li class="nav-item topbar-icon dropdown hidden-caret">
+                                <a class="nav-link dropdown-toggle"
+                                   href="#"
+                                   id="messageDropdown"
+                                   role="button"
+                                   data-bs-toggle="dropdown"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">
+                                    <i class="fa fa-envelope"></i>
+                                </a>
+                                <ul class="dropdown-menu messages-notif-box animated fadeIn"
+                                    aria-labelledby="messageDropdown">
+                                    <li>
+                                        <div class="dropdown-title d-flex justify-content-between align-items-center">
+                                            Messages
+                                            <a href="#" class="small">Mark all as read</a>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="message-notif-scroll scrollbar-outer">
+                                            <div class="notif-center">
+                                                <a href="#">
+                                                    <div class="notif-img">
+                                                        <img src="assets/img/jm_denis.jpg"
+                                                             alt="Img Profile" />
+                                                    </div>
+                                                    <div class="notif-content">
+                                                        <span class="subject">Jimmy Denis</span>
+                                                        <span class="block"> How are you ? </span>
+                                                        <span class="time">5 minutes ago</span>
+                                                    </div>
+                                                </a>
+                                                <a href="#">
+                                                    <div class="notif-img">
+                                                        <img src="assets/img/chadengle.jpg"
+                                                             alt="Img Profile" />
+                                                    </div>
+                                                    <div class="notif-content">
+                                                        <span class="subject">Chad</span>
+                                                        <span class="block"> Ok, Thanks ! </span>
+                                                        <span class="time">12 minutes ago</span>
+                                                    </div>
+                                                </a>
+                                                <a href="#">
+                                                    <div class="notif-img">
+                                                        <img src="assets/img/mlane.jpg"
+                                                             alt="Img Profile" />
+                                                    </div>
+                                                    <div class="notif-content">
+                                                        <span class="subject">Jhon Doe</span>
+                                                        <span class="block">
+                                                            Ready for the meeting today...
+                                                        </span>
+                                                        <span class="time">12 minutes ago</span>
+                                                    </div>
+                                                </a>
+                                                <a href="#">
+                                                    <div class="notif-img">
+                                                        <img src="assets/img/talha.jpg"
+                                                             alt="Img Profile" />
+                                                    </div>
+                                                    <div class="notif-content">
+                                                        <span class="subject">Talha</span>
+                                                        <span class="block"> Hi, Apa Kabar ? </span>
+                                                        <span class="time">17 minutes ago</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="see-all" href="javascript:void(0);">
+                                            See all messages<i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item topbar-icon dropdown hidden-caret">
+                                <a class="nav-link dropdown-toggle"
+                                   href="#"
+                                   id="notifDropdown"
+                                   role="button"
+                                   data-bs-toggle="dropdown"
+                                   aria-haspopup="true"
+                                   aria-expanded="false">
+                                    <i class="fa fa-bell"></i>
+                                    <span class="notification">4</span>
+                                </a>
+                                <ul class="dropdown-menu notif-box animated fadeIn"
+                                    aria-labelledby="notifDropdown">
+                                    <li>
+                                        <div class="dropdown-title">
+                                            You have 4 new notification
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <div class="notif-scroll scrollbar-outer">
+                                            <div class="notif-center">
+                                                <a href="#">
+                                                    <div class="notif-icon notif-primary">
+                                                        <i class="fa fa-user-plus"></i>
+                                                    </div>
+                                                    <div class="notif-content">
+                                                        <span class="block"> New user registered </span>
+                                                        <span class="time">5 minutes ago</span>
+                                                    </div>
+                                                </a>
+                                                <a href="#">
+                                                    <div class="notif-icon notif-success">
+                                                        <i class="fa fa-comment"></i>
+                                                    </div>
+                                                    <div class="notif-content">
+                                                        <span class="block">
+                                                            Rahmad commented on Admin
+                                                        </span>
+                                                        <span class="time">12 minutes ago</span>
+                                                    </div>
+                                                </a>
+                                                <a href="#">
+                                                    <div class="notif-img">
+                                                        <img src="assets/img/profile2.jpg"
+                                                             alt="Img Profile" />
+                                                    </div>
+                                                    <div class="notif-content">
+                                                        <span class="block">
+                                                            Reza send messages to you
+                                                        </span>
+                                                        <span class="time">12 minutes ago</span>
+                                                    </div>
+                                                </a>
+                                                <a href="#">
+                                                    <div class="notif-icon notif-danger">
+                                                        <i class="fa fa-heart"></i>
+                                                    </div>
+                                                    <div class="notif-content">
+                                                        <span class="block"> Farrah liked Admin </span>
+                                                        <span class="time">17 minutes ago</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li>
+                                        <a class="see-all" href="javascript:void(0);">
+                                            See all notifications<i class="fa fa-angle-right"></i>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </li>
+                            <li class="nav-item topbar-icon dropdown hidden-caret">
+                                <a class="nav-link"
+                                   data-bs-toggle="dropdown"
+                                   href="#"
+                                   aria-expanded="false">
+                                    <i class="fas fa-layer-group"></i>
+                                </a>
+                                <div class="dropdown-menu quick-actions animated fadeIn">
+                                    <div class="quick-actions-header">
+                                        <span class="title mb-1">Quick Actions</span>
+                                        <span class="subtitle op-7">Shortcuts</span>
+                                    </div>
+                                    <div class="quick-actions-scroll scrollbar-outer">
+                                        <div class="quick-actions-items">
+                                            <div class="row m-0">
+                                                <a class="col-6 col-md-4 p-0" href="#">
+                                                    <div class="quick-actions-item">
+                                                        <div class="avatar-item bg-danger rounded-circle">
+                                                            <i class="far fa-calendar-alt"></i>
+                                                        </div>
+                                                        <span class="text">Calendar</span>
+                                                    </div>
+                                                </a>
+                                                <a class="col-6 col-md-4 p-0" href="#">
+                                                    <div class="quick-actions-item">
+                                                        <div class="avatar-item bg-warning rounded-circle">
+                                                            <i class="fas fa-map"></i>
+                                                        </div>
+                                                        <span class="text">Maps</span>
+                                                    </div>
+                                                </a>
+                                                <a class="col-6 col-md-4 p-0" href="#">
+                                                    <div class="quick-actions-item">
+                                                        <div class="avatar-item bg-info rounded-circle">
+                                                            <i class="fas fa-file-excel"></i>
+                                                        </div>
+                                                        <span class="text">Reports</span>
+                                                    </div>
+                                                </a>
+                                                <a class="col-6 col-md-4 p-0" href="#">
+                                                    <div class="quick-actions-item">
+                                                        <div class="avatar-item bg-success rounded-circle">
+                                                            <i class="fas fa-envelope"></i>
+                                                        </div>
+                                                        <span class="text">Emails</span>
+                                                    </div>
+                                                </a>
+                                                <a class="col-6 col-md-4 p-0" href="#">
+                                                    <div class="quick-actions-item">
+                                                        <div class="avatar-item bg-primary rounded-circle">
+                                                            <i class="fas fa-file-invoice-dollar"></i>
+                                                        </div>
+                                                        <span class="text">Invoice</span>
+                                                    </div>
+                                                </a>
+                                                <a class="col-6 col-md-4 p-0" href="#">
+                                                    <div class="quick-actions-item">
+                                                        <div class="avatar-item bg-secondary rounded-circle">
+                                                            <i class="fas fa-credit-card"></i>
+                                                        </div>
+                                                        <span class="text">Payments</span>
+                                                    </div>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                            <button class="btn-search btn border border-primary btn-md-square rounded-circle bg-white my-auto" data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search text-primary"></i></button>
-                        </div>
+                            </li>
+
+                            <li class="nav-item topbar-user dropdown hidden-caret">
+                                <a class="dropdown-toggle profile-pic"
+                                   data-bs-toggle="dropdown"
+                                   href="#"
+                                   aria-expanded="false">
+                                    <div class="avatar-sm">
+                                        <img src="assets/img/profile.jpg"
+                                             alt="..."
+                                             class="avatar-img rounded-circle" />
+                                    </div>
+                                    <span class="profile-username">
+                                        <span class="op-7">Hi,</span>
+                                        <span class="fw-bold">Hizrian</span>
+                                    </span>
+                                </a>
+                                <ul class="dropdown-menu dropdown-user animated fadeIn">
+                                    <div class="dropdown-user-scroll scrollbar-outer">
+                                        <li>
+                                            <div class="user-box">
+                                                <div class="avatar-lg">
+                                                    <img src="assets/img/profile.jpg"
+                                                         alt="image profile"
+                                                         class="avatar-img rounded" />
+                                                </div>
+                                                <div class="u-text">
+                                                    <h4>Hizrian</h4>
+                                                    <p class="text-muted">hello@example.com</p>
+                                                    <a href="profile.html"
+                                                       class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">My Profile</a>
+                                            <a class="dropdown-item" href="#">My Balance</a>
+                                            <a class="dropdown-item" href="#">Inbox</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Account Setting</a>
+                                            <div class="dropdown-divider"></div>
+                                            <a class="dropdown-item" href="#">Logout</a>
+                                        </li>
+                                    </div>
+                                </ul>
+                            </li>
+                        </ul>
                     </div>
                 </nav>
+                <!-- End Navbar -->
             </div>
-        </div>
-    </div>
-    <!-- Navbar End -->
-    <!-- Modal Search Start -->
-    <div class="modal fade" id="searchModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div class="modal-dialog modal-fullscreen">
-            <div class="modal-content rounded-0">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Search by keyword</h5>
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                </div>
-                <div class="modal-body d-flex align-items-center">
-                    <div class="input-group w-75 mx-auto d-flex">
-                        <input type="search" class="form-control p-3" placeholder="keywords" aria-describedby="search-icon-1">
-                        <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Modal Search End -->
-      @RenderBody()
-    <!-- Footer Start -->
-    <div class="container-fluid bg-dark footer py-5">
-        <div class="container py-5">
-            <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
-                <div class="row g-4">
-                    <div class="col-lg-3">
-                        <a href="#" class="d-flex flex-column flex-wrap">
-                            <p class="text-white mb-0 display-6">Newsers</p>
-                            <small class="text-light" style="letter-spacing: 11px; line-height: 0;">Newspaper</small>
-                        </a>
-                    </div>
-                    <div class="col-lg-9">
-                        <div class="d-flex position-relative rounded-pill overflow-hidden">
-                            <input class="form-control border-0 w-100 py-3 rounded-pill" type="email" placeholder="example@gmail.com">
-                            <button type="submit" class="btn btn-primary border-0 py-3 px-5 rounded-pill text-white position-absolute" style="top: 0; right: 0;">Subscribe Now</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-5">
-                <div class="col-lg-6 col-xl-3">
-                    <div class="footer-item-1">
-                        <h4 class="mb-4 text-white">Get In Touch</h4>
-                        <p class="text-secondary line-h">Address: <span class="text-white">123 Streat, New York</span></p>
-                        <p class="text-secondary line-h">Email: <span class="text-white">Example@gmail.com</span></p>
-                        <p class="text-secondary line-h">Phone: <span class="text-white">+0123 4567 8910</span></p>
-                        <div class="d-flex line-h">
-                            <a class="btn btn-light me-2 btn-md-square rounded-circle" href=""><i class="fab fa-twitter text-dark"></i></a>
-                            <a class="btn btn-light me-2 btn-md-square rounded-circle" href=""><i class="fab fa-facebook-f text-dark"></i></a>
-                            <a class="btn btn-light me-2 btn-md-square rounded-circle" href=""><i class="fab fa-youtube text-dark"></i></a>
-                            <a class="btn btn-light btn-md-square rounded-circle" href=""><i class="fab fa-linkedin-in text-dark"></i></a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-3">
-                    <div class="footer-item-2">
-                        <div class="d-flex flex-column mb-4">
-                            <h4 class="mb-4 text-white">Recent Posts</h4>
-                            <a href="#">
-                                <div class="d-flex align-items-center">
-                                    <div class="rounded-circle border border-2 border-primary overflow-hidden">
-                                        <img src="../../user/img/footer-1.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
-                                    </div>
-                                    <div class="d-flex flex-column ps-4">
-                                        <p class="text-uppercase text-white mb-3">Life Style</p>
-                                        <a href="#" class="h6 text-white">
-                                            Get the best speak market, news.
-                                        </a>
-                                        <small class="text-white d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="d-flex flex-column">
-                            <a href="#">
-                                <div class="d-flex align-items-center">
-                                    <div class="rounded-circle border border-2 border-primary overflow-hidden">
-                                        <img src="../../user/img/footer-2.jpg" class="img-zoominimg-fluid rounded-circle w-100" alt="">
-                                    </div>
-                                    <div class="d-flex flex-column ps-4">
-                                        <p class="text-uppercase text-white mb-3">Sports</p>
-                                        <a href="#" class="h6 text-white">
-                                            Get the best speak market, news.
-                                        </a>
-                                        <small class="text-white d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                                    </div>
-                                </div>
-                            </a>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-3">
-                    <div class="d-flex flex-column text-start footer-item-3">
-                        <h4 class="mb-4 text-white">Categories</h4>
-                        <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i> Sports</a>
-                        <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i> Magazine</a>
-                        <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i> Lifestyle</a>
-                        <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i> Politician</a>
-                        <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i> Technology</a>
-                        <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i> Intertainment</a>
-                    </div>
-                </div>
-                <div class="col-lg-6 col-xl-3">
-                    <div class="footer-item-4">
-                        <h4 class="mb-4 text-white">Our Gallary</h4>
-                        <div class="row g-2">
-                            <div class="col-4">
-                                <div class="rounded overflow-hidden">
-                                    <img src="../../user/img/footer-1.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="rounded overflow-hidden">
-                                    <img src="../../user/img/footer-2.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="rounded overflow-hidden">
-                                    <img src="../../user/img/footer-3.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="rounded overflow-hidden">
-                                    <img src="../../user/img/footer-4.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="rounded overflow-hidden">
-                                    <img src="../../user/img/footer-5.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                                </div>
-                            </div>
-                            <div class="col-4">
-                                <div class="rounded overflow-hidden">
-                                    <img src="../../user/img/footer-6.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Footer End -->
-    <!-- Copyright Start -->
-    <div class="container-fluid copyright bg-dark py-4">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6 text-center text-md-start mb-3 mb-md-0">
-                    <span class="text-light"><a href="#"><i class="fas fa-copyright text-light me-2"></i>Your Site Name</a>, All right reserved.</span>
-                </div>
-                <div class="col-md-6 my-auto text-center text-md-end text-white">
-                    <!--/*** This template is free as long as you keep the below author’s credit link/attribution link/backlink. ***/-->
-                    <!--/*** If you'd like to use the template without the below author’s credit link/attribution link/backlink, ***/-->
-                    <!--/*** you can purchase the Credit Removal License from "https://htmlcodex.com/credit-removal". ***/-->
-                    Designed By <a class="border-bottom" href="https://htmlcodex.com">HTML Codex</a> Distributed By <a href="https://themewagon.com">ThemeWagon</a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Copyright End -->
-    <!-- Back to Top -->
-    <a href="#" class="btn btn-primary border-2 border-white rounded-circle back-to-top"><i class="fa fa-arrow-up"></i></a>
 
-        
-    <!-- JavaScript Libraries -->
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="../../user/lib/easing/easing.min.js"></script>
-    <script src="../../user/lib/waypoints/waypoints.min.js"></script>
-    <script src="../../user/lib/owlcarousel/owl.carousel.min.js"></script>
+            <div class="container">
+                <div class="page-inner">
+                    <div class="page-header">
+                        <h4 class="page-title">Dashboard</h4>
+                        <ul class="breadcrumbs">
+                            <li class="nav-home">
+                                <a href="#">
+                                    <i class="icon-home"></i>
+                                </a>
+                            </li>
+                            <li class="separator">
+                                <i class="icon-arrow-right"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">Pages</a>
+                            </li>
+                            <li class="separator">
+                                <i class="icon-arrow-right"></i>
+                            </li>
+                            <li class="nav-item">
+                                <a href="#">Starter Page</a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="page-category">Inner page content goes here</div>
+                </div>
+            </div>
 
-    <!-- Template Javascript -->
-    <script src="/user/js/main.js"></script>
-    @await RenderSectionAsync("Scripts", required: false)
+            <footer class="footer">
+                <div class="container-fluid d-flex justify-content-between">
+                    <nav class="pull-left">
+                        <ul class="nav">
+                            <li class="nav-item">
+                                <a class="nav-link" href="http://www.themekita.com">
+                                    ThemeKita
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"> Help </a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link" href="#"> Licenses </a>
+                            </li>
+                        </ul>
+                    </nav>
+                    <div class="copyright">
+                        2024, made with <i class="fa fa-heart heart text-danger"></i> by
+                        <a href="http://www.themekita.com">ThemeKita</a>
+                    </div>
+                    <div>
+                        Distributed by
+                        <a target="_blank" href="https://themewagon.com/">ThemeWagon</a>.
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+    <!--   Core JS Files   -->
+    <script src="assets/js/core/jquery-3.7.1.min.js"></script>
+    <script src="assets/js/core/popper.min.js"></script>
+    <script src="assets/js/core/bootstrap.min.js"></script>
+
+    <!-- jQuery Scrollbar -->
+    <script src="assets/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
+
+    <!-- Chart JS -->
+    <script src="assets/js/plugin/chart.js/chart.min.js"></script>
+
+    <!-- jQuery Sparkline -->
+    <script src="assets/js/plugin/jquery.sparkline/jquery.sparkline.min.js"></script>
+
+    <!-- Chart Circle -->
+    <script src="assets/js/plugin/chart-circle/circles.min.js"></script>
+
+    <!-- Datatables -->
+    <script src="assets/js/plugin/datatables/datatables.min.js"></script>
+
+    <!-- Bootstrap Notify -->
+    <script src="assets/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+
+    <!-- jQuery Vector Maps -->
+    <script src="assets/js/plugin/jsvectormap/jsvectormap.min.js"></script>
+    <script src="assets/js/plugin/jsvectormap/world.js"></script>
+
+    <!-- Google Maps Plugin -->
+    <script src="assets/js/plugin/gmaps/gmaps.js"></script>
+
+    <!-- Sweet Alert -->
+    <script src="assets/js/plugin/sweetalert/sweetalert.min.js"></script>
+
+    <!-- Kaiadmin JS -->
+    <script src="assets/js/kaiadmin.min.js"></script>
 </body>
-
 </html>
+
