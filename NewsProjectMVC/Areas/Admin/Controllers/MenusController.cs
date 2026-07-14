@@ -16,7 +16,7 @@ public class MenusController : Controller
     // GET: MENUS
     public async Task<IActionResult> Index()    
     {
-        return View(await _context.Menus.ToListAsync());
+        return View(await _context.Menus.Where(menuItem => menuItem.ParentId == null).ToListAsync());
     }
 
     // GET: MENUS/Details/5
