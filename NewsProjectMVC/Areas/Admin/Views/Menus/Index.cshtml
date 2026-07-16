@@ -1,7 +1,20 @@
 @model IEnumerable<NewsProjectMVC.Models.Db.Menu>
 
 @{
-    ViewData["Title"] = "Index";
+    var parent = ViewBag.Parent as NewsProjectMVC.Models.Db.Menu;
+    ViewData["Title"] = "Menus";
+    //If the parent is defined get the title from the parent and pass it to the SubTitle key
+    if (parent != null)
+    {
+        ViewData["SubTitle"] = parent.Title;
+
+    }
+    else
+    {
+        ViewData["SubTitle"] = "";
+    }
+
+
 }
 
 <h1>Index</h1>
