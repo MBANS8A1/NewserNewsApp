@@ -14,12 +14,12 @@ public class MenusController : Controller
     }
 
     // GET: MENUS
-    public async Task<IActionResult> Index(int? parentId)    
+    public async Task<IActionResult> Index(int? id)    
     {
-        if (parentId != null)
+        if (id != null)
         {
             // Find the parent menu item to display its details (e.g., its title).
-            var parent = await _context.Menus.FirstOrDefaultAsync(menuItem => menuItem.Id == parentId);
+            var parent = await _context.Menus.FirstOrDefaultAsync(menuItem => menuItem.Id == id);
             //If single sub-menu item could not be found
             if (parent == null)
             {
@@ -30,7 +30,7 @@ public class MenusController : Controller
             // Pass the parent menu object to the view to display its title as a header.
             ViewBag.Parent = parent;
             // Return the view with a list of all menus that have this parent ID.
-            return View(await _context.Menus.Where(menuItem => menuItem.ParentId == parentId).ToListAsync());
+            return View(await _context.Menus.Where(menuItem => menuItem.ParentId == id).ToListAsync());
         }
         return View(await _context.Menus.Where(menuItem => menuItem.ParentId == null).ToListAsync());
     }
