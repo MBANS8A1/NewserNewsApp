@@ -58,9 +58,12 @@
                     <a asp-action="Edit" asp-route-id="@item.Id" data-bs-toggle="tooltip" title="Edit" class="btn btn-link btn-primary btn-lg">
                         <i class="fas fa-edit"></i>
                     </a>
-                    <a href="/admin/menus/index/@item.Id" data-bs-toggle="tooltip" title="Sub Menus" class="btn btn-link btn-primary btn-lg">
-                        <i class="fas fa-list"></i>
-                    </a>
+                    @if (parent == null)
+                    {
+                        <a href="/admin/menus/index/@item.Id" data-bs-toggle="tooltip" title="Sub Menus" class="btn btn-link btn-primary btn-lg">
+                            <i class="fas fa-list"></i>
+                        </a>
+                    }
                     <a asp-action="Delete" asp-route-id="@item.Id" data-bs-toggle="tooltip" title="Delete" class="btn btn-link btn-danger btn-lg">
                         <i class="fas fa-times-circle"></i>
                     </a>
