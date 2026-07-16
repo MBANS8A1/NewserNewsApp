@@ -30,9 +30,9 @@ public class MenusController : Controller
             // Pass the parent menu object to the view to display its title as a header.
             ViewBag.Parent = parent;
             // Return the view with a list of all menus that have this parent ID.
-            return View(await _context.Menus.Where(menuItem => menuItem.ParentId == id).ToListAsync());
+            return View(await _context.Menus.Where(menuItem => menuItem.ParentId == id).OrderBy(menuItem => menuItem.Priority).ToListAsync());
         }
-        return View(await _context.Menus.Where(menuItem => menuItem.ParentId == null).ToListAsync());
+        return View(await _context.Menus.Where(menuItem => menuItem.ParentId == null).OrderBy(menuItem => menuItem.Priority).ToListAsync());
     }
 
     // GET: MENUS/Details/5
