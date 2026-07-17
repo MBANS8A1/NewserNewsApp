@@ -54,8 +54,9 @@ public class MenusController : Controller
     }
 
     // GET: MENUS/Create
-    public IActionResult Create()
+    public IActionResult Create(int? parentId)
     {
+        ViewBag.parent_id = parentId;
         return View();
     }
 
