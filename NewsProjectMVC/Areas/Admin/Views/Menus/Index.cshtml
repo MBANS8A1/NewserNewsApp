@@ -19,7 +19,17 @@
 
 
 <p>
-    <a href="/Admin/Menus/Create" class="btn btn-outline-primary">Add To Main Menu</a>
+    @if (parent != null)
+    {
+        <a href="/Admin/Menus/Create" class="btn btn-outline-success">Add To Sub-Menu</a>
+
+
+    }
+    else
+    {
+        <a href="/Admin/Menus/Create" class="btn btn-outline-primary">Add To Main Menu</a>
+
+    }
 </p>
 <table class="table">
     <thead>
