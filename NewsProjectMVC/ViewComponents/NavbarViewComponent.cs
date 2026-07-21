@@ -15,8 +15,9 @@ public class NavbarViewComponent : ViewComponent
     // GET: MENUS
     public async Task<IViewComponentResult> InvokeAsync()
     {
-       
-        return View();
+        var menuItems = await _context.Menus.ToListAsync();
+        var tuple_result = Tuple.Create(menuItems);
+        return View(tuple_result);
     }
 
 }
