@@ -17,6 +17,8 @@ public partial class MyNewsContext : DbContext
 
     public virtual DbSet<Menu> Menus { get; set; }
 
+    public virtual DbSet<Setting> Settings { get; set; }
+
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
         => optionsBuilder.UseSqlServer("Server=MBANS8A1\\SQLEXPRESS;Database=MyNews;Trusted_Connection=True;TrustServerCertificate=true");
@@ -30,6 +32,20 @@ public partial class MyNewsContext : DbContext
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Link).HasMaxLength(100);
             entity.Property(e => e.Title).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<Setting>(entity =>
+        {
+            entity.Property(e => e.Address).HasMaxLength(100);
+            entity.Property(e => e.Copyright).HasMaxLength(100);
+            entity.Property(e => e.Email).HasMaxLength(50);
+            entity.Property(e => e.Facebook).HasMaxLength(50);
+            entity.Property(e => e.Instagram).HasMaxLength(50);
+            entity.Property(e => e.LinkedIn).HasMaxLength(50);
+            entity.Property(e => e.Phone).HasMaxLength(50);
+            entity.Property(e => e.Title).HasMaxLength(50);
+            entity.Property(e => e.X).HasMaxLength(50);
+            entity.Property(e => e.YouTube).HasMaxLength(50);
         });
 
         OnModelCreatingPartial(modelBuilder);
