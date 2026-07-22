@@ -52,10 +52,10 @@
                         @foreach (var item in parents)
                         {
                             //accessing the sub-menu items
-                            @if (Model.Item1.Any(menuItem => menuItem.ParentId == item.Id))
+                            if (Model.Item1.Any(menuItem => menuItem.ParentId == item.Id))
                             {
                                 <div class="nav-item dropdown">
-                                    <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">Dropdown</a>
+                                    <a href="@item.Link" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">@item.Title</a>
                                     <div class="dropdown-menu m-0 bg-secondary rounded-0">
                                         <a href="#" class="dropdown-item">Dropdown 1</a>
                                         <a href="#" class="dropdown-item">Dropdown 2</a>
