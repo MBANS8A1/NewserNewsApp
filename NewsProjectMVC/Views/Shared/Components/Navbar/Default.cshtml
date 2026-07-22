@@ -57,10 +57,16 @@
                                 <div class="nav-item dropdown">
                                     <a href="@item.Link" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">@item.Title</a>
                                     <div class="dropdown-menu m-0 bg-secondary rounded-0">
-                                        <a href="#" class="dropdown-item">Dropdown 1</a>
-                                        <a href="#" class="dropdown-item">Dropdown 2</a>
-                                        <a href="#" class="dropdown-item">Dropdown 3</a>
-                                        <a href="#" class="dropdown-item">Dropdown 4</a>
+
+                                        @{
+                                            var children = Model.Item1.Where(menuItem => menuItem.ParentId == item.Id).OrderBy(menuItem => menuItem.Priority).ToList();
+                                        }
+                                        @foreach(var child in children)
+                                        {
+                                            <a href="@child.Link" class="dropdown-item">@child.Title</a>
+
+                                        }
+                                        
                                     </div>
                                 </div>
                                 
