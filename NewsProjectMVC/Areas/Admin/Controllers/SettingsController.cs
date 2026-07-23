@@ -63,39 +63,6 @@ public class SettingsController : Controller
         return View(setting);
     }
 
-    // GET: SETTINGS/Delete/5
-    public async Task<IActionResult> Delete(int? id)
-    {
-        if (id == null)
-        {
-            return NotFound();
-        }
-
-        var setting = await _context.Settings
-            .FirstOrDefaultAsync(m => m.Id == id);
-        if (setting == null)
-        {
-            return NotFound();
-        }
-
-        return View(setting);
-    }
-
-    // POST: SETTINGS/Delete/5
-    [HttpPost, ActionName("Delete")]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteConfirmed(int? id)
-    {
-        var setting = await _context.Settings.FindAsync(id);
-        if (setting != null)
-        {
-            _context.Settings.Remove(setting);
-        }
-
-        await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
-    }
-
     private bool SettingExists(int? id)
     {
         return _context.Settings.Any(e => e.Id == id);
