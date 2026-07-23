@@ -29,12 +29,8 @@ public class SettingsController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int? id, [Bind("Id,Title,Address,Email,Phone,Copyright,Facebook,X,Instagram,YouTube,LinkedIn")] Setting setting)
+    public async Task<IActionResult> Edit(int? id, Setting setting)
     {
-        if (id != setting.Id)
-        {
-            return NotFound();
-        }
 
         if (ModelState.IsValid)
         {
@@ -54,7 +50,7 @@ public class SettingsController : Controller
                     throw;
                 }
             }
-            return RedirectToAction(nameof(Index));
+            return RedirectToAction("Edit");
         }
         return View(setting);
     }
