@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NewsProjectMVC.Models.Db;
+using NewsProjectMVC.Models.ViewModels;
 
 public class FooterViewComponent : ViewComponent
 {
@@ -15,8 +16,9 @@ public class FooterViewComponent : ViewComponent
     // GET: MENUS
     public async Task<IViewComponentResult> InvokeAsync()
     {
-       
-        return View();
+        var footer_result = new FooterViewModel();
+        footer_result.Settings = await _context.Settings.FirstOrDefaultAsync();
+        return View(footer_result);
     }
 
 }
