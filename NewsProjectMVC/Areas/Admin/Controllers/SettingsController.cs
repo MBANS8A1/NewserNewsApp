@@ -12,52 +12,6 @@ public class SettingsController : Controller
         _context = context;
     }
 
-    // GET: SETTINGS
-    public async Task<IActionResult> Index()    
-    {
-        return View(await _context.Settings.ToListAsync());
-    }
-
-    // GET: SETTINGS/Details/5
-    public async Task<IActionResult> Details(int? id)
-    {
-        if (id == null)
-        {
-            return NotFound();
-        }
-
-        var setting = await _context.Settings
-            .FirstOrDefaultAsync(m => m.Id == id);
-        if (setting == null)
-        {
-            return NotFound();
-        }
-
-        return View(setting);
-    }
-
-    // GET: SETTINGS/Create
-    public IActionResult Create()
-    {
-        return View();
-    }
-
-    // POST: SETTINGS/Create
-    // To protect from overposting attacks, enable the specific properties you want to bind to.
-    // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-    [HttpPost]
-    [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Id,Title,Address,Email,Phone,Copyright,Facebook,X,Instagram,YouTube,LinkedIn")] Setting setting)
-    {
-        if (ModelState.IsValid)
-        {
-            _context.Add(setting);
-            await _context.SaveChangesAsync();
-            return RedirectToAction(nameof(Index));
-        }
-        return View(setting);
-    }
-
     // GET: SETTINGS/Edit/5
     public async Task<IActionResult> Edit(int? id)
     {
