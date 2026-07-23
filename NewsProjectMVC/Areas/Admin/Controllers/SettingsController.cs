@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NewsProjectMVC.Models.Db;
 
+[Area("Admin")]
 public class SettingsController : Controller
 {
     private readonly MyNewsContext _context;
@@ -15,7 +16,6 @@ public class SettingsController : Controller
     // GET: SETTINGS/Edit/5
     public async Task<IActionResult> Edit()
     {
-
         var setting = await _context.Settings.FirstOrDefaultAsync();
         if (setting == null)
         {
