@@ -13,14 +13,10 @@ public class SettingsController : Controller
     }
 
     // GET: SETTINGS/Edit/5
-    public async Task<IActionResult> Edit(int? id)
+    public async Task<IActionResult> Edit()
     {
-        if (id == null)
-        {
-            return NotFound();
-        }
 
-        var setting = await _context.Settings.FindAsync(id);
+        var setting = await _context.Settings.FirstOrDefaultAsync();
         if (setting == null)
         {
             return NotFound();
