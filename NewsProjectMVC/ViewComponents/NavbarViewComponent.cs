@@ -16,7 +16,8 @@ public class NavbarViewComponent : ViewComponent
     public async Task<IViewComponentResult> InvokeAsync()
     {
         var menuItems = await _context.Menus.ToListAsync();
-        var tuple_result = Tuple.Create(menuItems);
+        var Settings = await _context.Settings.FirstOrDefaultAsync();
+        var tuple_result = Tuple.Create(menuItems,Settings);
         return View(tuple_result);
     }
 
