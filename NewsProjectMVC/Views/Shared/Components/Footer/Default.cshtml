@@ -1,10 +1,12 @@
-﻿<div class="container-fluid bg-dark footer py-5">
+﻿@model NewsProjectMVC.Models.ViewModels.FooterViewModel
+
+<div class="container-fluid bg-dark footer py-5">
     <div class="container py-5">
         <div class="pb-4 mb-4" style="border-bottom: 1px solid rgba(255, 255, 255, 0.08);">
             <div class="row g-4">
                 <div class="col-lg-3">
                     <a href="#" class="d-flex flex-column flex-wrap">
-                        <p class="text-white mb-0 display-6">Newsers</p>
+                        <p class="text-white mb-0 display-6">@Model.Settings.Title</p>
                         <small class="text-light" style="letter-spacing: 11px; line-height: 0;">Newspaper</small>
                     </a>
                 </div>
@@ -20,14 +22,14 @@
             <div class="col-lg-6 col-xl-3">
                 <div class="footer-item-1">
                     <h4 class="mb-4 text-white">Get In Touch</h4>
-                    <p class="text-secondary line-h">Address: <span class="text-white">123 Streat, New York</span></p>
-                    <p class="text-secondary line-h">Email: <span class="text-white">Example@gmail.com</span></p>
-                    <p class="text-secondary line-h">Phone: <span class="text-white">+0123 4567 8910</span></p>
+                    <p class="text-secondary line-h">Address: <span class="text-white">@Model.Settings.Address</span></p>
+                    <p class="text-secondary line-h">Email: <span class="text-white">@Model.Settings.Email</span></p>
+                    <p class="text-secondary line-h">Phone: <span class="text-white">@Model.Settings.Phone</span></p>
                     <div class="d-flex line-h">
-                        <a class="btn btn-light me-2 btn-md-square rounded-circle" href=""><i class="fab fa-twitter text-dark"></i></a>
-                        <a class="btn btn-light me-2 btn-md-square rounded-circle" href=""><i class="fab fa-facebook-f text-dark"></i></a>
-                        <a class="btn btn-light me-2 btn-md-square rounded-circle" href=""><i class="fab fa-youtube text-dark"></i></a>
-                        <a class="btn btn-light btn-md-square rounded-circle" href=""><i class="fab fa-linkedin-in text-dark"></i></a>
+                        <a class="btn btn-light me-2 btn-md-square rounded-circle" href="@Model.Settings.X"><i class="fa-brands fa-x-twitter"></i></a>
+                        <a class="btn btn-light me-2 btn-md-square rounded-circle" href="@Model.Settings.Facebook"><i class="fab fa-facebook-f text-dark"></i></a>
+                        <a class="btn btn-light me-2 btn-md-square rounded-circle" href="@Model.Settings.YouTube"><i class="fab fa-youtube text-dark"></i></a>
+                        <a class="btn btn-light btn-md-square rounded-circle" href="@Model.Settings.LinkedIn"><i class="fab fa-linkedin-in text-dark"></i></a>
                     </div>
                 </div>
             </div>
@@ -45,7 +47,7 @@
                                     <a href="#" class="h6 text-white">
                                         Get the best speak market, news.
                                     </a>
-                                    <small class="text-white d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
+                                    <small class="text-white d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2026</small>
                                 </div>
                             </div>
                         </a>
@@ -61,7 +63,7 @@
                                     <a href="#" class="h6 text-white">
                                         Get the best speak market, news.
                                     </a>
-                                    <small class="text-white d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
+                                    <small class="text-white d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2026</small>
                                 </div>
                             </div>
                         </a>
@@ -74,14 +76,14 @@
                     <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i> Sports</a>
                     <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i> Magazine</a>
                     <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i> Lifestyle</a>
-                    <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i> Politician</a>
+                    <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i> Politicians</a>
                     <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i> Technology</a>
-                    <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i> Intertainment</a>
+                    <a class="btn-link text-white" href=""><i class="fas fa-angle-right text-white me-2"></i> Entertainment</a>
                 </div>
             </div>
             <div class="col-lg-6 col-xl-3">
                 <div class="footer-item-4">
-                    <h4 class="mb-4 text-white">Our Gallary</h4>
+                    <h4 class="mb-4 text-white">Our Gallery</h4>
                     <div class="row g-2">
                         <div class="col-4">
                             <div class="rounded overflow-hidden">
