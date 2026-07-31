@@ -58,7 +58,7 @@ public class WeatherViewComponent : ViewComponent
                 Console.WriteLine($"Error fetching weather data: {ex.Message}");
 
                 // Return the view with default error data.
-                var errorViewModel = new WeatherViewModel { Temperature = 0, City = "Error", CurrentDate = DateTime.Now };
+                var errorViewModel = new WeatherViewModel() { Temperature = 0, City = "Error", CurrentDate = DateTime.Now };
                 return View(errorViewModel);
             }
         }
