@@ -17,6 +17,8 @@ public partial class MyNewsContext : DbContext
 
     public virtual DbSet<Menu> Menus { get; set; }
 
+    public virtual DbSet<News> News { get; set; }
+
     public virtual DbSet<Setting> Settings { get; set; }
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
@@ -32,6 +34,16 @@ public partial class MyNewsContext : DbContext
             entity.Property(e => e.Id).HasColumnName("ID");
             entity.Property(e => e.Link).HasMaxLength(100);
             entity.Property(e => e.Title).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<News>(entity =>
+        {
+            entity.Property(e => e.CreatedAt).HasColumnType("datetime");
+            entity.Property(e => e.ImageName).HasMaxLength(50);
+            entity.Property(e => e.ShortDescription).HasMaxLength(210);
+            entity.Property(e => e.Status).HasMaxLength(50);
+            entity.Property(e => e.Tags).HasMaxLength(500);
+            entity.Property(e => e.Title).HasMaxLength(100);
         });
 
         modelBuilder.Entity<Setting>(entity =>
