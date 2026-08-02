@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NewsProjectMVC.Models.Db;
+using System.Security.Claims;
 
 [Area("Admin")]
 public class NewsController : Controller
@@ -18,6 +19,92 @@ public class NewsController : Controller
     {
         return View();
     }
+
+    [HttpPost]
+    public async Task<IActionResult> LoadNewsData()
+    {
+        try
+        {
+            var draw = Request.Form["draw"].FirstOrDefault();
+            var start = Request.Form["start"].FirstOrDefault();
+            var length = Request.Form["length"].FirstOrDefault();
+            var sortColumn = Request.Form["columns[" + Request.Form["order[0][column]"].FirstOrDefault() + "][name]"].FirstOrDefault();
+            var sortColumnDirection = Request.Form["order[0][dir]"].FirstOrDefault();
+            var searchValue = Request.Form["search[value]"].FirstOrDefault();
+
+            int pageSize = length != null ? Convert.ToInt32(length) : 0;
+            int skip = start != null ? Convert.ToInt32(start) : 0;
+
+            IQueryable<News> query = _context.News.AsQueryable();
+
+            if (!User.IsInRole("Admin"))
+            {
+                var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value.ToString());
+                query = query.Where(news => news.UserId == userId);
+            }
+
+            var recordsTotal = await query.CountAsync();
+
+            if (!string.IsNullOrEmpty(searchValue))
+            {
+                var searchValueLower = searchValue.ToLower();
+                query = query.Where(n =>
+                    n.Title.ToLower().Contains(searchValueLower) ||
+                    n.Status.ToLower().Contains(searchValueLower));
+            }
+
+            var recordsFiltered = await query.CountAsync();
+
+            
+            if (!string.IsNullOrEmpty(sortColumn) && !string.IsNullOrEmpty(sortColumnDirection))
+            {
+                if (sortColumnDirection == "asc")
+                {
+                    switch (sortColumn.ToLower())
+                    {
+                        case "title":
+                            query = query.OrderBy(n => n.Title);
+                            break;
+                        case "viewcount":
+                            query = query.OrderBy(n => n.ViewCount);
+                            break;
+                            // Add other columns here
+                    }
+                }
+                else
+                {
+                    switch (sortColumn.ToLower())
+                    {
+                        case "title":
+                            query = query.OrderByDescending(n => n.Title);
+                            break;
+                        case "viewcount":
+                            query = query.OrderByDescending(n => n.ViewCount);
+                            break;
+                            // Add other columns here
+                    }
+                }
+            }
+
+            var pagedData = await query.Skip(skip).Take(pageSize).ToListAsync();
+
+            var jsonData = new
+            {
+                draw = draw,
+                recordsFiltered = recordsFiltered,
+                recordsTotal = recordsTotal,
+                data = pagedData
+            };
+
+            return Ok(jsonData);
+        }
+        catch (Exception ex)
+        {
+            // Log the exception
+            return BadRequest();
+        }
+    }
+
 
     // GET: NEWSS/Create
     public IActionResult Create()
