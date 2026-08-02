@@ -14,27 +14,9 @@ public class NewsController : Controller
     }
 
     // GET: NEWSS
-    public async Task<IActionResult> Index()    
+    public IActionResult Index()    
     {
-        return View(await _context.News.ToListAsync());
-    }
-
-    // GET: NEWSS/Details/5
-    public async Task<IActionResult> Details(int? id)
-    {
-        if (id == null)
-        {
-            return NotFound();
-        }
-
-        var news = await _context.News
-            .FirstOrDefaultAsync(m => m.Id == id);
-        if (news == null)
-        {
-            return NotFound();
-        }
-
-        return View(news);
+        return View();
     }
 
     // GET: NEWSS/Create
