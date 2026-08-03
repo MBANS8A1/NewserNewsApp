@@ -39,8 +39,8 @@ public class NewsController : Controller
 
             if (!User.IsInRole("Admin"))
             {
-                var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value.ToString());
-                query = query.Where(news => news.UserId == userId);
+                //var userId = int.Parse(User.FindFirst(ClaimTypes.NameIdentifier).Value.ToString());
+                //query = query.Where(news => news.UserId == userId);
             }
 
             var recordsTotal = await query.CountAsync();
