@@ -111,6 +111,8 @@ public class NewsController : Controller
     public async Task<IActionResult> Create()
     {
         ViewBag.Categories = new SelectList(await _context.Categories.ToListAsync(), "Id", "Title");
+        ViewBag.Tags = new SelectList(await _context.Tags.ToListAsync(), "Title", "Title");
+
         return View();
     }
 
