@@ -1,5 +1,6 @@
 
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NewsProjectMVC.Models.Db;
 using System.Security.Claims;
@@ -107,8 +108,9 @@ public class NewsController : Controller
 
 
     // GET: NEWSS/Create
-    public IActionResult Create()
+    public async Task<IActionResult> Create()
     {
+        ViewBag.Categories = new SelectList(await _context.Categories.ToListAsync(), "Id", "Title");
         return View();
     }
 
