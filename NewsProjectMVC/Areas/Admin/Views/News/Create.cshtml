@@ -25,7 +25,9 @@
 
             <div class="form-group">
                 <label asp-for="LongDescription" class="control-label"></label>
-                <input asp-for="LongDescription" class="form-control" />
+                <textarea id="editor" asp-for="LongDescription">
+
+                </textarea>
                 <span asp-validation-for="LongDescription" class="text-danger"></span>
             </div>
 
