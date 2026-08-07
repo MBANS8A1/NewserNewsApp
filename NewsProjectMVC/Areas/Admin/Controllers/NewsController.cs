@@ -112,7 +112,7 @@ public class NewsController : Controller
     {
         ViewBag.Categories = new SelectList(await _context.Categories.ToListAsync(), "Id", "Title");
         ViewBag.Tags = new SelectList(await _context.Tags.ToListAsync(), "Title", "Title");
-
+        ViewBag.Users = new SelectList(await _context.Users.ToListAsync(), "Id", "FullName");
         return View();
     }
 
