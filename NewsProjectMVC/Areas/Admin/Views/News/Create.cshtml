@@ -104,6 +104,121 @@
         $('#Tags').select2();
     </script>
 
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+
+    <script>
+      
+        class MyUploadAdapter {
+            /**
+             * Initializes the adapter.
+             * @@param {Object} loader - The CKEditor 5 file loader instance. It holds the file to be uploaded.
+             */
+            constructor(loader) {
+                // The file loader instance to use during the upload.
+                this.loader = loader;
+            }
+
+            /**
+             * Starts the upload process.
+             * This method is called by CKEditor when a file needs to be uploaded.
+             * @@returns {Promise<Object>} A promise that resolves with an object containing the default URL of the uploaded file.
+             */
+            upload() {
+                // Returns a Promise that will be resolved with the uploaded file data.
+                return this.loader.file
+                    .then(file => new Promise((resolve, reject) => {
+                        // Create a FormData object to send the file.
+                        const data = new FormData();
+                        data.append('upload', file);
+
+                        // Use the fetch API to send a POST request to the server endpoint.
+                        fetch('/Admin/News/UploadImage', {
+                            method: 'POST',
+                            body: data
+                        })
+                        .then(response => {
+                            // Check if the server response is successful.
+                            if (!response.ok) {
+                                // If not, reject the promise.
+                                return reject(new Error('Upload failed with status: ' + response.status));
+                            }
+                            // Parse the JSON response from the server.
+                            return response.json();
+                        })
+                        .then(result => {
+                            // The server should return a JSON object with a 'url' property.
+                            // CKEditor 5 expects the resolved promise to return an object
+                            // with a 'default' property containing the image URL.
+                            resolve({
+                                default: result.url
+                            });
+                        })
+                        .catch(error => {
+                            // Handle any network or server-side errors.
+                            reject(error);
+                        });
+                    }));
+            }
+        }
+
+        /**
+         * A CKEditor 5 plugin that integrates the custom upload adapter.
+         * @@param {Object} editor - The editor instance.
+         */
+        function MyCustomUploadAdapterPlugin(editor) {
+            // Override the default upload adapter factory.
+            // When a file needs to be uploaded, CKEditor will use this factory to create
+            // an instance of our custom `MyUploadAdapter`.
+            editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+                return new MyUploadAdapter(loader);
+            };
+        }
+
+        // A variable to hold the editor instance, allowing access from other parts of the script.
+        let editor;
+
+        // Initialize the ClassicEditor on the element with the ID 'editor'.
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                // Register the custom upload adapter plugin.
+                extraPlugins: [MyCustomUploadAdapterPlugin],
+                // Set the user interface language for the editor.
+                language: 'en'
+            })
+            .then(newEditor => {
+                // Store the editor instance in the global variable upon successful creation.
+                editor = newEditor;
+
+                // --- Handle existing content (for "Edit" pages) ---
+                // Find the original textarea that holds the content to be edited.
+                const longDescTextarea = document.querySelector("textarea[name='LongDescription']");
+
+                // If the textarea exists and contains content, load it into the editor.
+                if (longDescTextarea && longDescTextarea.value) {
+                    editor.setData(longDescTextarea.value);
+                }
+            })
+            .catch(error => {
+                // Log any errors that occur during editor initialization to the console.
+                console.error('Error initializing CKEditor:', error);
+            });
+
+        /**
+         * Attach an event listener to the form's submit event.
+         * This ensures that the content from CKEditor is saved back to the hidden textarea
+         * before the form is submitted to the server.
+         */
+        document.querySelector('form').addEventListener('submit', function () {
+            // Check if the editor instance was successfully created.
+            if (editor) {
+                // Get the HTML content from the editor and update the value of the original textarea.
+                // This is crucial for the data to be included in the form submission.
+                document.querySelector("textarea[name='LongDescription']").value = editor.getData();
+            }
+        });
+    </script>
+
    @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
     }
