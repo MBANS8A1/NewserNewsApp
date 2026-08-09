@@ -1,14 +1,17 @@
 
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using Microsoft.AspNetCore.Razor.TagHelpers;
 using Microsoft.EntityFrameworkCore;
 using NewsProjectMVC.Models.Db;
+using NewsProjectMVC.Models.Helpers;
 using System.Security.Claims;
 
 [Area("Admin")]
 public class NewsController : Controller
 {
     private readonly MyNewsContext _context;
+    private readonly IWebHostEnvironment _webHostEnvironment;
 
     public NewsController(MyNewsContext context)
     {
@@ -116,21 +119,77 @@ public class NewsController : Controller
         return View();
     }
 
-    // POST: NEWSS/Create
+    // POST: Admin/News/Create
     // To protect from overposting attacks, enable the specific properties you want to bind to.
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Id,Title,ShortDescription,LongDescription,CreatedAt,ViewCount,Status,ImageName,CategoryId,Tags,UserId")] News news)
+    public async Task<IActionResult> Create([Bind("Id,Title,ShortDescription,LongDescription,CreatedAt,ViewCount,Status,ImageName,CategoryId,UserId")] News news, IFormFile ImageName, string[] tags)
     {
         if (ModelState.IsValid)
         {
+            if (ImageName != null)
+            {
+                // --- 1. Generate a new unique file name ---
+                // This prevents file name conflicts.
+                var newImageName = Guid.NewGuid().ToString() + Path.GetExtension(ImageName.FileName);
+
+                // --- 2. Define the paths for the original image and its thumbnail ---
+                // I am using Path.Combine for cross-platform safety and correctness. 
+                // There is path for the main image and path for the thumbnail images
+                var imagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", "news", newImageName);
+                var thumbnailPath = Path.Combine(_webHostEnvironment.WebRootPath, "images", "news", "thumb_" + newImageName);
+
+                // --- 3. Save original and create thumbnail efficiently from one stream ---
+                // I opened the uploaded file's stream just once.
+                await using (var stream = ImageName.OpenReadStream())
+                {
+                    // a) Save the original image by copying the stream to a file.
+                    // Use the async version of CopyTo.
+                    await using (var fileStream = new FileStream(imagePath, FileMode.Create))
+                    {
+                        await stream.CopyToAsync(fileStream);
+                    }
+
+                    // b) Reset the stream's position to the beginning to read it again.
+                    stream.Position = 0;
+
+                    // c) Create the thumbnail from the same stream without extra disk I/O.
+                    ImageHelper.CreateThumbnail(stream, thumbnailPath, 400);
+                }
+
+                // 4. Update the entity with the new image name before saving.
+                news.ImageName = newImageName;
+            }
+            else
+            {
+                // If no image was uploaded, add a model error and return to the view.
+                // The error is now correctly associated with the 'MainImage' property.
+                ModelState.AddModelError("ImageName", "Please upload an image for the news.");
+
+                // Repopulate dropdowns before returning the view.
+                ViewBag.Categories = new SelectList(await _context.Categories.ToListAsync(), "Id", "Title");
+                ViewBag.Tags = new SelectList(await _context.Tags.ToListAsync(), "Title", "Title");
+                ViewBag.Users = new SelectList(await _context.Users.ToListAsync(), "Id", "FullName");
+
+                return View(news);
+            }
+
+            news.Tags = tags != null ? string.Join(",", tags) : "";
+            news.CreatedAt = DateTime.Now;
+            news.ViewCount = 0;
+
             _context.Add(news);
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
+        ViewBag.Categories = new SelectList(await _context.Categories.ToListAsync(), "Id", "Title");
+        ViewBag.Tags = new SelectList(await _context.Tags.ToListAsync(), "Title", "Title");
+        ViewBag.Users = new SelectList(await _context.Users.ToListAsync(), "Id", "FullName");
         return View(news);
     }
+
 
     // GET: NEWSS/Edit/5
     public async Task<IActionResult> Edit(int? id)
