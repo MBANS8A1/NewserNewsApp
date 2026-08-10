@@ -42,17 +42,6 @@
                 <input asp-for="ViewCount" class="form-control" />
                 <span asp-validation-for="ViewCount" class="text-danger"></span>
             </div>
-
-            <div class="form-group">
-                <label asp-for="Status" class="control-label"></label>
-                   <select asp-for="Status" class="form-control">
-                   <option value="Publish">Publish</option>
-                   <option value="UnPublish">UnPublish</option> 
-                 </select>
-                <span asp-validation-for="Status" class="text-danger"></span>
-            </div>
-
-
             <div class="form-group">
                 <label class="control-label">Category</label>
                 <select asp-for="CategoryId" asp-items="ViewBag.Categories" class="form-control">
@@ -70,19 +59,24 @@
                 </select>
                 <span asp-validation-for="Tags" class="text-danger"></span>
             </div>
-
-            <div class="form-group">
-                <label class="control-label">Users</label>
-                <select asp-for="UserId" asp-items="ViewBag.Users" class="form-control">
-                </select>
-              
-                <span asp-validation-for="UserId" class="text-danger"></span>
-            </div>
-
             <div class="form-group">
                <label asp-for="ImageName" class="control-label"></label>
                <input type="file" name="ImageName" class="form-control" />
                <span asp-validation-for="ImageName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label class="control-label">Users</label>
+                <select asp-for="UserId" asp-items="ViewBag.Users" class="form-control">
+                </select>
+                <span asp-validation-for="UserId" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Status" class="control-label"></label>
+                <select asp-for="Status" class="form-control">
+                    <option value="Publish">Publish</option>
+                    <option value="UnPublish">UnPublish</option>
+                </select>
+                <span asp-validation-for="Status" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Create" class="btn btn-primary" />
