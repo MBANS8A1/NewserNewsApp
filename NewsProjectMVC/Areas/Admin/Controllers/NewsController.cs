@@ -13,9 +13,10 @@ public class NewsController : Controller
     private readonly MyNewsContext _context;
     private readonly IWebHostEnvironment _webHostEnvironment;
 
-    public NewsController(MyNewsContext context)
+    public NewsController(MyNewsContext context,IWebHostEnvironment webHostEnvironment)
     {
         _context = context;
+        _webHostEnvironment = webHostEnvironment;
     }
 
     // GET: NEWSS
