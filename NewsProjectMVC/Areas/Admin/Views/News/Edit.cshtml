@@ -74,5 +74,112 @@
 </div>
 
 @section Scripts {
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script>
+        // Initialize Select2 for the CategoryId dropdown
+        $('#CategoryId').select2();
+        // Initialize Select2 for the Tags dropdown
+        $('#Tags').select2();
+    </script>
+
+
+
+    <script src="https://cdn.ckeditor.com/ckeditor5/41.4.2/classic/ckeditor.js"></script>
+
+    <script>
+        // Custom Upload Adapter for CKEditor
+        class MyUploadAdapter {
+            // Initializes the adapter with the CKEditor loader instance
+            constructor(loader) {
+                // The file loader instance to use during the upload.
+                this.loader = loader;
+            }
+
+            // Starts the upload process
+            upload() {
+                // Returns a promise that resolves with the uploaded file data
+                return this.loader.file
+                    .then(file => {
+                        // Create a new FormData object to send the file
+                        const data = new FormData();
+                        data.append('upload', file); // 'upload' is the expected key by the server
+
+                        // Send the file to the server endpoint using fetch
+                        return fetch('/Admin/News/UploadImage', {
+                            method: 'POST', // Use POST method
+                            body: data      // Set the FormData as the request body
+                        })
+                            .then(response => {
+                                // Check if the server response is successful
+                                if (!response.ok) {
+                                    // Throw an error if the upload failed
+                                    throw new Error('Upload failed');
+                                }
+                                // Parse the JSON response from the server
+                                return response.json();
+                            })
+                            .then(result => {
+                                // CKEditor expects the response in a specific format: { default: 'image_url' }
+                                // Return the object with the 'default' key pointing to the image URL
+                                return { default: result.url };
+                            });
+                    });
+            }
+
+            // Aborts the upload process
+            abort() {
+                
+            }
+        }
+
+        // Plugin to integrate the custom upload adapter with CKEditor (this is like a factory method)
+        function MyCustomUploadAdapterPlugin(editor) {
+            // Registers the custom adapter with the editor's FileRepository
+            // When a file is added, CKEditor will use MyUploadAdapter to handle it
+            editor.plugins.get('FileRepository').createUploadAdapter = (loader) => {
+                return new MyUploadAdapter(loader);
+            };
+        }
+
+        // Variable to hold the CKEditor instance
+        let editor;
+
+        // Initialize ClassicEditor on the element with id 'editor'
+        ClassicEditor
+            .create(document.querySelector('#editor'), {
+                // Load the custom upload adapter plugin
+                extraPlugins: [MyCustomUploadAdapterPlugin],
+                // Set the editor language (e.g., 'en', 'fa')
+                language: 'en'
+            })
+            .then(newEditor => {
+                // Store the editor instance in the global variable
+                editor = newEditor;
+
+                // Check if this is an 'Edit' page by looking for the LongDescription textarea
+                const longDescTextarea = document.querySelector("textarea[name='LongDescription']");
+
+                // If the textarea exists and has content, load it into the editor
+                if (longDescTextarea && longDescTextarea.value) {
+                    editor.setData(longDescTextarea.value);
+                }
+            })
+            .catch(error => {
+                // Log any errors during editor initialization
+                console.error('Error initializing CKEditor:', error);
+            });
+
+        // Add a submit event listener to the form
+        document.querySelector('form').addEventListener('submit', function() {
+            // Before submitting the form, check if the editor instance exists
+            if (editor) {
+                // Update the hidden textarea's value with the current content from CKEditor
+                // This ensures the editor's content is sent to the server
+                document.querySelector("textarea[name='LongDescription']").value = editor.getData();
+            }
+        });
+    </script>
+
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
 }
