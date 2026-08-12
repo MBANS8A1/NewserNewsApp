@@ -60,6 +60,12 @@
             <div class="form-group">
                 <label asp-for="ImageName" class="control-label"></label>
                 <input type="file" asp-for="ImageName" class="form-control" />
+                <br />
+                @if (!string.IsNullOrEmpty(Model.ImageName))
+                    {
+                        <img src="/images/news/@Model.ImageName" style="max-width:160px;" alt="Preview Image on News/Edit Page" />
+                        
+                    }
                 <span asp-validation-for="ImageName" class="text-danger"></span>
             </div>
             <div class="form-group">
