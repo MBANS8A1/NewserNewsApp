@@ -218,7 +218,7 @@ public class NewsController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int? id, [Bind("Id,Title,ShortDescription,LongDescription,CreatedAt,ViewCount,Status,ImageName,CategoryId,Tags,UserId")] News news)
+    public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ShortDescription,LongDescription,CreatedAt,ViewCount,Status,ImageName,CategoryId,UserId")] News news, IFormFile? image, string[] tags)
     {
         if (id != news.Id)
         {
@@ -229,6 +229,58 @@ public class NewsController : Controller
         {
             try
             {
+                // ... inside your action method ...
+                if (image != null) // Assuming 'image' is my IFormFile
+                {
+                    // --- 1. Delete Old Files (if they exist) ---
+                    // First, check if there's an old image name to delete.
+                    if (!string.IsNullOrEmpty(news.ImageName))
+                    {
+                        // Construct the full path for the old image and thumbnail.
+                        var oldImagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", "news", news.ImageName);
+                        var oldThumbnailPath = Path.Combine(_webHostEnvironment.WebRootPath, "images", "news", "thumb_" + news.ImageName);
+
+                        // Delete the files if they exist.
+                        if (System.IO.File.Exists(oldImagePath))
+                        {
+                            System.IO.File.Delete(oldImagePath);
+                        }
+                        if (System.IO.File.Exists(oldThumbnailPath))
+                        {
+                            System.IO.File.Delete(oldThumbnailPath);
+                        }
+                    }
+
+                    // --- 2. Generate New Unique File Name ---
+                    // Create a new unique name for the image to avoid conflicts.
+                    var newImageName = Guid.NewGuid().ToString() + Path.GetExtension(image.FileName);
+                    news.ImageName = newImageName; // Update the entity with the new name.
+
+                    // --- 3. Define Paths for New Files ---
+                    // Construct the full paths for the new image and its thumbnail.
+                    var newImagePath = Path.Combine(_webHostEnvironment.WebRootPath, "images", "news", newImageName);
+                    var newThumbnailPath = Path.Combine(_webHostEnvironment.WebRootPath, "images", "news", "thumb_" + newImageName);
+
+                    // --- 4. Save Original and Create Thumbnail from a single stream ---
+                    // Open the uploaded file's stream once.
+                    await using (var stream = image.OpenReadStream())
+                    {
+                        // a) Save the original image by copying the stream to a new file.
+                        await using (var fileStream = new FileStream(newImagePath, FileMode.Create))
+                        {
+                            await stream.CopyToAsync(fileStream);
+                        }
+
+                        // b) Reset the stream's position to the beginning.
+                        stream.Position = 0;
+
+                        // c) Create the thumbnail from the same stream without re-reading from disk.
+                        ImageHelper.CreateThumbnail(stream, newThumbnailPath, 400);
+                    }
+                }
+
+                news.Tags = tags != null ? string.Join(",", tags) : "";
+
                 _context.Update(news);
                 await _context.SaveChangesAsync();
             }
@@ -245,6 +297,11 @@ public class NewsController : Controller
             }
             return RedirectToAction(nameof(Index));
         }
+        ViewBag.Categories = new SelectList(await _context.Categories.ToListAsync(), "Id", "Title");
+        var selectedTagIds = news.Tags?.Split(',').ToList() ?? new List<string>();
+        ViewBag.Tags = new MultiSelectList(await _context.Tags.ToListAsync(), "Title", "Title", selectedTagIds);
+        ViewBag.Users = new SelectList(await _context.Users.ToListAsync(), "Id", "FullName", news.UserId);
+
         return View(news);
     }
 
