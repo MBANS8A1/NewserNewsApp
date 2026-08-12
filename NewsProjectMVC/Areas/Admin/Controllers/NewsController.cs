@@ -205,6 +205,11 @@ public class NewsController : Controller
         {
             return NotFound();
         }
+        ViewBag.Categories = new SelectList(await _context.Categories.ToListAsync(), "Id", "Title");
+        // A News article/record may not have Tags
+        var selectedTagIdentifierValues = news.Tags?.Split(',').ToList() ?? new List<string>();
+        ViewBag.Tags = new MultiSelectList(await _context.Tags.ToListAsync(), "Title", "Title", selectedTagIdentifierValues);
+        ViewBag.Users = new SelectList(await _context.Users.ToListAsync(), "Id", "FullName", news.UserId);
         return View(news);
     }
 
