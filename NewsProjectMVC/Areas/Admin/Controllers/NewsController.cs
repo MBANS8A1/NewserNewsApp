@@ -331,9 +331,20 @@ public class NewsController : Controller
         var news = await _context.News.FindAsync(id);
         if (news != null)
         {
+            string rootDir = Directory.GetCurrentDirectory();
+            string fnMain = rootDir + "\\wwwroot\\images\\news\\" + news.ImageName;
+            string fnThumbnail = rootDir + "\\wwwroot\\images\\news\\thumb_" + news.ImageName;
+            if (System.IO.File.Exists(fnMain))
+            {
+                System.IO.File.Delete(fnMain);
+            }
+
+            if (System.IO.File.Exists(fnThumbnail))
+            {
+                System.IO.File.Delete(fnThumbnail);
+            }
             _context.News.Remove(news);
         }
-
         await _context.SaveChangesAsync();
         return RedirectToAction(nameof(Index));
     }
