@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NewsProjectMVC.Models.Db;
+using NewsProjectMVC.Models.ViewModels;
 
 namespace NewsProjectMVC.Controllers
 {
@@ -47,7 +48,7 @@ namespace NewsProjectMVC.Controllers
             //------------------
             var result = new NewsDetailsViewModel()
             {
-                News = news,
+                NewsData = news,
                 //Comments = comments,
                 //Category = category,
                 //ReadingTimeInMinutes = TextHelpers.CalculateReadingTime(news.LongDescription),

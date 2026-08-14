@@ -16,6 +16,7 @@ public class NavbarViewComponent : ViewComponent
     public async Task<IViewComponentResult> InvokeAsync()
     {
         var menuItems = await _context.Menus.ToListAsync();
+        //I only have one record for the dbo.Settings table in SQL Server
         var Settings = await _context.Settings.FirstOrDefaultAsync();
         var tuple_result = Tuple.Create(menuItems,Settings);
         return View(tuple_result);
