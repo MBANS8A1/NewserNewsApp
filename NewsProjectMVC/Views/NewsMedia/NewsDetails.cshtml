@@ -1,27 +1,26 @@
-﻿@model NewsProjectMVC.Models.ViewModels.NewsDetailsViewModel;
-
+﻿@model NewsProjectMVC.Models.ViewModels.NewsDetailsViewModel
 <!-- Single Product Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
         <ol class="breadcrumb justify-content-start mb-4">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
-            <li class="breadcrumb-item"><a href="#">Pages</a></li>
-            <li class="breadcrumb-item active text-dark">Single Page</li>
+            <li class="breadcrumb-item"><a href="#">News</a></li>
+            <li class="breadcrumb-item active text-dark">@Model.NewsData.Title</li>
         </ol>
         <div class="row g-4">
             <div class="col-lg-8">
                 <div class="mb-4">
-                    <a href="#" class="h1 display-5">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</a>
+                    <a href="/news/@Model.NewsData.Id" class="h1 display-5">@Model.NewsData.Title</a>
                 </div>
                 <div class="position-relative rounded overflow-hidden mb-3">
-                    <img src="img/news-1.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
+                    <img src="/images/news/@Model.NewsData.ImageName" class="img-zoomin img-fluid rounded w-100" alt="">
                     <div class="position-absolute text-white px-4 py-2 bg-primary rounded" style="top: 20px; right: 20px;">
                         Business
                     </div>
                 </div>
                 <div class="d-flex justify-content-between">
                     <a href="#" class="text-dark link-hover me-3"><i class="fa fa-clock"></i> 06 minute(s) read</a>
-                    <a href="#" class="text-dark link-hover me-3"><i class="fa fa-eye"></i> 3.5k View(s)</a>
+                    <a href="#" class="text-dark link-hover me-3"><i class="fa fa-eye"></i> @Model.NewsData.ViewCount View(s)</a>
                     <a href="#" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> 05 Comment(s)</a>
                     <a href="#" class="text-dark link-hover"><i class="fa fa-arrow-up"></i> 1.5k Share</a>
                 </div>
@@ -40,12 +39,12 @@
                 <div class="row g-4">
                     <div class="col-6">
                         <div class="rounded overflow-hidden">
-                            <img src="img/news-6.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
+                            <img src="/user/img/news-6.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
                         </div>
                     </div>
                     <div class="col-6">
                         <div class="rounded overflow-hidden">
-                            <img src="img/news-5.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
+                            <img src="/user/img/news-5.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
                         </div>
                     </div>
                 </div>
@@ -98,7 +97,7 @@
                         <div class="d-flex align-items-center">
                             <h5 class="mb-0 me-3">Share:</h5>
                             <i class="fab fa-facebook-f link-hover btn btn-square rounded-circle border-primary text-dark me-2"></i>
-                            <i class="btn fa-brands fa-x-twitter link-hover btn btn-square rounded-circle border-primary text-dark me-2"></i>
+                            <i class="btn fa-brands fa-brands fa-x-twitter link-hover btn btn-square rounded-circle border-primary text-dark me-2"></i>
                             <i class="btn fab fa-instagram link-hover btn btn-square rounded-circle border-primary text-dark me-2"></i>
                             <i class="btn fab fa-linkedin-in link-hover btn btn-square rounded-circle border-primary text-dark"></i>
                         </div>
@@ -107,7 +106,7 @@
                         <div id="tab-1" class="tab-pane fade show active">
                             <div class="row g-4 align-items-center">
                                 <div class="col-3">
-                                    <img src="img/footer-4.jpg" class="img-fluid w-100 rounded" alt="">
+                                    <img src="/user/img/footer-4.jpg" class="img-fluid w-100 rounded" alt="">
                                 </div>
                                 <div class="col-9">
                                     <h3>Amelia Alex</h3>
@@ -121,7 +120,7 @@
                         <div id="tab-2" class="tab-pane fade show">
                             <div class="row g-4 align-items-center">
                                 <div class="col-3">
-                                    <img src="img/footer-5.jpg" class="img-fluid w-100 rounded" alt="">
+                                    <img src="/user/img/footer-5.jpg" class="img-fluid w-100 rounded" alt="">
                                 </div>
                                 <div class="col-9">
                                     <h3>Amelia Alex</h3>
@@ -135,7 +134,7 @@
                         <div id="tab-3" class="tab-pane fade show">
                             <div class="row g-4 align-items-center">
                                 <div class="col-3">
-                                    <img src="img/footer-6.jpg" class="img-fluid w-100 rounded" alt="">
+                                    <img src="/user/img/footer-6.jpg" class="img-fluid w-100 rounded" alt="">
                                 </div>
                                 <div class="col-9">
                                     <h3>Amelia Alex</h3>
@@ -153,7 +152,7 @@
                     <div class="row g-4">
                         <div class="col-lg-6">
                             <div class="d-flex align-items-center p-3 bg-white rounded">
-                                <img src="img/chatGPT.jpg" class="img-fluid rounded" alt="">
+                                <img src="/user/img/chatGPT.jpg" class="img-fluid rounded" alt="">
                                 <div class="ms-3">
                                     <a href="#" class="h5 mb-2">Lorem Ipsum is simply dummy text of the printing</a>
                                     <p class="text-dark mt-3 mb-0 me-3"><i class="fa fa-clock"></i> 06 minute read</p>
@@ -162,7 +161,7 @@
                         </div>
                         <div class="col-lg-6">
                             <div class="d-flex align-items-center p-3 bg-white rounded">
-                                <img src="img/chatGPT-1.jpg" class="img-fluid rounded" alt="">
+                                <img src="/user/img/chatGPT-1.jpg" class="img-fluid rounded" alt="">
                                 <div class="ms-3">
                                     <a href="#" class="h5 mb-2">Lorem Ipsum is simply dummy text of the printing</a>
                                     <p class="text-dark mt-3 mb-0 me-3"><i class="fa fa-clock"></i> 06 minute read</p>
@@ -176,7 +175,7 @@
                     <div class="p-4 bg-white rounded mb-4">
                         <div class="row g-4">
                             <div class="col-3">
-                                <img src="img/footer-4.jpg" class="img-fluid rounded-circle w-100" alt="">
+                                <img src="/user/img/footer-4.jpg" class="img-fluid rounded-circle w-100" alt="">
                             </div>
                             <div class="col-9">
                                 <div class="d-flex justify-content-between">
@@ -193,7 +192,7 @@
                     <div class="p-4 bg-white rounded mb-0">
                         <div class="row g-4">
                             <div class="col-3">
-                                <img src="img/footer-4.jpg" class="img-fluid rounded-circle w-100" alt="">
+                                <img src="/user/img/footer-4.jpg" class="img-fluid rounded-circle w-100" alt="">
                             </div>
                             <div class="col-9">
                                 <div class="d-flex justify-content-between">
@@ -277,7 +276,7 @@
                                         <span class="text-white">13,977 Fans</span>
                                     </a>
                                     <a href="#" class="w-100 rounded btn btn-danger d-flex align-items-center p-3 mb-2">
-                                        <i class="fab fa-twitter btn btn-light btn-square rounded-circle me-3"></i>
+                                        <i class="fab fa-brands fa-x-twitter btn btn-light btn-square rounded-circle me-3"></i>
                                         <span class="text-white">21,798 Follower</span>
                                     </a>
                                     <a href="#" class="w-100 rounded btn btn-warning d-flex align-items-center p-3 mb-2">
@@ -305,7 +304,7 @@
                                         <div class="col-4">
                                             <div class="rounded-circle position-relative">
                                                 <div class="overflow-hidden rounded-circle">
-                                                    <img src="img/features-sports-1.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
+                                                    <img src="/user/img/features-sports-1.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
                                                 </div>
                                                 <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
                                             </div>
@@ -326,7 +325,7 @@
                                         <div class="col-4">
                                             <div class="rounded-circle position-relative">
                                                 <div class="overflow-hidden rounded-circle">
-                                                    <img src="img/features-technology.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
+                                                    <img src="/user/img/features-technology.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
                                                 </div>
                                                 <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
                                             </div>
@@ -347,7 +346,7 @@
                                         <div class="col-4">
                                             <div class="rounded-circle position-relative">
                                                 <div class="overflow-hidden rounded-circle">
-                                                    <img src="img/features-fashion.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
+                                                    <img src="/user/img/features-fashion.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
                                                 </div>
                                                 <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
                                             </div>
@@ -368,7 +367,7 @@
                                         <div class="col-4">
                                             <div class="rounded-circle position-relative">
                                                 <div class="overflow-hidden rounded-circle">
-                                                    <img src="img/features-life-style.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
+                                                    <img src="/user/img/features-life-style.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
                                                 </div>
                                                 <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">3</span>
                                             </div>
@@ -436,7 +435,7 @@
                                 </div>
                                 <div class="col-lg-12">
                                     <div class="position-relative banner-2">
-                                        <img src="img/banner-2.jpg" class="img-fluid w-100 rounded" alt="">
+                                        <img src="/user/img/banner-2.jpg" class="img-fluid w-100 rounded" alt="">
                                         <div class="text-center banner-content-2">
                                             <h6 class="mb-2">The Most Popular</h6>
                                             <p class="text-white mb-2">News & Magazine WP Theme</p>
