@@ -38,29 +38,19 @@
                             <li class="nav-item mb-3">
                                 <h5 class="mt-2 me-3 mb-0">Tags:</h5>
                             </li>
-                            <li class="nav-item mb-3">
-                                <a class="d-flex py-2 bg-light rounded-pill active me-2" data-bs-toggle="pill" href="#tab-1">
-                                    <span class="text-dark" style="width: 100px;">Sports</span>
-                                </a>
-                            </li>
-                            <li class="nav-item mb-3">
-                                <a class="d-flex py-2 bg-light rounded-pill me-2" data-bs-toggle="pill" href="#tab-2">
-                                    <span class="text-dark" style="width: 100px;">Magazine</span>
-                                </a>
-                            </li>
-                            <li class="nav-item mb-3">
-                                <a class="d-flex py-2 bg-light rounded-pill me-2" data-bs-toggle="pill" href="#tab-3">
-                                    <span class="text-dark" style="width: 100px;">Politics</span>
-                                </a>
-                            </li>
+                            @if (!string.IsNullOrEmpty(Model.NewsData.Tags))
+                            {
+                                var tags = Model.NewsData.Tags.Split(",",StringSplitOptions.None).ToList();
+                                foreach(var tagItem in tags)
+                                {
+                                    <li class="nav-item mb-3">
+                                        <a class="d-flex py-2 bg-light rounded-pill me-2" data-bs-toggle="pill" href="#tab-3">
+                                            <span class="text-dark" style="width: 100px;">@tagItem</span>
+                                        </a>
+                                    </li>
+                                }
+                            }
                         </ul>
-                        <div class="d-flex align-items-center">
-                            <h5 class="mb-0 me-3">Share:</h5>
-                            <i class="fab fa-facebook-f link-hover btn btn-square rounded-circle border-primary text-dark me-2"></i>
-                            <i class="btn fa-brands fa-brands fa-x-twitter link-hover btn btn-square rounded-circle border-primary text-dark me-2"></i>
-                            <i class="btn fab fa-instagram link-hover btn btn-square rounded-circle border-primary text-dark me-2"></i>
-                            <i class="btn fab fa-linkedin-in link-hover btn btn-square rounded-circle border-primary text-dark"></i>
-                        </div>
                     </div>
                     <div class="tab-content">
                         <div id="tab-1" class="tab-pane fade show active">
