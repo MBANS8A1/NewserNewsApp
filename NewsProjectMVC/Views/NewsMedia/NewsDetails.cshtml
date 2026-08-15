@@ -1,4 +1,9 @@
 ﻿@model NewsProjectMVC.Models.ViewModels.NewsDetailsViewModel
+<style>
+    .LongContent img{
+        max-width:100%
+    }
+</style>
 <!-- Single Product Start -->
 <div class="container-fluid py-5">
     <div class="container py-5">
@@ -18,60 +23,9 @@
                         Business
                     </div>
                 </div>
-                <div class="d-flex justify-content-between">
-                    <a href="#" class="text-dark link-hover me-3"><i class="fa fa-clock"></i> 06 minute(s) read</a>
-                    <a href="#" class="text-dark link-hover me-3"><i class="fa fa-eye"></i> @Model.NewsData.ViewCount View(s)</a>
-                    <a href="#" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> 05 Comment(s)</a>
-                    <a href="#" class="text-dark link-hover"><i class="fa fa-arrow-up"></i> 1.5k Share</a>
+                <div class="LongContent">
+                    @Html.Raw(Model.NewsData.LongDescription)
                 </div>
-                <p class="my-4">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book.
-                </p>
-                <p class="my-4">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                </p>
-                <div class="bg-light p-4 mb-4 rounded border-start border-3 border-primary">
-                    <h1 class="mb-2">Lorem Ipsum is simply dummy text of the printing and typesetting industry.</h1>
-                </div>
-                <div class="row g-4">
-                    <div class="col-6">
-                        <div class="rounded overflow-hidden">
-                            <img src="/user/img/news-6.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                        </div>
-                    </div>
-                    <div class="col-6">
-                        <div class="rounded overflow-hidden">
-                            <img src="/user/img/news-5.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                        </div>
-                    </div>
-                </div>
-                <p class="my-4">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                    Lorem Ipsum is simply dummy
-                </p>
-                <p class="my-4">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ther took It has survived not only five centuries, but also the leap into electronic
-                </p>
-                <div class="d-flex">
-                    <div class="me-2">
-                        <span class="fas fa-check-circle mb-3 fs-5"> Lorem Ipsum is simply dummy text of</span>
-                        <span class="fas fa-check-circle mb-3 fs-5"> Lorem Ipsum is simply dummy text of</span>
-                        <span class="fas fa-check-circle mb-3 fs-5"> Lorem Ipsum is simply dummy text of</span>
-                    </div>
-                    <div class="ms-2">
-                        <span class="fas fa-check-circle mb-3 fs-5"> Lorem Ipsum is simply dummy text of</span>
-                        <span class="fas fa-check-circle mb-3 fs-5"> Lorem Ipsum is simply dummy text of</span>
-                        <span class="fas fa-check-circle mb-3 fs-5"> Lorem Ipsum is simply dummy text of</span>
-                    </div>
-                </div>
-                <p class="my-4">
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy Lorem Ipsum has been the industry's standard dummy type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic
-                    Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been ther took It has survived not only five centuries, but also the leap into electronic
-                </p>
                 <div class="tab-class">
                     <div class="d-flex justify-content-between border-bottom mb-4">
                         <ul class="nav nav-pills d-inline-flex text-center">
