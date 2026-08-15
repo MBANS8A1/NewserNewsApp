@@ -51,7 +51,7 @@ namespace NewsProjectMVC.Controllers
                 NewsData = news,
                 //Comments = comments,
                 //Category = category,
-                //ReadingTimeInMinutes = TextHelpers.CalculateReadingTime(news.LongDescription),
+                ReadingTimeInMinutes = TextHelpers.CalculateReadingTime(news.LongDescription),
                 //RelatedNews = relatedNews,
                 //PopularCategories = popularCategories,
                 //PopularNews = popularNews
