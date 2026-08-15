@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NewsProjectMVC.Models.Db;
+using NewsProjectMVC.Models.Helpers;
 using NewsProjectMVC.Models.ViewModels;
 
 namespace NewsProjectMVC.Controllers

@@ -4,7 +4,7 @@ namespace NewsProjectMVC.Models.Helpers
 {
     public static class TextHelpers
     {
-        private const int WordsPerMinute = 240; // Average reading speed (I found this from online searching)
+        private const int WordsPerMinute = 235; // Average reading speed (I found this from online searching)
 
         /// <summary>
         /// Calculates the estimated reading time in minutes for a given text.

@@ -3,7 +3,7 @@ namespace NewsProjectMVC.Models.ViewModels
 {
     public class NewsDetailsViewModel
     {
-        public News NewsData { get; set; }
+        public News? NewsData { get; set; }
         public int ReadingTimeInMinutes { get; set; }
     }
 }
