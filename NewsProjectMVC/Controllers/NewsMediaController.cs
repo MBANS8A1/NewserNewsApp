@@ -52,7 +52,7 @@ namespace NewsProjectMVC.Controllers
             {
                 NewsData = news,
                 //Comments = comments,
-                //Category = category,
+                Category = category,
                 ReadingTimeInMinutes = TextHelpers.CalculateReadingTime(news.LongDescription),
                 RelatedNews = relatedNews,
                 //PopularCategories = popularCategories,
