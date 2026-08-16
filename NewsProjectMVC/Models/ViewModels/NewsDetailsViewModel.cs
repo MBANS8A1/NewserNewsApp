@@ -5,5 +5,7 @@ namespace NewsProjectMVC.Models.ViewModels
     {
         public News? NewsData { get; set; }
         public int ReadingTimeInMinutes { get; set; }
+
+        public List<News>? RelatedNews { get; set; }
     }
 }
