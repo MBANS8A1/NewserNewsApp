@@ -38,9 +38,10 @@ namespace NewsProjectMVC.Controllers
 
             //var popularCategories = await _context.PopularCategories.OrderByDescending(x => x.NewsCount).Take(10).ToListAsync();
 
-            //var category = await _context.Categories.FirstOrDefaultAsync(x => x.Id == news.CategoryId);
+            var category = await _context.Categories.FirstOrDefaultAsync(x => x.Id == news.CategoryId);
 
-            //var relatedNews = await _context.News.Where(x => x.CategoryId == category.Id && x.Id != news.Id).Take(2).ToListAsync();
+            
+            var relatedNews = await _context.News.Where(x => x.CategoryId == category.Id && x.Id != news.Id).Take(2).ToListAsync();
 
             //var currentNewsId = news.Id;
 
