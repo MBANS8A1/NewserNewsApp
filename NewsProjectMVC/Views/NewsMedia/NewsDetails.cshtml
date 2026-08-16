@@ -10,27 +10,27 @@
         <ol class="breadcrumb justify-content-start mb-4">
             <li class="breadcrumb-item"><a href="#">Home</a></li>
             <li class="breadcrumb-item"><a href="#">News</a></li>
-            <li class="breadcrumb-item active text-dark">@Model.NewsData.Title</li>
+            <li class="breadcrumb-item active text-dark">@Model.NewsData?.Title</li>
         </ol>
         <div class="row g-4">
             <div class="col-lg-8">
                 <div class="mb-4">
-                    <a href="/news/@Model.NewsData.Id" class="h1 display-5">@Model.NewsData.Title</a>
+                    <a href="/news/@Model.NewsData?.Id" class="h1 display-5">@Model.NewsData?.Title</a>
                 </div>
                 <div class="position-relative rounded overflow-hidden mb-3">
-                    <img src="/images/news/@Model.NewsData.ImageName" class="img-zoomin img-fluid rounded w-100" alt="">
+                    <img src="/images/news/@Model.NewsData?.ImageName" class="img-zoomin img-fluid rounded w-100" alt="">
                     <div class="position-absolute text-white px-4 py-2 bg-primary rounded" style="top: 20px; right: 20px;">
                         @Model.Category?.Title
                     </div>
                 </div>
                 <div class="d-flex justify-content-between">
                     <a href="#" class="text-dark link-hover me-3"><i class="fa fa-clock"></i> @Model.ReadingTimeInMinutes minute(s) read</a>
-                    <a href="#" class="text-dark link-hover me-3"><i class="fa fa-eye"></i> @Model.NewsData.ViewCount View(s)</a>
+                    <a href="#" class="text-dark link-hover me-3"><i class="fa fa-eye"></i> @Model.NewsData?.ViewCount View(s)</a>
                     <a href="#" class="text-dark link-hover me-3"><i class="fa fa-comment-dots"></i> 05 Comment(s)</a>
                     <a href="#" class="text-dark link-hover"><i class="fa fa-arrow-up"></i> 1.5k Share</a>
                 </div>
                 <div class="LongContent">
-                    @Html.Raw(Model.NewsData.LongDescription)
+                    @Html.Raw(Model.NewsData?.LongDescription)
                 </div>
                 <div class="tab-class">
                     <div class="d-flex justify-content-between border-bottom mb-4">
@@ -38,7 +38,7 @@
                             <li class="nav-item mb-3">
                                 <h5 class="mt-2 me-3 mb-0">Tags:</h5>
                             </li>
-                            @if (!string.IsNullOrEmpty(Model.NewsData.Tags))
+                            @if (!string.IsNullOrEmpty(Model.NewsData?.Tags))
                             {
                                 var tags = Model.NewsData.Tags.Split(",",StringSplitOptions.None).ToList();
                                 foreach(var tagItem in tags)
