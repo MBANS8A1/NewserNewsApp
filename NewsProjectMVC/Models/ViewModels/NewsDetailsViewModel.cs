@@ -9,5 +9,7 @@ namespace NewsProjectMVC.Models.ViewModels
         public List<News>? RelatedNews { get; set; } = new List<News>();
 
         public Category? Category { get; set; } = new Category();
+
+        public List<PopularCategory>? PopularCategories { get; set; } = new List<PopularCategory>();
     }
 }
