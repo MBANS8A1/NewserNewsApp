@@ -36,7 +36,7 @@ namespace NewsProjectMVC.Controllers
             //I will use these later when I create more tables in the SQL Server database
             //var comments = await _context.Comments.Where(x => x.NewsId == id && x.IsApproved).OrderByDescending(x => x.Id).ToListAsync();
 
-            //var popularCategories = await _context.PopularCategories.OrderByDescending(x => x.NewsCount).Take(10).ToListAsync();
+            var popularCategories = await _context.PopularCategories.OrderByDescending(x => x.NewsCount).Take(10).ToListAsync();
 
             var category = await _context.Categories.FirstOrDefaultAsync(x => x.Id == news.CategoryId);
 
