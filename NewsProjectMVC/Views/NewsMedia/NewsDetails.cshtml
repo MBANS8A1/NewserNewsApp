@@ -146,36 +146,15 @@
                             </div>
                             <h4 class="mb-4">Popular Categories</h4>
                             <div class="row g-2">
-                                <div class="col-12">
-                                    <a href="#" class="link-hover btn btn-light w-100 rounded text-uppercase text-dark py-3">
-                                        Lifestyle
-                                    </a>
-                                </div>
-                                <div class="col-12">
-                                    <a href="#" class="link-hover btn btn-light w-100 rounded text-uppercase text-dark py-3">
-                                        Fashion
-                                    </a>
-                                </div>
-                                <div class="col-12">
-                                    <a href="#" class="link-hover btn btn-light w-100 rounded text-uppercase text-dark py-3">
-                                        Relationships
-                                    </a>
-                                </div>
-                                <div class="col-12">
-                                    <a href="#" class="link-hover btn btn-light w-100 rounded text-uppercase text-dark py-3">
-                                        Art & Culture
-                                    </a>
-                                </div>
-                                <div class="col-12">
-                                    <a href="#" class="link-hover btn btn-light w-100 rounded text-uppercase text-dark py-3">
-                                        Self-Development
-                                    </a>
-                                </div>
-                                <div class="col-12">
-                                    <a href="#" class="link-hover btn btn-light w-100 rounded text-uppercase text-dark py-3 mb-4">
-                                        Travel & Tourism
-                                    </a>
-                                </div>
+                              @foreach (var popCategory in Model.PopularCategories)
+                                {
+                                    <div class="col-12">
+                                        <a href="/news?categoryid=@popCategory.Id" class="link-hover btn btn-light w-100 rounded text-uppercase text-dark py-3">
+                                            @popCategory.Title
+                                        </a>
+                                    </div>
+                                }
+                               
                             </div>
                             <h4 class="my-4">Stay Connected</h4>
                             <div class="row g-4">
