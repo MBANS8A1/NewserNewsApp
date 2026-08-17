@@ -21,6 +21,8 @@ public partial class MyNewsContext : DbContext
 
     public virtual DbSet<News> News { get; set; }
 
+    public virtual DbSet<PopularCategory> PopularCategories { get; set; }
+
     public virtual DbSet<Setting> Settings { get; set; }
 
     public virtual DbSet<Tag> Tags { get; set; }
@@ -29,7 +31,7 @@ public partial class MyNewsContext : DbContext
 
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
 #warning To protect potentially sensitive information in your connection string, you should move it out of source code. You can avoid scaffolding the connection string by using the Name= syntax to read it from configuration - see https://go.microsoft.com/fwlink/?linkid=2131148. For more guidance on storing connection strings, see https://go.microsoft.com/fwlink/?LinkId=723263.
-        => optionsBuilder.UseSqlServer("Server=MBANS8A1\\SQLEXPRESS; Database=MyNews;Trusted_Connection=True;TrustServerCertificate=true");
+        => optionsBuilder.UseSqlServer("Server=MBANS8A1\\SQLEXPRESS;Database=MyNews;Trusted_Connection=True;TrustServerCertificate=true");
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
@@ -58,6 +60,15 @@ public partial class MyNewsContext : DbContext
             entity.Property(e => e.Status).HasMaxLength(50);
             entity.Property(e => e.Tags).HasMaxLength(500);
             entity.Property(e => e.Title).HasMaxLength(100);
+        });
+
+        modelBuilder.Entity<PopularCategory>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("PopularCategories");
+
+            entity.Property(e => e.Title).HasMaxLength(110);
         });
 
         modelBuilder.Entity<Setting>(entity =>
