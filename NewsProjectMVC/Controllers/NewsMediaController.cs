@@ -34,7 +34,7 @@ namespace NewsProjectMVC.Controllers
 
             //------------------
             //I will use these later when I create more tables in the SQL Server database
-            //var comments = await _context.Comments.Where(x => x.NewsId == id && x.IsApproved).OrderByDescending(x => x.Id).ToListAsync();
+            var comments = await _context.Comments.Where(comment => comment.NewsId == id && comment.IsApproved).OrderByDescending(comment => comment.Id).ToListAsync();
 
             var popularCategories = await _context.PopularCategories.OrderByDescending(x => x.NewsCount).Take(10).ToListAsync();
 
@@ -51,7 +51,7 @@ namespace NewsProjectMVC.Controllers
             var result = new NewsDetailsViewModel()
             {
                 NewsData = news,
-                //Comments = comments,
+                Comments = comments,
                 Category = category,
                 ReadingTimeInMinutes = TextHelpers.CalculateReadingTime(news.LongDescription),
                 RelatedNews = relatedNews,

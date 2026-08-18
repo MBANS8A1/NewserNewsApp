@@ -11,5 +11,7 @@ namespace NewsProjectMVC.Models.ViewModels
         public Category? Category { get; set; } = new Category();
 
         public List<PopularCategory>? PopularCategories { get; set; } = new List<PopularCategory>();
+
+        public List<Comment> Comments { get; set; } = new List<Comment>();
     }
 }
