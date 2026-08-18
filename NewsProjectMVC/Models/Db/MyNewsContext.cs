@@ -17,6 +17,8 @@ public partial class MyNewsContext : DbContext
 
     public virtual DbSet<Category> Categories { get; set; }
 
+    public virtual DbSet<Comment> Comments { get; set; }
+
     public virtual DbSet<Menu> Menus { get; set; }
 
     public virtual DbSet<News> News { get; set; }
@@ -41,6 +43,15 @@ public partial class MyNewsContext : DbContext
 
             entity.Property(e => e.Description).HasMaxLength(200);
             entity.Property(e => e.Title).HasMaxLength(110);
+        });
+
+        modelBuilder.Entity<Comment>(entity =>
+        {
+            entity.ToTable("Comment");
+
+            entity.Property(e => e.CreatedAt).HasColumnType("datetime");
+            entity.Property(e => e.Email).HasMaxLength(50);
+            entity.Property(e => e.FullName).HasMaxLength(50);
         });
 
         modelBuilder.Entity<Menu>(entity =>
