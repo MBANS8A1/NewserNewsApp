@@ -43,9 +43,9 @@ namespace NewsProjectMVC.Controllers
             
             var relatedNews = await _context.News.Where(x => x.CategoryId == category.Id && x.Id != news.Id).Take(2).ToListAsync();
 
-            //var currentNewsId = news.Id;
+            var currentNewsId = news.Id;
 
-            //var popularNews = await _context.PopularNews.OrderByDescending(x => x.CommentCount).Take(5).ToListAsync();
+            var popularNews = await _context.PopularNews.OrderByDescending(x => x.CommentCount).Take(5).ToListAsync();
 
             //------------------
             var result = new NewsDetailsViewModel()
@@ -56,7 +56,7 @@ namespace NewsProjectMVC.Controllers
                 ReadingTimeInMinutes = TextHelpers.CalculateReadingTime(news.LongDescription),
                 RelatedNews = relatedNews,
                 PopularCategories = popularCategories,
-                //PopularNews = popularNews
+                PopularNews = popularNews
             };
             //------------------
 
