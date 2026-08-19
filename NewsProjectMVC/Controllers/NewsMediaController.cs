@@ -45,7 +45,7 @@ namespace NewsProjectMVC.Controllers
 
             var currentNewsId = news.Id;
 
-            var popularNews = await _context.PopularNews.OrderByDescending(x => x.CommentCount).Take(5).ToListAsync();
+            var popularNews = await _context.PopularNews.OrderByDescending(x => x.CommentCount).Take(4).ToListAsync();
 
             //------------------
             var result = new NewsDetailsViewModel()
