@@ -25,6 +25,8 @@ public partial class MyNewsContext : DbContext
 
     public virtual DbSet<PopularCategory> PopularCategories { get; set; }
 
+    public virtual DbSet<PopularNews> PopularNews { get; set; }
+
     public virtual DbSet<Setting> Settings { get; set; }
 
     public virtual DbSet<Tag> Tags { get; set; }
@@ -80,6 +82,20 @@ public partial class MyNewsContext : DbContext
                 .ToView("PopularCategories");
 
             entity.Property(e => e.Title).HasMaxLength(110);
+        });
+
+        modelBuilder.Entity<PopularNews>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("PopularNews");
+
+            entity.Property(e => e.CreatedAt).HasColumnType("datetime");
+            entity.Property(e => e.ImageName).HasMaxLength(50);
+            entity.Property(e => e.ShortDescription).HasMaxLength(210);
+            entity.Property(e => e.Status).HasMaxLength(50);
+            entity.Property(e => e.Tags).HasMaxLength(500);
+            entity.Property(e => e.Title).HasMaxLength(100);
         });
 
         modelBuilder.Entity<Setting>(entity =>
