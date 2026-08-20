@@ -19,16 +19,10 @@
                 @Html.DisplayNameFor(model => model.Email)
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.CommentText)
-            </th>
-            <th>
                 @Html.DisplayNameFor(model => model.CreatedAt)
             </th>
             <th>
                 @Html.DisplayNameFor(model => model.IsApproved)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.NewsId)
             </th>
             <th></th>
         </tr>
@@ -43,21 +37,13 @@
                 @Html.DisplayFor(model => item.Email)
             </td>
             <td>
-                @Html.DisplayFor(model => item.CommentText)
-            </td>
-            <td>
                 @Html.DisplayFor(model => item.CreatedAt)
             </td>
             <td>
                 @Html.DisplayFor(model => item.IsApproved)
             </td>
             <td>
-                @Html.DisplayFor(model => item.NewsId)
-            </td>
-            <td>
-                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> |
-                <a asp-action="Details" asp-route-id="@item.Id">Details</a> |
-                <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
+                <a asp-action="Edit" asp-route-id="@item.Id">Edit</a> | <a asp-action="Delete" asp-route-id="@item.Id">Delete</a>
             </td>
         </tr>
 }
