@@ -14,9 +14,14 @@ public class CommentsController : Controller
     }
 
     // GET: COMMENTS
-    public async Task<IActionResult> Index()    
+    public async Task<IActionResult> Index(int id)    
     {
-        return View(await _context.Comments.ToListAsync());
+        if (id != 0)
+        {
+            ViewData["news"] = await _context.News.FirstOrDefaultAsync(x => x.Id == id);
+            return View(await _context.Comments.Where(x => x.NewsId == id).OrderByDescending(x => x.Id).ToListAsync());
+        }
+        return View(await _context.Comments.OrderByDescending(comment => comment.Id).ToListAsync());
     }
 
     // GET: COMMENTS/Details/5
