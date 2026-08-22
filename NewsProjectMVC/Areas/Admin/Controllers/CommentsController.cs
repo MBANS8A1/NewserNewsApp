@@ -134,6 +134,7 @@ public class CommentsController : Controller
         {
             return NotFound();
         }
+        ViewData["ReturnUrl"] = Request.Headers["Referer"].ToString();
 
         return View(comment);
     }
@@ -141,7 +142,7 @@ public class CommentsController : Controller
     // POST: COMMENTS/Delete/5
     [HttpPost, ActionName("Delete")]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> DeleteConfirmed(int? id)
+    public async Task<IActionResult> DeleteConfirmed(int? id, string returnUrl)
     {
         var comment = await _context.Comments.FindAsync(id);
         if (comment != null)
@@ -150,7 +151,11 @@ public class CommentsController : Controller
         }
 
         await _context.SaveChangesAsync();
-        return RedirectToAction(nameof(Index));
+        if (!string.IsNullOrEmpty(returnUrl))
+        {
+            return Redirect(returnUrl);
+        }
+        return Redirect("/admin/comments");
     }
 
     private bool CommentExists(int? id)
