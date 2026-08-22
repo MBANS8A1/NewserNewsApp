@@ -1,7 +1,9 @@
 @model IEnumerable<NewsProjectMVC.Models.Db.Comment>
 
 @{
+    var news = ViewData["news"] as NewsProjectMVC.Models.Db.News;
     ViewData["Title"] = "Comments";
+    ViewData["SubTitle"] = news?.Title;
 }
 
 <p>
