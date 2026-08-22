@@ -77,6 +77,7 @@ public class CommentsController : Controller
         {
             return NotFound();
         }
+        ViewData["ReturnUrl"] = Request.Headers["Referer"].ToString();
         return View(comment);
     }
 
