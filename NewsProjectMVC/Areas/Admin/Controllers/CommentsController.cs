@@ -86,7 +86,7 @@ public class CommentsController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int? id, [Bind("Id,FullName,Email,CommentText,CreatedAt,IsApproved,NewsId")] Comment comment)
+    public async Task<IActionResult> Edit(int? id, [Bind("Id,FullName,Email,CommentText,CreatedAt,IsApproved,NewsId")] Comment comment, string returnUrl)
     {
         if (id != comment.Id)
         {
@@ -111,7 +111,11 @@ public class CommentsController : Controller
                     throw;
                 }
             }
-            return RedirectToAction(nameof(Index));
+            if (!string.IsNullOrEmpty(returnUrl))
+            {
+                return Redirect(returnUrl);
+            }
+            return Redirect("/admin/comments");
         }
         return View(comment);
     }

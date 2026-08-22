@@ -14,6 +14,7 @@
             <input type="hidden" asp-for="Id" />
             <input type="hidden" asp-for="CreatedAt" />
             <input type="hidden" asp-for="NewsId" />
+            <input type="hidden" name="returnUrl" value="@ViewData["ReturnUrl"]" />
             <div class="form-group">
                 <label asp-for="FullName" class="control-label"></label>
                 <input asp-for="FullName" class="form-control" />
