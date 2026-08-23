@@ -63,6 +63,40 @@ namespace NewsProjectMVC.Controllers
             return View(result);
         }
 
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> SubmitComment(Comment commentModel)
+        {
+            if (ModelState.IsValid)
+            {
+                try
+                {
+                    // Set server-side properties securely (these cannot be set on the NewsMedia/NewsDetails View).
+                    commentModel.CreatedAt = DateTime.Now;
+                    commentModel.IsApproved = true;
 
+                    // Add the new comment to the context and save to the database.
+                    _context.Comments.Add(commentModel);
+                    await _context.SaveChangesAsync();
+
+                    // Redirect the user back to the news article they were on.
+                    // I used the TempData dictionary to add a success message (but it will be cleared after use)
+                    TempData["SuccessMessage"] = "Your comment has been submitted and is awaiting approval.";
+                    return Redirect("/news/" + commentModel.NewsId + "#comment-form");
+                }
+                catch
+                {
+                    // In case of a database error, add an error message and redirect.
+                    // I used the TempData dictionary to add an error message (but it will be cleared after use)
+                    TempData["ErrorMessage"] = "There was an error submitting your comment. Please try again.";
+                    return Redirect("/news/" + commentModel.NewsId + "#comment-form");
+                }
+            }
+
+            // If ModelState is not valid, it means some required fields were empty.
+            // Redirect back to the page to show the validation errors.
+            TempData["ErrorMessage"] = "Please fill in all required fields.";
+            return Redirect("/news/" + commentModel.NewsId + "#comment-form");
+        }
     }
 }
