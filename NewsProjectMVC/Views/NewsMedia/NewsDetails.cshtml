@@ -105,7 +105,25 @@
                     
                 <div class="bg-light rounded p-4 my-4">
                     <h4 class="mb-4">Leave A Comment</h4>
+                        @{
+                            var commentModel = new NewsProjectMVC.Models.Db.Comment{
+                                NewsId = Model.NewsData.Id,
+                                
+                            }
+                            ;
+                        }
                     <form action="/NewsMedia/SubmitComment" method="post" id="comment-form">
+                            @Html.AntiForgeryToken()
+                            <input type="hidden" asp-for="@commentModel.NewsId" />
+
+                            @if (TempData["SuccessMessage"] != null)
+                            {
+                                <div class="alert alert-success">@TempData["SuccessMessage"]</div>
+                            }
+                            @if (TempData["ErrorMessage"] != null)
+                            {
+                                <div class="alert alert-danger">@TempData["ErrorMessage"]</div>
+                            }
                         <div class="row g-4">
                             <div class="col-lg-6">
                                 <input type="text" class="form-control py-3" placeholder="Full Name">
