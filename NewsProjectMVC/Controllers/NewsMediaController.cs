@@ -73,7 +73,7 @@ namespace NewsProjectMVC.Controllers
                 {
                     // Set server-side properties securely (these cannot be set on the NewsMedia/NewsDetails View).
                     commentModel.CreatedAt = DateTime.Now;
-                    commentModel.IsApproved = true;
+                    commentModel.IsApproved = false;
 
                     // Add the new comment to the context and save to the database.
                     _context.Comments.Add(commentModel);
