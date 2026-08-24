@@ -126,16 +126,19 @@
                             }
                         <div class="row g-4">
                             <div class="col-lg-6">
-                                <input type="text" class="form-control py-3" placeholder="Full Name">
+                                <input type="text" asp-for="@commentModel.FullName" class="form-control py-3" placeholder="Full Name">
+                                    <span asp-validation-for="@commentModel.FullName" class="text-danger"></span>
                             </div>
                             <div class="col-lg-6">
-                                <input type="email" class="form-control py-3" placeholder="Email Address">
+                                <input type="email" asp-for="@commentModel.Email" class="form-control py-3" placeholder="Email Address">
+                                    <span asp-validation-for="@commentModel.Email" class="text-danger"></span>
                             </div>
                             <div class="col-12">
-                                <textarea class="form-control" name="textarea" id="" cols="30" rows="7" placeholder="Write Your Comment Here"></textarea>
+                                <textarea class="form-control" asp-for="@commentModel.CommentText" name="textarea" cols="30" rows="7" placeholder="Write Your Comment Here"></textarea>
+                                    <span asp-validation-for="@commentModel.CommentText" class="text-danger"></span>
                             </div>
                             <div class="col-12">
-                                <button class="form-control btn btn-primary py-3" type="button">Submit Now</button>
+                                <button class="form-control btn btn-primary py-3" type="submit">Submit Now</button>
                             </div>
                         </div>
                     </form>
@@ -158,8 +161,7 @@
                                             @popCategory.Title
                                         </a>
                                     </div>
-                                }
-                               
+                                }                 
                             </div>
                             <h4 class="my-4">Popular News</h4>
                             <div class="row g-4">
