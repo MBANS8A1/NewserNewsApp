@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using NewsProjectMVC.Models.Db;
 using NewsProjectMVC.Models.Helpers;
@@ -14,9 +15,49 @@ namespace NewsProjectMVC.Controllers
         {
             _context = context;
         }
-        public IActionResult Index()
+        public async Task<IActionResult> Index(string searchTerm, int? categoryId, string tag)
         {
-            return View();
+            // I used the IQueryable to create a query, which will not execute immediately as I can add to it.
+            IQueryable<News> query = _context.News.AsQueryable();
+
+            // --- Applying the filters conditionally ---
+
+            // 1. Filter by Search Term (Title)
+            // If a search term is provided, add a Where clause to filter by title.
+            if (!string.IsNullOrEmpty(searchTerm))
+            {
+                query = query.Where(newsArticle => newsArticle.Title.ToLower().Contains(searchTerm.ToLower()));
+            }
+
+            // 2. Filter by Category
+            // If a categoryId is provided, add a Where clause to filter by that category.
+            if (categoryId.HasValue && categoryId.Value > 0)
+            {
+                query = query.Where(newsArticle => newsArticle.CategoryId == categoryId.Value);
+            }
+
+            // 3. Filter by Tag
+            // If a tag is provided, add a Where clause to filter by tags.
+            // This checks if the comma-separated 'Tags' string contains the given tag.
+            if (!string.IsNullOrEmpty(tag))
+            {
+                query = query.Where(newsArticle => newsArticle.Tags.ToLower().Contains(tag.ToLower()));
+            }
+
+            // --- Prepare data for the view ---
+
+            // Load the list of categories to populate the filter dropdown in the view.
+            ViewBag.Categories = new SelectList(await _context.Categories.ToListAsync(), "Id", "Title", categoryId);
+
+            // Pass the current filter values back to the view, so the search boxes don't clear after searching.
+            ViewBag.CurrentSearchTerm = searchTerm;
+            ViewBag.CurrentTag = tag;
+
+            // --- Execute the query and return the result ---
+            // Execute final query here with ordering by the CreatedAt (newest first)
+            var filteredNews = await query.OrderByDescending(n => n.CreatedAt).ToListAsync();
+
+            return View(filteredNews);
         }
 
 
