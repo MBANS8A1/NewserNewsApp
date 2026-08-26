@@ -15,6 +15,7 @@ namespace NewsProjectMVC.Controllers
         {
             _context = context;
         }
+        [HttpGet("/news")]
         public async Task<IActionResult> Index(string searchTerm, int? categoryId, string tag)
         {
             // I used the IQueryable to create a query, which will not execute immediately as I can add to it.
@@ -55,6 +56,7 @@ namespace NewsProjectMVC.Controllers
 
             // --- Execute the query and return the result ---
             // Execute final query here with ordering by the CreatedAt (newest first)
+            var q = query.ToQueryString();
             var filteredNews = await query.OrderByDescending(n => n.CreatedAt).ToListAsync();
 
             return View(filteredNews);

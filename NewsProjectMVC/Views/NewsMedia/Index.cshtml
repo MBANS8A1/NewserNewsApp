@@ -17,7 +17,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="categoryId" class="form-label">Category</label>
-                        <select id="categoryId" name="categoryId" class="form-select">
+                        <select id="categoryId" name="categoryId" class="form-select" asp-items="@ViewBag.Categories">
                             <option value="">All Categories</option>
                         </select>
                     </div>
@@ -41,11 +41,11 @@
 
                 <div class="card-body d-flex flex-column">
                     <h5 class="card-title">Breaking News: Technology Advances</h5>
-                    <p class="card-text text-muted">Latest developments in artificial intelligence are changing the world as we know it.</p>
+                    <p class="card-text text-body-secondary">Latest developments in artificial intelligence are changing the world as we know it.</p>
 
                     <a href="/news/1" class="btn btn-outline-primary mt-auto">Read More</a>
                 </div>
-                <div class="card-footer text-muted">
+                <div class="card-footer text-body-secondary">
                     <small>Jan 15, 2024</small>
                 </div>
             </div>
