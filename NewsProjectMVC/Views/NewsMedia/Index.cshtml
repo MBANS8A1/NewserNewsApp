@@ -13,7 +13,7 @@
                 <div class="row g-3 align-items-end">
                     <div class="col-md-4">
                         <label for="searchTerm" class="form-label">Title</label>
-                        <input type="text" id="searchTerm" name="searchTerm" class="form-control" placeholder="Search by title..." value="">
+                        <input type="text" id="searchTerm" name="searchTerm" class="form-control" placeholder="Search by title..." value="@ViewBag.CurrentSearchTerm">
                     </div>
                     <div class="col-md-3">
                         <label for="categoryId" class="form-label">Category</label>
@@ -23,7 +23,7 @@
                     </div>
                     <div class="col-md-3">
                         <label for="tag" class="form-label">Tag</label>
-                        <input type="text" id="tag" name="tag" class="form-control" placeholder="Search by tag..." value="">
+                        <input type="text" id="tag" name="tag" class="form-control" placeholder="Search by tag..." value="@ViewBag.CurrentTag">
                     </div>
                     <div class="col-md-2">
                         <button type="submit" class="btn btn-primary w-100">Search</button>
