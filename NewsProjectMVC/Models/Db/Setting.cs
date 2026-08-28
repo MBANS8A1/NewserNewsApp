@@ -26,4 +26,14 @@ public partial class Setting
     public string? YouTube { get; set; }
 
     public string? LinkedIn { get; set; }
+
+    public string? FeaturedNews { get; set; }
+
+    public int? MainNews { get; set; }
+
+    public int? TopStory { get; set; }
+
+    public string? BestNews { get; set; }
+
+    public string? MainPageCategories { get; set; }
 }

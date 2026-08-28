@@ -101,11 +101,14 @@ public partial class MyNewsContext : DbContext
         modelBuilder.Entity<Setting>(entity =>
         {
             entity.Property(e => e.Address).HasMaxLength(100);
+            entity.Property(e => e.BestNews).HasMaxLength(100);
             entity.Property(e => e.Copyright).HasMaxLength(100);
             entity.Property(e => e.Email).HasMaxLength(50);
             entity.Property(e => e.Facebook).HasMaxLength(50);
+            entity.Property(e => e.FeaturedNews).HasMaxLength(100);
             entity.Property(e => e.Instagram).HasMaxLength(50);
             entity.Property(e => e.LinkedIn).HasMaxLength(50);
+            entity.Property(e => e.MainPageCategories).HasMaxLength(100);
             entity.Property(e => e.Phone).HasMaxLength(50);
             entity.Property(e => e.Title).HasMaxLength(50);
             entity.Property(e => e.X).HasMaxLength(50);
