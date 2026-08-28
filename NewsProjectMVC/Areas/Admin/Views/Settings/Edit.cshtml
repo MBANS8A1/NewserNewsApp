@@ -1,27 +1,24 @@
 @model NewsProjectMVC.Models.Db.Setting
 
 @{
-    ViewData["Title"] = "Edit";
+    ViewData["Title"] = "Edit Settings";
 }
 
 <h1>Edit</h1>
 
 <h4>Setting</h4>
 <hr />
+<form asp-action="Edit">
 <ul class="nav nav-tabs" id="myTab" role="tablist">
     <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#home" type="button" role="tab" aria-controls="home" aria-selected="true">Global Settings</button>
+        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#global" type="button" role="tab" aria-controls="global" aria-selected="true">Global Settings</button>
     </li>
     <li class="nav-item" role="presentation">
-        <button class="nav-link" id="" data-bs-toggle="tab" data-bs-target="#" type="button" role="tab" aria-controls="" aria-selected="false">News Options</button>
+        <button class="nav-link" id="" data-bs-toggle="tab" data-bs-target="#news_options" type="button" role="tab" aria-controls="news_options" aria-selected="false">News Options</button>
     </li>
 </ul>
 <div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="home" role="tabpanel" aria-labelledby="home-tab">...</div>
-    <div class="tab-pane fade" id="" role="tabpanel" aria-labelledby="">...</div>
-    <div class="tab-pane fade" id="" role="tabpanel" aria-labelledby="">...</div>
-</div>
-<form asp-action="Edit">
+    <div class="tab-pane fade show active" id="global" role="tabpanel" aria-labelledby="global-tab">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <input type="hidden" asp-for="Id" />
             <div class="form-group">
@@ -77,7 +74,14 @@
             <div class="form-group">
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
-        </form>
+
+           </div>
+    <div class="tab-pane fade" id="news_options" role="tabpanel" aria-labelledby="news_options">
+
+    </div>
+</div>
+</form>
+            
 
 
 
