@@ -21,6 +21,48 @@ public class SettingsController : Controller
         {
             return NotFound();
         }
+        // --- Load details for single-select fields ---
+
+        // Load details for MainNews
+        if (setting.MainNews.HasValue && setting.MainNews.Value > 0)
+        {
+            ViewBag.MainNewsDetails = await _context.News.FindAsync(setting.MainNews.Value);
+        }
+
+        // Load details for TopStory
+        if (setting.TopStory.HasValue && setting.TopStory.Value > 0)
+        {
+            ViewBag.TopStoryDetails = await _context.News.FindAsync(setting.TopStory.Value);
+        }
+
+        // --- Load details for multi-select fields ---
+
+        // Load details for FeaturesNews
+        if (!string.IsNullOrEmpty(setting.FeaturedNews))
+        {
+            var featuredNewsIds = setting.FeaturedNews.Split(',').Select(int.Parse).ToList();
+            ViewBag.FeaturedNewsDetails = await _context.News
+                                                  .Where(news => featuredNewsIds.Contains(news.Id))
+                                                  .ToListAsync();
+        }
+
+        // Load details for BestNews
+        if (!string.IsNullOrEmpty(setting.BestNews))
+        {
+            var bestNewsIds = setting.BestNews.Split(',').Select(int.Parse).ToList();
+            ViewBag.BestNewsDetails = await _context.News
+                                              .Where(news => bestNewsIds.Contains(news.Id))
+                                              .ToListAsync();
+        }
+
+        if (!string.IsNullOrEmpty(setting.MainPageCategories))
+        {
+            var categoryIds = setting.MainPageCategories.Split(',').Select(int.Parse).ToList();
+            ViewBag.MainPageCategoriesDetails = await _context.Categories
+                                                      .Where(category => categoryIds.Contains(category.Id))
+                                                      .ToListAsync();
+        }
+
         return View(setting);
     }
 
