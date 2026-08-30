@@ -9,17 +9,17 @@
 <h4>Setting</h4>
 <hr />
 <form asp-action="Edit">
-<ul class="nav nav-tabs" id="myTab" role="tablist">
-    <li class="nav-item" role="presentation">
-        <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#global" type="button" role="tab" aria-controls="global" aria-selected="true">Global Settings</button>
-    </li>
-    <li class="nav-item" role="presentation">
-        <button class="nav-link" id="" data-bs-toggle="tab" data-bs-target="#news_options" type="button" role="tab" aria-controls="news_options" aria-selected="false">News Options</button>
-    </li>
-</ul>
-<div class="tab-content" id="myTabContent">
-    <div class="tab-pane fade show active" id="global" role="tabpanel" aria-labelledby="global-tab">
-            <input type="hidden" asp-for="Id" />
+    <input type="hidden" asp-for="Id" />
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+        <li class="nav-item" role="presentation">
+            <button class="nav-link active" id="home-tab" data-bs-toggle="tab" data-bs-target="#global" type="button" role="tab" aria-controls="global" aria-selected="true">Global Settings</button>
+        </li>
+        <li class="nav-item" role="presentation">
+            <button class="nav-link" id="" data-bs-toggle="tab" data-bs-target="#news_options" type="button" role="tab" aria-controls="news_options" aria-selected="false">News Options</button>
+        </li>
+    </ul>
+    <div class="tab-content" id="myTabContent">
+        <div class="tab-pane fade show active" id="global" role="tabpanel" aria-labelledby="global-tab">
             <div class="form-group">
                 <label asp-for="Title" class="control-label"></label>
                 <input asp-for="Title" class="form-control" />
@@ -74,11 +74,10 @@
                 <input type="submit" value="Save" class="btn btn-primary" />
             </div>
 
-           </div>
-    <div class="tab-pane fade" id="news_options" role="tabpanel" aria-labelledby="news_options">
-
+        </div>
+        <div class="tab-pane fade" id="news_options" role="tabpanel" aria-labelledby="news_options">
+        </div>
     </div>
-</div>
 </form>
             
 
