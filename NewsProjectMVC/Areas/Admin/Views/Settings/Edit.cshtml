@@ -1,12 +1,10 @@
 @model NewsProjectMVC.Models.Db.Setting
 
 @{
-    ViewData["Title"] = "Edit Settings";
+    ViewData["Title"] = "Edit News Settings";
 }
 
-<h1>Edit</h1>
-
-<h4>Setting</h4>
+<h4>Settings</h4>
 <hr />
 <form asp-action="Edit">
     <input type="hidden" asp-for="Id" />
@@ -77,11 +75,21 @@
         </div>
         <div class="tab-pane fade" id="news_options" role="tabpanel" aria-labelledby="news_options">
             <div class="form-group">
-                <label asp-for="MainNews" class="control-label d-block">Main News</label>
+                <label asp-for="MainNews" class="control-label d-block">Main News Options</label>
                 <select asp-for="MainNews" id="mainNewsSelect" class="form-control">
                     @if (ViewBag.MainNewsDetails != null)
                     {
                         <option value="@ViewBag.MainNewsDetails.Id" selected>@ViewBag.MainNewsDetails.Title</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="TopStory" class="control-label d-block">Top Story</label>
+                <select asp-for="TopStory" id="topStorySelect" class="form-control">
+                    @if (ViewBag.TopStoryDetails != null)
+                    {
+                        <option value="@ViewBag.TopStoryDetails.Id" selected>@ViewBag.TopStoryDetails.Title</option>
                     }
                 </select>
             </div>
