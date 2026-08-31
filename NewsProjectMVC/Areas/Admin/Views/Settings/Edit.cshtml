@@ -76,6 +76,28 @@
 
         </div>
         <div class="tab-pane fade" id="news_options" role="tabpanel" aria-labelledby="news_options">
+            <div class="form-group">
+                <label asp-for="MainNews" class="control-label d-block">Main News</label>
+                <select asp-for="MainNews" id="mainNewsSelect" class="form-control">
+                    @if (ViewBag.MainNewsDetails != null)
+                    {
+                        <option value="@ViewBag.MainNewsDetails.Id" selected>@ViewBag.MainNewsDetails.Title</option>
+                    }
+                </select>
+            </div>
+
+            <div class="form-group">
+                <label asp-for="FeaturedNews" class="control-label d-block">Featured News</label>
+                <select asp-for="FeaturedNews" id="featuresNewsSelect" class="form-control" multiple="multiple">
+                    @if (ViewBag.FeaturedNewsDetails != null)
+                    {
+                        foreach (var newsItem in ViewBag.FeaturedNewsDetails)
+                        {
+                            <option value="@newsItem.Id" selected>@newsItem.Title</option>
+                        }
+                    }
+                </select>
+            </div>
         </div>
     </div>
 </form>
