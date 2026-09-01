@@ -118,6 +118,18 @@
                     }
                 </select>
             </div>
+            <div class="form-group">
+                <label asp-for="MainPageCategories" class="control-label d-block">Main Page Categories</label>
+                <select asp-for="MainPageCategories" id="mainPageCategoriesSelect" class="form-control" multiple="multiple">
+                    @if (ViewBag.MainPageCategoriesDetails != null)
+                    {
+                        foreach (var category in ViewBag.MainPageCategoriesDetails)
+                        {
+                            <option value="@category.Id" selected>@category.Title</option>
+                        }
+                    }
+                </select>
+            </div>
         </div>
     </div>
 </form>
