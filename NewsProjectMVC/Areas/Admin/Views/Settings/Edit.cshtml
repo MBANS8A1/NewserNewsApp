@@ -106,6 +106,18 @@
                     }
                 </select>
             </div>
+            <div class="form-group">
+                <label asp-for="BestNews" class="control-label d-block">Best News</label>
+                <select asp-for="BestNews" id="bestNewsSelect" class="form-control" multiple="multiple">
+                    @if (ViewBag.BestNewsDetails != null)
+                    {
+                        foreach (var newsItem in ViewBag.BestNewsDetails)
+                        {
+                            <option value="@newsItem.Id" selected>@newsItem.Title</option>
+                        }
+                    }
+                </select>
+            </div>
         </div>
     </div>
 </form>
