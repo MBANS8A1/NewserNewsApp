@@ -96,7 +96,7 @@
 
             <div class="form-group">
                 <label asp-for="FeaturedNews" class="control-label d-block">Featured News</label>
-                <select asp-for="FeaturedNews" id="featuresNewsSelect" class="form-control" multiple="multiple">
+                <select asp-for="FeaturedNews" id="featuredNewsSelect" class="form-control" multiple="multiple">
                     @if (ViewBag.FeaturedNewsDetails != null)
                     {
                         foreach (var newsItem in ViewBag.FeaturedNewsDetails)
@@ -140,4 +140,85 @@
 
 @section Scripts {
     @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+        <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+
+            // To avoid repeating code, we define the AJAX configuration once.
+            var select2AjaxConfig = {
+                url: '/admin/Settings/SearchNews', // URL to search action method
+                dataType: 'json',
+                delay: 250,
+                data: function (params) {
+                    return {
+                        q: params.term // search term
+                    };
+                },
+                processResults: function (data) {
+                    return {
+                        results: data.results
+                    };
+                },
+                cache: true
+            };
+
+            // --- Initialization for Single-Select Dropdowns ---
+            $('#mainNewsSelect').select2({
+                placeholder: 'Search for the main news story...',
+                allowClear: true,
+                minimumInputLength: 2,
+                ajax: select2AjaxConfig,
+                width: '100%'
+            });
+
+            $('#topStorySelect').select2({
+                placeholder: 'Search for the top story...',
+                allowClear: true,
+                minimumInputLength: 2,
+                ajax: select2AjaxConfig,
+                width: '100%'
+            });
+
+            // --- Initialization for Multi-Select Dropdowns ---
+            $('#featuredNewsSelect').select2({
+                placeholder: 'Search and select featured news...',
+                minimumInputLength: 2,
+                ajax: select2AjaxConfig,
+                width: '100%'
+            });
+
+            $('#bestNewsSelect').select2({
+                placeholder: 'Search and select best news...',
+                minimumInputLength: 2,
+                ajax: select2AjaxConfig,
+                width: '100%'
+            });
+
+
+            $('#mainPageCategoriesSelect').select2({
+                placeholder: 'Search and select categories...',
+                minimumInputLength: 2,
+                width: '100%',
+                ajax: {
+                    url: '/admin/Settings/SearchCategories', // URL to new search action
+                    dataType: 'json',
+                    delay: 250,
+                    data: function (params) {
+                        return {
+                            q: params.term // search term
+                        };
+                    },
+                    processResults: function (data) {
+                        return {
+                            results: data.results
+                        };
+                    },
+                    cache: true
+                }
+          });
+
+        });
+    </script>
 }
