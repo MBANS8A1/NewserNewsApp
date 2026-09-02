@@ -97,6 +97,31 @@ public class SettingsController : Controller
         return View(setting);
     }
 
+    [HttpGet]
+    public async Task<IActionResult> SearchNews(string q) // 'q' is the default parameter name for the search term (referring to ajax)
+    {
+        // If the search term is empty, return no results as an anonymous type
+        if (string.IsNullOrEmpty(q))
+        {
+            return Json(new { results = new List<object>() }); //results is returned as Json with an empty List on results
+        }
+
+        // Search the database for news titles that contain the search term.
+        // The query is case-insensitive (I used lower case for filtering in the Where() method.
+        var newsQuery = _context.News
+                              .Where(newsItem => newsItem.Title.ToLower().Contains(q.ToLower()));
+
+        // Project the results into the format required by Select2.
+        // Limit the results to the top 10 for performance but I can change it if needed.
+        var results = await newsQuery
+                            .Select(newsItem => new { id = newsItem.Id, text = newsItem.Title })
+                            .Take(10)
+                            .ToListAsync();
+
+        // Return the results in the { results: [...] } structure that Select2 expects.
+        return Json(new { results });
+    }
+
     private bool SettingExists(int? id)
     {
         return _context.Settings.Any(e => e.Id == id);
