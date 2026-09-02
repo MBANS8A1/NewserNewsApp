@@ -122,6 +122,24 @@ public class SettingsController : Controller
         return Json(new { results });
     }
 
+    [HttpGet]
+    public async Task<IActionResult> SearchCategories(string q)
+    {
+        if (string.IsNullOrEmpty(q))
+        {
+            return Json(new { results = new List<object>() });
+        }
+
+        // Assuming your Category entity has 'Id' and 'Title' properties
+        var categories = await _context.Categories
+                                       .Where(category => category.Title.ToLower().Contains(q.ToLower()))
+                                       .Select(category => new { id = category.Id, text = category.Title })
+                                       .Take(10)
+                                       .ToListAsync();
+
+        return Json(new { results = categories });
+    }
+
     private bool SettingExists(int? id)
     {
         return _context.Settings.Any(e => e.Id == id);
