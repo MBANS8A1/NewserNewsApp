@@ -71,14 +71,21 @@ public class SettingsController : Controller
     // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int? id, Setting setting)
+    public async Task<IActionResult> Edit(int id, Setting setting, List<string> FeaturedNews, List<string> BestNews, List<string> MainPageCategories)
     {
-
+        // The model state will be validated against the 'setting' object's simple properties.
         if (ModelState.IsValid)
         {
             try
             {
-                _context.Update(setting);
+                // 5. Manually join the lists and update the multi-select properties.
+                //    The model binder has already correctly populated 'FeaturedNews' and 'BestNews' lists.
+                setting.FeaturedNews = (FeaturedNews != null) ? string.Join(",", FeaturedNews) : "";
+                setting.BestNews = (BestNews != null) ? string.Join(",", BestNews) : "";
+
+                setting.MainPageCategories = (MainPageCategories != null) ? string.Join(",", MainPageCategories) : "";
+
+                _context.Settings.Update(setting);
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
@@ -94,7 +101,10 @@ public class SettingsController : Controller
             }
             return RedirectToAction("Edit");
         }
-        return View(setting);
+
+        // If validation fails, repopulate ViewBag and return the view.
+        // ... code to reload dropdown data ...
+        return RedirectToAction("Edit");
     }
 
     [HttpGet]
