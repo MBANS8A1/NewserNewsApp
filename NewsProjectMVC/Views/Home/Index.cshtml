@@ -103,7 +103,7 @@
                         @if (Model.MainNews != null)
                         {
                     <div class="position-relative overflow-hidden rounded">
-                        <img src="/images/news/@Model.MainNews.ImageName" class="img-fluid rounded img-zoomin w-100" alt="">
+                        <img src="/images/news/@Model.MainNews.ImageName" class="img-fluid rounded img-zoomin w-100" alt="Main News Image"/>
                         <div class="d-flex justify-content-center px-4 position-absolute flex-wrap" style="bottom: 10px; left: 0;">
                             <a href="#" class="text-white me-3 link-hover"><i class="fa fa-clock"></i> @NewsProjectMVC.Models.Helpers.TextHelpers.CalculateReadingTime(Model.MainNews.LongDescription) minute(s) read</a>
                             <a href="#" class="text-white me-3 link-hover"><i class="fa fa-eye"></i> @Model.MainNews.ViewCount Views</a>                      
