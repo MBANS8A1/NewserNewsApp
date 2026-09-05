@@ -102,39 +102,42 @@
                     <div class="col-lg-7 col-xl-8 mt-0">
                         @if (Model.MainNews != null)
                         {
-                    <div class="position-relative overflow-hidden rounded">
-                        <img src="/images/news/@Model.MainNews.ImageName" class="img-fluid rounded img-zoomin w-100" alt="Main News Image"/>
-                        <div class="d-flex justify-content-center px-4 position-absolute flex-wrap" style="bottom: 10px; left: 0;">
-                            <a href="#" class="text-white me-3 link-hover"><i class="fa fa-clock"></i> @NewsProjectMVC.Models.Helpers.TextHelpers.CalculateReadingTime(Model.MainNews.LongDescription) minute(s) read</a>
-                            <a href="#" class="text-white me-3 link-hover"><i class="fa fa-eye"></i> @Model.MainNews.ViewCount Views</a>                      
-                        </div>
-                    </div>
-                    <div class="border-bottom py-3">
-                        <a href="/news/@Model.MainNews.Id" class="display-4 text-dark mb-0 link-hover">@Model.MainNews.Title</a>
-                    </div>
-                    <p class="mt-3 mb-4">
-                        @Model.MainNews.ShortDescription
-                    </p>
+                      <div class="position-relative overflow-hidden rounded">
+                          <img src="/images/news/@Model.MainNews.ImageName" class="img-fluid rounded img-zoomin w-100" alt="Main News Image"/>
+                          <div class="d-flex justify-content-center px-4 position-absolute flex-wrap" style="bottom: 10px; left: 0;">
+                              <a href="#" class="text-white me-3 link-hover"><i class="fa fa-clock"></i> @NewsProjectMVC.Models.Helpers.TextHelpers.CalculateReadingTime(Model.MainNews.LongDescription) minute(s) read</a>
+                              <a href="#" class="text-white me-3 link-hover"><i class="fa fa-eye"></i> @Model.MainNews.ViewCount Views</a>                      
+                          </div>
+                      </div>
+                      <div class="border-bottom py-3">
+                          <a href="/news/@Model.MainNews.Id" class="display-4 text-dark mb-0 link-hover">@Model.MainNews.Title</a>
+                      </div>
+                      <p class="mt-3 mb-4">
+                          @Model.MainNews.ShortDescription
+                      </p>
                         }
-                        <div class="bg-light p-4 rounded">
-                            <div class="news-2">
-                                <h3 class="mb-4">Top Story</h3>
-                            </div>
-                            <div class="row g-4 align-items-center">
-                                <div class="col-md-6">
-                                    <div class="rounded overflow-hidden">
-                                        <img src="img/news-2.jpg" class="img-fluid rounded img-zoomin w-100" alt="">
-                                    </div>
+                      @if (Model.TopStory != null)
+                      {
+                    <div class="bg-light p-4 rounded">
+                        <div class="news-2">
+                            <h3 class="mb-4">Top Story</h3>
+                        </div>
+                        <div class="row g-4 align-items-center">
+                            <div class="col-md-6">
+                                <div class="rounded overflow-hidden">
+                                    <img src="img/news-2.jpg" class="img-fluid rounded img-zoomin w-100" alt="">
                                 </div>
-                                <div class="col-md-6">
-                                    <div class="d-flex flex-column">
-                                        <a href="#" class="h3">Stoneman Clandestine Ukrainian claims successes against Russian.</a>
-                                        <p class="mb-0 fs-5"><i class="fa fa-clock"> 06 minute read</i> </p>
-                                        <p class="mb-0 fs-5"><i class="fa fa-eye"> 3.5k Views</i></p>
-                                    </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="d-flex flex-column">
+                                    <a href="#" class="h3">Stoneman Clandestine Ukrainian claims successes against Russian.</a>
+                                    <p class="mb-0 fs-5"><i class="fa fa-clock"> 06 minute read</i> </p>
+                                    <p class="mb-0 fs-5"><i class="fa fa-eye"> 3.5k Views</i></p>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                      }                  
                     </div>
                     <div class="col-lg-5 col-xl-4">
                        <div class="bg-light rounded p-4 pt-0">
