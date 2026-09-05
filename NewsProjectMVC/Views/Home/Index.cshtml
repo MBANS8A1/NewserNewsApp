@@ -130,7 +130,7 @@
                             </div>
                             <div class="col-md-6">
                                 <div class="d-flex flex-column">
-                                    <a href="#" class="h3">@Model.TopStory.Title</a>
+                                    <a href="/news/@Model.TopStory.Id" class="h3">@Model.TopStory.Title</a>
                                     <p class="mb-0 fs-5"><i class="fa fa-clock"> @NewsProjectMVC.Models.Helpers.TextHelpers.CalculateReadingTime(Model.TopStory.LongDescription) minute(s) read</i> </p>
                                     <p class="mb-0 fs-5"><i class="fa fa-eye">@Model.TopStory.ViewCount Views</i></p>
                                 </div>
