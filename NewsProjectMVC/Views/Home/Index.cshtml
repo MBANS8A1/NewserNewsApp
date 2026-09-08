@@ -223,7 +223,7 @@
                                  @foreach (var item in Model.MainPageCategories)
                                  {
                                 <li class="nav-item mb-3">
-                                    <a class="d-flex py-2 bg-light rounded-pill @(item == Model.MainPageCategories.First() ? "active" : "") active me-2" data-bs-toggle="pill" href="#tab-@item.Category?.Id">
+                                    <a class="d-flex py-2 bg-light rounded-pill @(item == Model.MainPageCategories.First() ? "active" : "") me-2" data-bs-toggle="pill" href="#tab-@item.Category?.Id">
                                         <span class="text-dark" style="width: 100px;">@item.Category?.Title</span>
                                     </a>
                                 </li>
