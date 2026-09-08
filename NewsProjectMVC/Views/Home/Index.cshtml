@@ -220,15 +220,15 @@
                             <div class="d-flex flex-column flex-md-row justify-content-md-between border-bottom mb-4">
                                 <h1 class="mb-4">What’s New</h1>
                                 <ul class="nav nav-pills d-inline-flex text-center">
-                                 @foreach (var category in Model.MainPageCategories)
+                                 @foreach (var item in Model.MainPageCategories)
                                  {
-                                
+                                <li class="nav-item mb-3">
+                                    <a class="d-flex py-2 bg-light rounded-pill @(item == Model.MainPageCategories.First() ? "active" : "") active me-2" data-bs-toggle="pill" href="#tab-@item.Category?.Id">
+                                        <span class="text-dark" style="width: 100px;">@item.Category?.Title</span>
+                                    </a>
+                                </li>
                                  }
-                                    <li class="nav-item mb-3">
-                                        <a class="d-flex py-2 bg-light rounded-pill active me-2" data-bs-toggle="pill" href="#tab-1">
-                                            <span class="text-dark" style="width: 100px;">Sports</span>
-                                        </a>
-                                    </li>
+                                    
                                 </ul>
                             </div>
                             <div class="tab-content mb-4">
