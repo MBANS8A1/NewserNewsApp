@@ -263,93 +263,33 @@
                                         </div>
                                         <div class="col-lg-4">
                                             <div class="row g-4">
-                                                <div class="col-12">
-                                                    <div class="row g-4 align-items-center">
-                                                        <div class="col-5">
-                                                            <div class="overflow-hidden rounded">
-                                                                <img src="img/news-3.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
+                                                @foreach (var newsItem in remainingNews)
+                                                {
+                                                    <div class="col-12">
+                                                        <div class="row g-4 align-items-center">
+                                                            <div class="col-5">
+                                                                <div class="overflow-hidden rounded">
+                                                                    <img src="/images/news/thumb_@newsItem.ImageName" class="img-zoomin img-fluid rounded w-100" alt="@newsItem.Title">
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-7">
-                                                            <div class="features-content d-flex flex-column">
-                                                                <p class="text-uppercase mb-2">Sports</p>
-                                                                <a href="#" class="h6">Get the best speak market, news.</a>
-                                                                <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="row g-4 align-items-center">
-                                                        <div class="col-5">
-                                                            <div class="overflow-hidden rounded">
-                                                                <img src="img/news-4.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-7">
-                                                            <div class="features-content d-flex flex-column">
-                                                                <p class="text-uppercase mb-2">Sports</p>
-                                                                <a href="#" class="h6">Get the best speak market, news.</a>
-                                                                <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
+                                                            <div class="col-7">
+                                                                <div class="features-content d-flex flex-column">
+                                                                    <p class="text-uppercase mb-2">@item.Category?.Title</p>
+                                                                    <a href="/news/@newsItem.Id" class="h6">@newsItem.Title</a>
+                                                                    <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i>@newsItem.CreatedAt.ToString("MMM dd, yyyy")</small>
+                                                                </div>
                                                             </div>
                                                         </div>
                                                     </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="row g-4 align-items-center">
-                                                        <div class="col-5">
-                                                            <div class="overflow-hidden rounded">
-                                                                <img src="img/news-5.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-7">
-                                                            <div class="features-content d-flex flex-column">
-                                                                <p class="text-uppercase mb-2">Sports</p>
-                                                                <a href="#" class="h6">Get the best speak market, news.</a>
-                                                                <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="row g-4 align-items-center">
-                                                        <div class="col-5">
-                                                            <div class="overflow-hidden rounded">
-                                                                <img src="img/news-6.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-7">
-                                                            <div class="features-content d-flex flex-column">
-                                                                <p class="text-uppercase mb-2">Sports</p>
-                                                                <a href="#" class="h6">Get the best speak market, news.</a>
-                                                                <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-12">
-                                                    <div class="row g-4 align-items-center">
-                                                        <div class="col-5">
-                                                            <div class="overflow-hidden rounded">
-                                                                <img src="img/news-7.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-7">
-                                                            <div class="features-content d-flex flex-column">
-                                                                <p class="text-uppercase mb-2">Magazine</p>
-                                                                <a href="#" class="h6">Get the best speak market, news.</a>
-                                                                <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2024</small>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
+                                                }
+                                                
                                             </div>
                                         </div>
                                     }
                                     else
                                     {
                                         <div class="col-12">
-                                            <p>Now news found for this category!</p>
+                                            <p>No news found for this category!</p>
                                         </div>
                                     }
 
