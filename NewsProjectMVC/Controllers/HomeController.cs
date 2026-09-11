@@ -103,10 +103,10 @@ namespace NewsProjectMVC.Controllers
                                              .ToListAsync();
 
 
-            //viewModel.MostViewsNews = await _context.NewsViews
-            //                              .OrderByDescending(x => x.ViewCount)
-            //                              .Take(10)
-            //                              .ToListAsync();
+            viewModel.MostViewsNews = await _context.NewsViews
+                                          .OrderByDescending(x => x.ViewCount)
+                                          .Take(10)
+                                          .ToListAsync();
 
             // Step 6: Return the fully populated ViewModel to the View.
             return View(viewModel);

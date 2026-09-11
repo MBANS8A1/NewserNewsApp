@@ -12,7 +12,7 @@ namespace NewsProjectMVC.Models.ViewModels
         public List<News> FeaturedNews { get; set; } = new List<News>();
         public List<News> BestNews { get; set; } = new List<News>();
         public List<NewsView> LatestNews { get; set; } = new List<NewsView>();
-       // public List<News> MostViewsNews { get; set; } = new List<NewsView>();
+        public List<NewsView> MostViewsNews { get; set; } = new List<NewsView>();
 
         public List<MainPageCategoryViewModel> MainPageCategories { get; set; } = new List<MainPageCategoryViewModel>();
 
