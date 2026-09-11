@@ -23,6 +23,8 @@ public partial class MyNewsContext : DbContext
 
     public virtual DbSet<News> News { get; set; }
 
+    public virtual DbSet<NewsView> NewsViews { get; set; }
+
     public virtual DbSet<PopularCategory> PopularCategories { get; set; }
 
     public virtual DbSet<PopularNews> PopularNews { get; set; }
@@ -68,6 +70,21 @@ public partial class MyNewsContext : DbContext
         modelBuilder.Entity<News>(entity =>
         {
             entity.Property(e => e.CreatedAt).HasColumnType("datetime");
+            entity.Property(e => e.ImageName).HasMaxLength(50);
+            entity.Property(e => e.ShortDescription).HasMaxLength(210);
+            entity.Property(e => e.Status).HasMaxLength(50);
+            entity.Property(e => e.Tags).HasMaxLength(500);
+            entity.Property(e => e.Title).HasMaxLength(100);
+        });
+
+        modelBuilder.Entity<NewsView>(entity =>
+        {
+            entity
+                .HasNoKey()
+                .ToView("NewsView");
+
+            entity.Property(e => e.CreatedAt).HasColumnType("datetime");
+            entity.Property(e => e.FullName).HasMaxLength(60);
             entity.Property(e => e.ImageName).HasMaxLength(50);
             entity.Property(e => e.ShortDescription).HasMaxLength(210);
             entity.Property(e => e.Status).HasMaxLength(50);
