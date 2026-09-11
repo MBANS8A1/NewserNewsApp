@@ -96,10 +96,11 @@ namespace NewsProjectMVC.Controllers
                 }
             }
 
-            //viewModel.LastNews = await _context.NewsViews
-            //                                 .OrderByDescending(x => x.Id)
-            //                                 .Take(10)
-            //                                 .ToListAsync();
+            //This gets the NewsView instances ordered from most recently added to the oldest (for Latest News in the View)
+            viewModel.LatestNews = await _context.NewsViews
+                                             .OrderByDescending(x => x.Id)
+                                             .Take(10)
+                                             .ToListAsync();
 
 
             //viewModel.MostViewsNews = await _context.NewsViews

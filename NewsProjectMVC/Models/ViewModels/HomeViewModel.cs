@@ -11,7 +11,7 @@ namespace NewsProjectMVC.Models.ViewModels
         // For lists of news items like FeaturesNews and BestNews
         public List<News> FeaturedNews { get; set; } = new List<News>();
         public List<News> BestNews { get; set; } = new List<News>();
-       // public List<News> LatestNews { get; set; } = new List<NewsView>();
+        public List<NewsView> LatestNews { get; set; } = new List<NewsView>();
        // public List<News> MostViewsNews { get; set; } = new List<NewsView>();
 
         public List<MainPageCategoryViewModel> MainPageCategories { get; set; } = new List<MainPageCategoryViewModel>();
