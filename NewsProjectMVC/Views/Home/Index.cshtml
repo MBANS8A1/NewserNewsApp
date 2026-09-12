@@ -14,14 +14,14 @@
                         <div class="col-4">
                             <div class="rounded-circle position-relative">
                                 <div class="overflow-hidden rounded-circle">
-                                    <img src="/images/news/thumb_@newsItem.ImageName" class="img-zoomin img-fluid rounded-circle w-100" alt="@newsItem.Title">
+                                    <img src="/images/news/thumb_@newsItem.ImageName" class="img-zoomin img-fluid rounded-circle w-100 circle-img-80" alt="@newsItem.Title">
                                 </div>
                                 <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">@newsItem.ViewCount</span>
                             </div>
                         </div>
                         <div class="col-8">
                             <div class="features-content d-flex flex-column">
-                                <a href="/news/@newsItem.Id" class="h6">
+                                <a href="/news/@newsItem.Id" class="h6 text-clamp-2">
                                     @newsItem.Title
                                 </a>
                                 <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i>@newsItem.CreatedAt.ToString("MMMM dd, yyyy")</small>
