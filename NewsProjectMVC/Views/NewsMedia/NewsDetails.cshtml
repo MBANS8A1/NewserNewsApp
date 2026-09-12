@@ -18,7 +18,7 @@
                     <a href="/news/@Model.NewsData?.Id" class="h1 display-5">@Model.NewsData?.Title</a>
                 </div>
                 <div class="position-relative rounded overflow-hidden mb-3">
-                    <img src="/images/news/@Model.NewsData?.ImageName" class="img-zoomin img-fluid rounded w-100" alt="">
+                    <img src="/images/news/@Model.NewsData?.ImageName" class="img-zoomin img-fluid rounded w-100" alt="@Model.NewsData?.Title">
                     <div class="position-absolute text-white px-4 py-2 bg-primary rounded" style="top: 20px; right: 20px;">
                         @Model.Category?.Title
                     </div>
@@ -183,7 +183,7 @@
                                                     </div>
                                                     <div class="col-8">
                                                         <div class="features-content d-flex flex-column">
-                                                            <a href="/news/@popularNewsItem.Id" class="h6">
+                                                            <a href="/news/@popularNewsItem.Id" class="h6 text-clamp-2">
                                                                 @popularNewsItem.Title
                                                             </a>
                                                             <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i>@popularNewsItem.CreatedAt?.ToString("MMMM d, yyyy")</small>
