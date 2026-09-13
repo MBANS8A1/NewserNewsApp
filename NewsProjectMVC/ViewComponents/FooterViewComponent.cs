@@ -17,7 +17,7 @@ public class FooterViewComponent : ViewComponent
     public async Task<IViewComponentResult> InvokeAsync()
     {
         var footer_result = new FooterViewModel();
-        footer_result.Settings = await _context.Settings.FirstOrDefaultAsync();
+        footer_result.Settings = await _context.Settings.FirstAsync();
         return View(footer_result);
     }
 
