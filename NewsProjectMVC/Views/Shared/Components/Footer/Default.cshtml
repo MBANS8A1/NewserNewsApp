@@ -35,38 +35,24 @@
             <div class="col-lg-6 col-xl-3">
                 <div class="footer-item-2">
                     <h4 class="mb-4 text-white">Recent Posts</h4>
-                    <div class="d-flex flex-column mb-4">
-                        <a href="#">
-                            <div class="d-flex align-items-center">
-                                <div class="rounded-circle border border-2 border-primary overflow-hidden">
-                                    <img src="../../user/img/footer-1.jpg" class="img-zoomin img-fluid rounded-circle w-100" alt="">
+                    @foreach (var recentPostItem in Model.RecentPosts)
+                    {
+                        <div class="d-flex flex-column mb-4">
+                            <a href="/news/@recentPostItem.Id">
+                                <div class="d-flex align-items-center">
+                                    <div class="rounded-circle border border-2 border-primary overflow-hidden">
+                                        <img src="/images/news/thumb_@recentPostItem.ImageName" class="img-zoomin img-fluid rounded-circle w-100" alt="@recentPostItem.Title">
+                                    </div>
+                                    <div class="d-flex flex-column ps-4">
+                                        <a href="/news/@recentPostItem.Id" class="h6 text-white">
+                                            @recentPostItem.Title
+                                        </a>
+                                        <small class="text-white d-block"><i class="fas fa-calendar-alt me-1"></i> @recentPostItem.CreatedAt.ToString("MMM dd, yyyy")</small>
+                                    </div>
                                 </div>
-                                <div class="d-flex flex-column ps-4">
-                                    <p class="text-uppercase text-white mb-3">Life Style</p>
-                                    <a href="#" class="h6 text-white">
-                                        Get the best speak market, news.
-                                    </a>
-                                    <small class="text-white d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2026</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
-                    <div class="d-flex flex-column">
-                        <a href="#">
-                            <div class="d-flex align-items-center">
-                                <div class="rounded-circle border border-2 border-primary overflow-hidden">
-                                    <img src="../../user/img/footer-2.jpg" class="img-zoominimg-fluid rounded-circle w-100" alt="">
-                                </div>
-                                <div class="d-flex flex-column ps-4">
-                                    <p class="text-uppercase text-white mb-3">Sports</p>
-                                    <a href="#" class="h6 text-white">
-                                        Get the best speak market, news.
-                                    </a>
-                                    <small class="text-white d-block"><i class="fas fa-calendar-alt me-1"></i> Dec 9, 2026</small>
-                                </div>
-                            </div>
-                        </a>
-                    </div>
+                            </a>
+                        </div>
+                    }
                 </div>
             </div>
             <div class="col-lg-6 col-xl-3">
