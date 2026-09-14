@@ -31,6 +31,8 @@ public partial class MyNewsContext : DbContext
 
     public virtual DbSet<Setting> Settings { get; set; }
 
+    public virtual DbSet<Subscriber> Subscribers { get; set; }
+
     public virtual DbSet<Tag> Tags { get; set; }
 
     public virtual DbSet<User> Users { get; set; }
@@ -130,6 +132,14 @@ public partial class MyNewsContext : DbContext
             entity.Property(e => e.Title).HasMaxLength(50);
             entity.Property(e => e.X).HasMaxLength(50);
             entity.Property(e => e.YouTube).HasMaxLength(50);
+        });
+
+        modelBuilder.Entity<Subscriber>(entity =>
+        {
+            entity.ToTable("Subscriber");
+
+            entity.Property(e => e.Email).HasMaxLength(100);
+            entity.Property(e => e.SubscribedAt).HasColumnType("datetime");
         });
 
         modelBuilder.Entity<Tag>(entity =>
