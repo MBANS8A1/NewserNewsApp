@@ -71,36 +71,14 @@
                 <div class="footer-item-4">
                     <h4 class="mb-4 text-white">Our Gallery</h4>
                     <div class="row g-2">
-                        <div class="col-4">
-                            <div class="rounded overflow-hidden">
-                                <img src="../../user/img/footer-1.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
+                      @foreach (var galleryItem in Model.Gallery)
+                        {
+                            <div class="col-4">
+                                <div class="rounded overflow-hidden">
+                                    <img src="/images/news/thumb_@galleryItem.ImageName" class="img-zoomin img-fluid rounded w-100 circle-img-80" alt="@galleryItem.Title">
+                                </div>
                             </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="rounded overflow-hidden">
-                                <img src="../../user/img/footer-2.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="rounded overflow-hidden">
-                                <img src="../../user/img/footer-3.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="rounded overflow-hidden">
-                                <img src="../../user/img/footer-4.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="rounded overflow-hidden">
-                                <img src="../../user/img/footer-5.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                            </div>
-                        </div>
-                        <div class="col-4">
-                            <div class="rounded overflow-hidden">
-                                <img src="../../user/img/footer-6.jpg" class="img-zoomin img-fluid rounded w-100" alt="">
-                            </div>
-                        </div>
+                        }                    
                     </div>
                 </div>
             </div>
