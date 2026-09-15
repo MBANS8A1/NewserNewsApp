@@ -147,6 +147,49 @@
 
     <!-- Template Javascript -->
     <script src="../../user/js/main.js"></script>
+    <script>
+            $(document).ready(function() {
+                // Target ALL forms with the class 'newsletter-subscription-form'
+                $('.newsletter-subscription-form').on('submit', function(e) {
+                    // Prevent the default form submission
+                    e.preventDefault();
+
+                    // 'this' refers to the specific form that was just submitted
+                    var form = $(this);
+
+                    // Find the elements ONLY within the submitted form
+                    var emailInput = form.find('.newsletter-email-input');
+                    var submitButton = form.find('button[type="submit"]');
+
+                    var emailValue = emailInput.val();
+
+                    // Disable button to prevent multiple clicks
+                    submitButton.prop('disabled', true).text('Subscribing...');
+
+                    // The AJAX call remains the same
+                    $.ajax({
+                        type: "POST",
+                        url: "@Url.Action("Subscribe", "Newsletter")",
+                        data: { email: emailValue },
+                        success: function(response) {
+                            if (response.success) {
+                                form.html(`<div class="alert alert-success">${response.message}</div>`);
+                                emailInput.val('');
+                            } else {
+                                alert(response.message);
+                            }
+                        },
+                        error: function() {
+                            alert("An unexpected error occurred. Please try again.");
+                        },
+                        complete: function() {
+                            // Re-enable the button
+                            submitButton.prop('disabled', false).text('Subscribe Now');
+                        }
+                    });
+                });
+            });
+    </script>
 </body>
 
 </html>
