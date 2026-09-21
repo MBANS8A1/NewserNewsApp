@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NewsProjectMVC.Models.Db;
 using System.Security.Claims;
+using NewsProjectMVC.Models.ViewModels;
 
 namespace NewsProjectMVC.Controllers
 {
