@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using System.Security.Claims
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
@@ -164,13 +165,13 @@
                                    href="#"
                                    aria-expanded="false">
                                     <div class="avatar-sm">
-                                        <img src="/admin/assets/img/profile.jpg"
-                                             alt="..."
+                                        <img src="/images/user.png"
+                                             alt="User Avatar..."
                                              class="avatar-img rounded-circle" />
                                     </div>
                                     <span class="profile-username">
                                         <span class="op-7">Hi,</span>
-                                        <span class="fw-bold">Hizrian</span>
+                                        <span class="fw-bold">@User.FindFirstValue("FullName")</span>
                                     </span>
                                 </a>
                                 <ul class="dropdown-menu dropdown-user animated fadeIn">
@@ -178,14 +179,14 @@
                                         <li>
                                             <div class="user-box">
                                                 <div class="avatar-lg">
-                                                    <img src="/admin/assets/img/profile.jpg"
-                                                         alt="image profile"
+                                                    <img src="/images/user.png"
+                                                         alt="User Profile Image"
                                                          class="avatar-img rounded" />
                                                 </div>
                                                 <div class="u-text">
-                                                    <h4>Hizrian</h4>
-                                                    <p class="text-muted">hello@example.com</p>
-                                                    <a href="profile.html"
+                                                    <h4>@User.FindFirst("FullName")</h4>
+                                                    <p class="text-muted">@User.Identity?.Name</p>
+                                                    <a href="/admin/users/edit/@User.FindFirstValue(ClaimTypes.NameIdentifier)"
                                                        class="btn btn-xs btn-secondary btn-sm">View Profile</a>
                                                 </div>
                                             </div>
