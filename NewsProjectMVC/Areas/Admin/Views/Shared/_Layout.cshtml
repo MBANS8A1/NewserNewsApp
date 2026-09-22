@@ -186,8 +186,11 @@
                                                 <div class="u-text">
                                                     <h4>@User.FindFirst("FullName")</h4>
                                                     <p class="text-muted">@User.Identity?.Name</p>
-                                                    <a href="/admin/users/edit/@User.FindFirstValue(ClaimTypes.NameIdentifier)"
-                                                       class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+                                                    @if (User.IsInRole("Admin"))
+                                                        {
+                                                          <a href="/admin/users/edit/@User.FindFirstValue(ClaimTypes.NameIdentifier)" class="btn btn-xs btn-secondary btn-sm">View Profile</a>
+
+                                                        }
                                                 </div>
                                             </div>
                                         </li>
