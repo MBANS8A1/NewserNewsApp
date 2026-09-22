@@ -184,7 +184,7 @@
                                                          class="avatar-img rounded" />
                                                 </div>
                                                 <div class="u-text">
-                                                    <h4>@User.FindFirst("FullName")</h4>
+                                                    <h4>@User.FindFirstValue("FullName")</h4>
                                                     <p class="text-muted">@User.Identity?.Name</p>
                                                     @if (User.IsInRole("Admin"))
                                                         {
