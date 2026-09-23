@@ -1,12 +1,14 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NewsProjectMVC.Models.Db;
-using System.Globalization;
 using NewsProjectMVC.Models.ViewModels;
+using System.Globalization;
 
 namespace NewsProjectMVC.Areas.Admin.Controllers
 {
     [Area("Admin")]
+    [Authorize(Roles = "Admin")]
     public class HomeController : Controller
     {
         private readonly MyNewsContext _context;

@@ -1,9 +1,11 @@
 
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NewsProjectMVC.Models.Db;
 
 [Area("Admin")]
+[Authorize(Roles = "Admin")]
 public class TagsController : Controller
 {
     private readonly MyNewsContext _context;

@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using NewsProjectMVC.Models.Db;
+using Microsoft.AspNetCore.Authorization;
 
 
 [Area("Admin")]
+[Authorize(Roles ="Admin")]
 public class CategoriesController : Controller
 {
     private readonly MyNewsContext _context;

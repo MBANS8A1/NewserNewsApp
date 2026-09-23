@@ -6,8 +6,10 @@ using Microsoft.EntityFrameworkCore;
 using NewsProjectMVC.Models.Db;
 using NewsProjectMVC.Models.Helpers;
 using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 
 [Area("Admin")]
+[Authorize]
 public class NewsController : Controller
 {
     private readonly MyNewsContext _context;
