@@ -95,6 +95,23 @@
                 border-radius: 50%;
             }
 
+            .marquee {
+                width: max-content;
+                animation: scroll-left 25s linear infinite;
+                white-space: nowrap;
+            }
+            @Html.Raw("@")keyframes scroll-left {
+                from {
+                    transform: translateX(100%);
+                }
+
+                to{
+                    transform: translateX(-80%);
+                }
+            }
+
+           
+
     </style>
 </head>
 
