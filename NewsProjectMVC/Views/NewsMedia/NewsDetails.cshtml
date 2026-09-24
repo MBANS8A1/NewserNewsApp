@@ -144,58 +144,59 @@
                     </form>
                 </div>
             </div>
+            
+            </div>
             <div class="col-lg-4">
                 <div class="row g-4">
                     <div class="col-12">
                         <div class="p-3 rounded border">
                             <form method="get" class="w-100" asp-action="Index" asp-controller="NewsMedia">
-                                    <div class="input-group w-100 mx-auto d-flex mb-4">
-                                        <input type="search" name="searchTerm" class="form-control p-3" placeholder="News Title" aria-describedby="search-icon-1">
-                                        <button type="submit" id="search-icon-1" class="btn btn-primary input-group-text p-3"><i class="fa fa-search text-white"></i></button>
-                                    </div>
-                            </form>     
+                                <div class="input-group w-100 mx-auto d-flex mb-4">
+                                    <input type="search" name="searchTerm" class="form-control p-3" placeholder="News Title" aria-describedby="search-icon-1">
+                                    <button type="submit" id="search-icon-1" class="btn btn-primary input-group-text p-3"><i class="fa fa-search text-white"></i></button>
+                                </div>
+                            </form>
                             <h4 class="mb-4">Popular Categories</h4>
                             <div class="row g-2">
-                              @foreach (var popCategory in Model.PopularCategories)
+                                @foreach (var popCategory in Model.PopularCategories)
                                 {
                                     <div class="col-12">
                                         <a href="/news?categoryid=@popCategory.Id" class="link-hover btn btn-light w-100 rounded text-uppercase text-dark py-3">
                                             @popCategory.Title
                                         </a>
                                     </div>
-                                }                 
+                                }
                             </div>
                             <h4 class="my-4">Popular News</h4>
                             <div class="row g-4">
                                 @if (Model.PopularNews.Any())
+                                {
+                                    foreach (var popularNewsItem in Model.PopularNews)
                                     {
-                                        foreach (var popularNewsItem in Model.PopularNews)
-                                        {
-                                            <div class="col-12">
-                                                <div class="row g-4 align-items-center features-item">
-                                                    <div class="col-4">
-                                                        <div class="rounded-circle position-relative">
-                                                            <div class="overflow-hidden rounded-circle">
-                                                                <img src="/images/news/thumb_@popularNewsItem.ImageName" class="img-zoomin img-fluid rounded-circle w-100 circle-img-100" alt="@popularNewsItem.Title">
-                                                            </div>
-                                                            <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">@popularNewsItem.ViewCount</span>
+                                        <div class="col-12">
+                                            <div class="row g-4 align-items-center features-item">
+                                                <div class="col-4">
+                                                    <div class="rounded-circle position-relative">
+                                                        <div class="overflow-hidden rounded-circle">
+                                                            <img src="/images/news/thumb_@popularNewsItem.ImageName" class="img-zoomin img-fluid rounded-circle w-100 circle-img-100" alt="@popularNewsItem.Title">
                                                         </div>
+                                                        <span class="rounded-circle border border-2 border-white bg-primary btn-sm-square text-white position-absolute" style="top: 10%; right: -10px;">@popularNewsItem.ViewCount</span>
                                                     </div>
-                                                    <div class="col-8">
-                                                        <div class="features-content d-flex flex-column">
-                                                            <a href="/news/@popularNewsItem.Id" class="h6 text-clamp-2">
-                                                                @popularNewsItem.Title
-                                                            </a>
-                                                            <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i>@popularNewsItem.CreatedAt?.ToString("MMMM d, yyyy")</small>
-                                                        </div>
+                                                </div>
+                                                <div class="col-8">
+                                                    <div class="features-content d-flex flex-column">
+                                                        <a href="/news/@popularNewsItem.Id" class="h6 text-clamp-2">
+                                                            @popularNewsItem.Title
+                                                        </a>
+                                                        <small class="text-body d-block"><i class="fas fa-calendar-alt me-1"></i>@popularNewsItem.CreatedAt?.ToString("MMMM d, yyyy")</small>
                                                     </div>
                                                 </div>
                                             </div>
-                                        }                
+                                        </div>
                                     }
+                                }
                             </div>
                         </div>
-                      </div>
                     </div>
                 </div>
             </div>
