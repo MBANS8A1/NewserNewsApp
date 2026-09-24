@@ -73,6 +73,11 @@ public class MenusController : Controller
         {
             _context.Add(menu);
             await _context.SaveChangesAsync();
+            // Redirect to the sub-menu page after submission of changes
+            if (menu.ParentId != null)
+            {
+                return Redirect("/admin/menus/index/" + menu.ParentId);
+            }
             return RedirectToAction(nameof(Index));
         }
         return View(menu);
@@ -124,6 +129,11 @@ public class MenusController : Controller
                     throw;
                 }
             }
+            // Redirect to the sub-menu page after submission of changes
+            if (menu.ParentId != null)
+            {
+                return Redirect("/admin/menus/index/" + menu.ParentId);
+            }
             return RedirectToAction(nameof(Index));
         }
         return View(menu);
@@ -159,6 +169,11 @@ public class MenusController : Controller
         }
 
         await _context.SaveChangesAsync();
+        // Redirect to the sub-menu page after submission of changes
+        if (menu?.ParentId != null)
+        {
+            return Redirect("/admin/menus/index/" + menu.ParentId);
+        }
         return RedirectToAction(nameof(Index));
     }
 
