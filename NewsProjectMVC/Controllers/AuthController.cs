@@ -111,5 +111,14 @@ namespace NewsProjectMVC.Controllers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
         }
+
+        // GET: /Auth/AccessDenied
+        [HttpGet]
+        public IActionResult AccessDenied()
+        {
+            Response.StatusCode = 403;
+            ViewData["permissionRespCode"] = Response.StatusCode;
+            return View();
+        }
     }
 }
