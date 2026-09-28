@@ -1,0 +1,23 @@
+﻿@{
+    ViewData["Title"] = "Internal Server Error";
+}
+<div class="container py-1 px-1 mx-auto my-auto w-80 h-30 rounded" style="background-color:#D9DDDC;">
+    <div class="row mb-1 me-1">
+        <div class="col-12"><h2 style="text-align:center;">Not Found (Http  @ViewData["internalServerErrorCode"] Error)</h2></div>
+    </div>
+    <div class="d-flex flex-column me-0.5 mb-2">
+        <div class="text-center"><p class="fw-bold text-dark">Unexpected Server Issue on our end. Check back later.</p></div>
+        <div class="d-flex justify-content-center align-items-center"><img class="img-fluid" style="max-width:60px; max-height:60px" src="/images/old_servers_500.jpg" alt="Not-Found-Icon" /></div>
+    </div>
+    <div class="row me-0.5">
+        <div class="col-4 d-flex justify-content-center">
+            <a href="javascript:history.back()" class="btn btn-outline-dark">Go Back</a>
+        </div>
+
+        <div class="col-4 d-flex justify-content-center">
+            <a asp-controller="Home" asp-action="Index" class="btn btn-outline-dark">To Homepage</a>
+
+        </div>
+
+    </div>
+</div>
