@@ -108,6 +108,7 @@ public class NewsController : Controller
         catch (Exception ex)
         {
             // Log the exception
+            Console.WriteLine($"Could not load news => {ex.Message}");
             return BadRequest();
         }
     }
