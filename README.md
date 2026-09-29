@@ -90,3 +90,6 @@ articles from their dedicated account. A general administrator has access to all
 ![Newsers NavBar Area](NewsProjectMVC/wwwroot/images/navbar_area.jpg)
 
 - To the right of the Latest News text and logo is the marquee which shows five of the latest added news articles, which are all clickable and take the visitor to the details page for the article
+- To the right of the marquee are a list of social media links
+- The current menu items showing are the following: Home, Sign In, News (a dropdown list) and Contact Us. These links are  accessible on all the pages of the website for ease of use. "Home" takes the user back to the home page, "Sign In" allows administrators and correspondents (non-administrators) to log into their news specific account for their category of news they deal with, News lists some sub-menu items (categories) and Contact Us will take the visitor to footer area of the home page where the news agency contact details are. All these menu items can be modified from the admin (Kaiadmin) panel by the administrator (including any sub-menu items if the menu item has a ParentId).
+- The temperature (in Celsius), city and date are due to the Open Meteo Weather API (you can customize this to your own location).
