@@ -87,3 +87,6 @@ articles from their dedicated account. A general administrator has access to all
 
 ### Navbar Area:
 
+![Newsers NavBar Area](NewsProjectMVC/wwwroot/images/navbar_area.jpg)
+
+- To the right of the Latest News text and logo is the marquee which shows five of the latest added news articles, which are all clickable and take the visitor to the details page for the article
