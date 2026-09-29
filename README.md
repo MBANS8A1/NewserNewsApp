@@ -84,3 +84,6 @@ articles from their dedicated account. A general administrator has access to all
 
 
 ## News Agency Site Navigation
+
+### Navbar Area:
+
