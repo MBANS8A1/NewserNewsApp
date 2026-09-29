@@ -5,6 +5,8 @@ articles from their dedicated account. A general administrator has access to all
 
 **Programming languages used**: C# ASP.NET Core, JavaScript/AJAX (including plugins and libraries) and JQuery.
 
+**Markup used and styling**: HTML5, Bootstrap 5, CSS3, Font Awesome
+
 **Database(s) used**: SQL Server (via SSMS - SQL Server Management Studio)
 
 ## Tables/Views used in SQL Server (with columns)
