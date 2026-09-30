@@ -112,3 +112,25 @@ articles from their dedicated account. A general administrator has access to all
 ![Top Story](NewsProjectMVC/wwwroot/images/top_story_area.jpg)
 
 - The top story is up to user discretion and can be changed from the database table; it has a larger image with the reading time, view count and title; the title can be clicked to take the visitor to the details page of the news article.
+
+#### Newsletter Subscription Area
+
+- This section on the home page allows the visitor to subscribe to a newsletter to receive the news they are interested in (simulating this) by submitting their email.
+
+![Entering a (business) email](NewsProjectMVC/wwwroot/images/subscription_area_home_page.jpg)
+
+- After entering a valid email address a message will display in the input element, thanking the visitor for subscribing.
+
+![Submitting a valid (business) email](NewsProjectMVC/wwwroot/images/subscription_area_submission_home_page.jpg)
+
+- If the visitor clicks the "Subscribe Now" with an empty input field they will get a alert telling them to enter a valid email address.
+
+![Empty email address submission](NewsProjectMVC/wwwroot/images/empty_subscription_submission.jpg)
+
+- If the visitor enters an email with an invalid syntax and tries to subscribe, the validation will trigger and ask the user to include the "at" (@) symbol.
+
+![Improper email syntax ](NewsProjectMVC/wwwroot/images/subscription_area_validation_home_page.jpg)
+
+-What if an email address that was submitted previously is entered again? An alert will appear letting the visitor they are already subscribed.
+
+![Duplicate email address submission attempt](NewsProjectMVC/wwwroot/images/already_on_subscribed_list.jpg)
