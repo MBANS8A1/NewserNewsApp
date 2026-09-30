@@ -145,4 +145,13 @@ articles from their dedicated account. A general administrator has access to all
 
 ![Latest News carousel](NewsProjectMVC/wwwroot/images/latest_news_home_page.jpg)
 
+#### What's New Area
 
+- Here the visitor can select news articles by the specific category. 
+- Each category can show a maximum of five new articles with the most recent (by creation date) news article having a large image in the centre with the title, reading time, view count and short description underneath.
+- The pill-shaped categories the visitor can click on can be customized in the database to show different ones; only four categories are shown to avoid visual clutter.
+- The remaining four or less news articles (other than the most recent) are shown as small featured segments to the right with the category name, title and date of creation underneath the thumbnail-sized image.
+
+![What's New Top Part](NewsProjectMVC/wwwroot/images/bottom_part_of_whats_new_section.jpg)
+
+![What's New Bottom Part](NewsProjectMVC/wwwroot/images/top_part_of_whats_new_section.jpg)
