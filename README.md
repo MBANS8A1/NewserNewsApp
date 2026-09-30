@@ -154,6 +154,6 @@ articles from their dedicated account. A general administrator has access to all
 
 ![What's New Top Part](NewsProjectMVC/wwwroot/images/top_part_of_whats_new_area.jpg)
 
-![What's New Bottom Part](NewsProjectMVC/wwwroot/images/bottom_part_of_whats_new_section.jpg)
+![What's New Bottom Part](NewsProjectMVC/wwwroot/images/bottom_part_of_whats_new_area.jpg)
 
 
