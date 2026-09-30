@@ -139,8 +139,8 @@ articles from their dedicated account. A general administrator has access to all
 
 - This portion of the page makes use of the Owl Carousel jQuery plugin to make a resposive carousel of news articles.
 - The latest news makes use of the NewsView View table, which allows the user's (news correspondent's) name to be assigned to a specific article.
-- The left and right navigation buttons make use of the navClass array items the path "wwwroot/user/lib/owlcarousel/owlcarousel.lib".
-- Each rectagular card is a <div> element containing the thumbnail image, title, user name (news correspondent name) and date.
+- The left and right navigation arrow buttons make use of the navClass array items the path "wwwroot/user/lib/owlcarousel/owlcarousel.lib".
+- Each rectagular card is a <div> element containing the thumbnail image, title, user's full name (news correspondent full name) and date.
 - The latest news is a list of ten news articles from the most recent to the oldest in terms of creation date.
 
 ![Latest News carousel](NewsProjectMVC/wwwroot/images/latest_news_home_page.jpg)
@@ -157,3 +157,11 @@ articles from their dedicated account. A general administrator has access to all
 ![What's New Bottom Part](NewsProjectMVC/wwwroot/images/bottom_part_of_whats_new_area.jpg)
 
 
+#### Most Views News Area
+
+- This section show ten news articles, which has been viewed the most by other visitors. This means the news articles are ordered by view count from the highest to the lowest.
+- The news articles are shown on a carousel (due to the addition of the owl-carousel class) with left and right navigation arrow buttons like the latest news section.
+- Each news article consists of the following: a thumbnail-sized image which zooms in when hovered over, title, user's full name (as the Most Views News is based off of the NewsView derived view table) and the date of creation.
+
+![Most Views News Area](NewsProjectMVC/wwwroot/images/most_views_news_area.jpg)
+ 
