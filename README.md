@@ -85,9 +85,11 @@ articles from their dedicated account. A general administrator has access to all
 
 ## News Agency Site Navigation
 
-### Navbar Area:
+### <ins>Home Page</ins>
 
-![Newsers NavBar Area](NewsProjectMVC/wwwroot/images/navbar_area.jpg)
+#### Navbar Area:
+
+![Newsers Navbar Area](NewsProjectMVC/wwwroot/images/navbar_area.jpg)
 
 - To the right of the Latest News text and logo is the marquee which shows five of the latest added news articles, which are all clickable and take the visitor to the details page for the article
 - To the right of the marquee are a list of social media links
@@ -96,4 +98,11 @@ articles from their dedicated account. A general administrator has access to all
 - The search icon when clicked will open up a modal where the visitor can search for news using a searchTerm and be taken to a "NewsMedia/Index" search page where a news card or cards related to the searchTerm may or may not be shown (depending on the news articles within the database).
 -The row of circular thumbnail images belong to the FeaturedNews (randomly selected and four currently); these can be changes from the Settings table. The number at the top-right of each image is the number of views for that piece of news. Each featured news can be clicked on its title to take the visitor to the details page for that news.
 
-### Best News and Main News
+#### Best News and Main News Area
+
+![News Main News and Best News](NewsProjectMVC/wwwroot/images/main_news_and_best_news_area.jpg)
+
+![Bottom Portion of Main News](NewsProjectMVC/wwwroot/images/bottom_portion_of_main_news_area.jpg)
+
+- Below the header area and to the right is a sidebar containing the best news. This list of news can be anything and can be modified in the database. Below each square image is the view count and the reading time (calculated with a helper function) and the view count.
+- The central large image is part of the main news and the bottom portion also has the reading time and view count; but, also it has a title and short description. The title can be clicked and doing so will take the user to the details page for that news article.
