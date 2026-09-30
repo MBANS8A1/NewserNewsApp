@@ -79,7 +79,7 @@ articles from their dedicated account. A general administrator has access to all
 <ins>Derived Views</ins>
 
 1. NewsView (Forms a LEFT OUTER JOIN using the News and User tables - allows allocation of correspondent specific news)
-2. PopularCategories (Forms a LEFT OUTER JOIN between the Category and News tables - counts the news belonging to each category ans groups them by Title and Id and uses NewsCount as an alias)
+2. PopularCategories (Forms a LEFT OUTER JOIN between the Category and News tables - counts the news belonging to each category and groups them by Title and Id and uses NewsCount as an alias)
 3. PopularNews (This is based on the news articles with the most comments using a RIGHT OUTER JOIN of the News and Comment tables - includes all the columns from the News table but with an extra columns for the quantity of comments user each news article (the alias CommentCount is used for this derived column)
 
 
@@ -134,3 +134,4 @@ articles from their dedicated account. A general administrator has access to all
 -What if an email address that was submitted previously is entered again? An alert will appear letting the visitor they are already subscribed.
 
 ![Duplicate email address submission attempt](NewsProjectMVC/wwwroot/images/already_on_subscribed_list.jpg)
+
