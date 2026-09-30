@@ -135,3 +135,12 @@ articles from their dedicated account. A general administrator has access to all
 
 ![Duplicate email address submission attempt](NewsProjectMVC/wwwroot/images/already_on_subscribed_list.jpg)
 
+#### Latest News
+
+- This portion of the page makes use of the Owl Carousel jQuery plugin to make a resposive carousel of news articles.
+- The latest news makes use of the NewsView View table, which allows the user's (news correspondent's) name to be assigned to a specific article.
+- The left and right navigation buttons make use of the navClass array items the path "wwwroot/user/lib/owlcarousel/owlcarousel.lib".
+- Each rectagular card is a <div> element containing the thumbnail image, title, user name (news correspondent name) and date.
+- The latest news is a list of ten news articles from the most recent to the oldest in terms of creation date.
+
+![Latest News carousel](NewsProjectMVC/wwwroot/images/latest_news_home_page.jpg)
