@@ -95,3 +95,5 @@ articles from their dedicated account. A general administrator has access to all
 - The temperature (in Celsius), city and date are due to the Open Meteo Weather API (you can customize this to your own location).
 - The search icon when clicked will open up a modal where the visitor can search for news using a searchTerm and be taken to a "NewsMedia/Index" search page where a news card or cards related to the searchTerm may or may not be shown (depending on the news articles within the database).
 -The row of circular thumbnail images belong to the FeaturedNews (randomly selected and four currently); these can be changes from the Settings table. The number at the top-right of each image is the number of views for that piece of news. Each featured news can be clicked on its title to take the visitor to the details page for that news.
+
+### Best News and Main News
