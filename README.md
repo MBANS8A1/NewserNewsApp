@@ -144,3 +144,5 @@ articles from their dedicated account. A general administrator has access to all
 - The latest news is a list of ten news articles from the most recent to the oldest in terms of creation date.
 
 ![Latest News carousel](NewsProjectMVC/wwwroot/images/latest_news_home_page.jpg)
+
+
