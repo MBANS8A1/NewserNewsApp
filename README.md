@@ -187,3 +187,11 @@ You can get to this page by using the URL address bar of the browser and using t
 - Below the search bar are a list of popular categories ordered by the categories that have the most news articles associated with it (i.e the news count) to the least. From the image below you can see sport has the highest amount of article associated with it.
 
 ![Top of News Details Page](NewsProjectMVC/wwwroot/images/top_portion_of_news_details_page.jpg)
+
+#### Middle Portion of News Details Page
+
+- Here we see the metrics for the specfic news article (reading time, view count and the amount of comments for this news article).
+- To the right is the popular news, which are up to four news article segments with each news article having the following: a circular thumbnail image (having a superimposed view count on top), news title, and date of creation.
+- Also, the start of long description (text) for the news article can be seen.
+
+![Top of News Details Page](NewsProjectMVC/wwwroot/images/middle_portion_of_news_details_page.jpg)
