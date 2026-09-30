@@ -174,3 +174,10 @@ articles from their dedicated account. A general administrator has access to all
 - Finally, there is a gallery of thumbnail-sized images ordered by name (lexicographically), which zoom in when hovered over.
 
 ![Most Views News Area](NewsProjectMVC/wwwroot/images/portion_of_the_footer_area.jpg)
+
+### <ins>News Details Page</ins>
+
+You can get to this page by using the URL address bar of the browser and using the route "/news/{id of the news article}" if you know it.
+
+#### Top Portion of News Details Page
+
