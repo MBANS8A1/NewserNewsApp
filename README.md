@@ -159,9 +159,18 @@ articles from their dedicated account. A general administrator has access to all
 
 #### Most Views News Area
 
-- This section show ten news articles, which has been viewed the most by other visitors. This means the news articles are ordered by view count from the highest to the lowest.
+- This section shows ten news articles, which has been viewed the most by other visitors. This means the news articles are ordered by view count from the highest to the lowest.
 - The news articles are shown on a carousel (due to the addition of the owl-carousel class) with left and right navigation arrow buttons like the latest news section.
 - Each news article consists of the following: a thumbnail-sized image which zooms in when hovered over, title, user's full name (as the Most Views News is based off of the NewsView derived view table) and the date of creation.
 
 ![Most Views News Area](NewsProjectMVC/wwwroot/images/most_views_news_area.jpg)
  
+
+#### Footer Area
+
+- There is the contact information (address, email address and phone) underneath the "Get In Touch" along with some social media links
+- To the right of the contact information is the "Recent Posts", which shows two of the recently created news articles that are published. Note: news articles can be made unpublished by a news correspondent in the admin area if modification of removal is needed. These posts are ordered from the most the most newly created to the oldest. Each recent posts consists of a thumbnail-sized image, title and date.
+- Next, continuing on rightwards is the Categories (the type and amount can be modified in the database); clicking on a category will take the visitor to the "NewsMedia/Index" search page with articles relevant to the category.
+- Finally, there is a gallery of thumbnail-sized images ordered by name (lexicographically), which zoom in when hovered over.
+
+![Most Views News Area](NewsProjectMVC/wwwroot/images/portion_of_the_footer_area.jpg)
