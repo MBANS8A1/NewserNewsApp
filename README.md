@@ -104,5 +104,11 @@ articles from their dedicated account. A general administrator has access to all
 
 ![Bottom Portion of Main News](NewsProjectMVC/wwwroot/images/bottom_portion_of_main_news_area.jpg)
 
-- Below the header area and to the right is a sidebar containing the best news. This list of news can be anything and can be modified in the database. Below each square image is the view count and the reading time (calculated with a helper function) and the view count.
+- Below the header area and to the right is a sidebar containing the best news. This list of news can be anything and can be modified in the database. Below each square thumbnail image is the view count and the reading time (calculated with a helper function) and the view count.
 - The central large image is part of the main news and the bottom portion also has the reading time and view count; but, also it has a title and short description. The title can be clicked and doing so will take the user to the details page for that news article.
+
+#### Top Story
+
+![Top Story](NewsProjectMVC/wwwroot/images/top_story_area.jpg)
+
+- The top story is up to user discretion and can be changed from the database table; it has a larger image with the reading time, view count and title; the title can be clicked to take the visitor to the details page of the news article.
