@@ -175,9 +175,15 @@ articles from their dedicated account. A general administrator has access to all
 
 ![Most Views News Area](NewsProjectMVC/wwwroot/images/portion_of_the_footer_area.jpg)
 
-### <ins>News Details Page</ins>
+### <ins>News Details Page (for a news article) </ins>
 
-You can get to this page by using the URL address bar of the browser and using the route "/news/{id of the news article}" if you know it.
+You can get to this page by using the URL address bar of the browser and using the route "/news/{id of the news article}" if you know it. However, a more convenient way is just to click the name of the news article you are interested in on the home page or on this news details page.
 
 #### Top Portion of News Details Page
 
+- On this part of the page you will see a breadcrumb with the structure of " Home / News / [news article title].
+- Below the breadcrumb is the title and a large image (the image is from the database under the ImageName field) along with the category it belongs to superimposed on the image.
+- To the right is a search bar within the placeholder text "News Title" where you can easily type some phrase of keyword into it order to find an article quickly; when enter or the search button is clicked the visitor will be taken to the "NewsMedia/Index" search page where the results of the query will be shown.
+- Below the search bar are a list of popular categories ordered by the categories that have the most news articles associated with it (i.e the news count) to the least. From the image below you can see sport has the highest amount of article associated with it.
+
+![Top of News Details Page](NewsProjectMVC/wwwroot/images/top_portion_of_news_details_page.jpg)
