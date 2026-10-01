@@ -283,7 +283,22 @@ You can get to this page by using the URL address bar of the browser and using t
 ![Admin User Edit Page](NewsProjectMVC/wwwroot/images/admin_profile_edit.jpg)
 
 
+### <ins>Admin Panel Settings (For Administrators)</ins>
 
+- In the "Manage Site Settings" there are two tabs available: "**Global Settings**" and "**News Options**".
+- Global Settings tab shows all the text and links for the address/contact information and social media links, respectively. These can be changed.
 
+![Settings_Global Settings](NewsProjectMVC/wwwroot/images/settings_item_global_settings.jpg)
 
+- These Global Settings fields control what is seen in the footer area of the news agency site. This can be handy for example when the organization moves address and/or contact information changes.
 
+![Footer_Area_Global_Settings](NewsProjectMVC/wwwroot/images/global_settings_footer_area.jpg)
+
+- For the News Options tab shows the Main News Options (the first news article on the home page with the large image), Top Story (the news article immediately below the main news on the home page), Featured News (the four news articles with a circular image on the banner of the navbar for the home page), Best News (the columns of three news articles to the right of the Main News on the home page) and Main Page Categories (this is the list of categories seen within the footer area of the site).
+
+![Settings_News_Options](NewsProjectMVC/wwwroot/images/settings_news_options.jpg)
+
+- All the fields in this News Options tab make use of the Select2 jQuery plugin which is a JavaScript replacement for select boxes, which can be single item select or multi-item select.
+- The Main News Options and  Top Story are single select so you can type into the Select2 box and it will search for the single article you are looking for, since both these fields only take one news record.
+
+![Single_Select_Top_Story_Example](NewsProjectMVC/wwwroot/images/news_options_settings_select2_single_search_select.jpg)
