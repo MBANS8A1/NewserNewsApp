@@ -210,3 +210,6 @@ You can get to this page by using the URL address bar of the browser and using t
 
 ![Comment Awaiting Approval](NewsProjectMVC/wwwroot/images/comment_awaiting_approval_news_details_page.jpg)
 
+- After approval in the admin (Kaiadmin) panel by the administrator the comments will appear at the bottom of the page for the specific article.
+
+![Comment After Approval](NewsProjectMVC/wwwroot/images/comments_shown_after_approval.jpg)
