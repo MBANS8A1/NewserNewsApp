@@ -169,7 +169,7 @@ articles from their dedicated account. A general administrator has access to all
 #### Footer Area
 
 - There is the contact information (address, email address and phone) underneath the "Get In Touch" along with some social media links
-- To the right of the contact information is the "Recent Posts", which shows two of the recently created news articles that are published. Note: news articles can be made unpublished by a news correspondent in the admin area if modification of removal is needed. These posts are ordered from the most the most newly created to the oldest. Each recent posts consists of a thumbnail-sized image, title and date.
+- To the right of the contact information is the "Recent Posts", which shows two of the recently created news articles that are published. **Note**: news articles can be made unpublished by a news correspondent in the admin area if modification of removal is needed. These posts are ordered from the most the most newly created to the oldest. Each recent posts consists of a thumbnail-sized image, title and date.
 - Next, continuing on rightwards is the Categories (the type and amount can be modified in the database); clicking on a category will take the visitor to the "NewsMedia/Index" search page with articles relevant to the category.
 - Finally, there is a gallery of thumbnail-sized images ordered by name (lexicographically), which zoom in when hovered over.
 
@@ -238,6 +238,17 @@ You can get to this page by using the URL address bar of the browser and using t
 
 - Administrators and non-admin users (correspondents) can get to the sign in page by clicking "Sign In" on the navbar area.
 - Enter your credentials (username and password)
-- Note: to allow continued access to the admin panel (e.g. when the browser window is closed and re-opened) you can check the box "Remember Me"; by default the cookies expiration time is 30 days, but you can override this within the Program.cs file, which I have done. In this case at the time of writing it is 10 days for the expiration of a cookie.
+- **Note**: to allow continued access to the admin panel (e.g. when the browser window is closed and re-opened) you can check the box "Remember Me"; by default the cookies expiration time is 30 days, but you can override this within the Program.cs file, which I have done. In this case at the time of writing it is 10 days for the expiration of a cookie.
 
 ![Sign In Page](NewsProjectMVC/wwwroot/images/sign_in_page.jpg)
+
+
+### <ins>Admin Panel For Non-Admin Users (News Correspondents) After Logging In</ins>
+- When a user signs in, they will be presented with the news articles they have created only.
+- To the top-right is the user's avatar and name; if this is clicked it will expand to show where a "Logout" button, which when clicked will log the user out of their account.
+- In the black sidebar at the far left the only option available is the current News menu item; this is because "Jessica" is a non-admin user. None-admin users can only create, edit and delete news articles they have made. They cannot perform CRUD (Create Read Update Delete) on anything else.
+- Under the "News Index" text is the "Create News" so the non-admin user can add another news article to the news list.
+- The table for the News list is created using the datatables JavaScript library (which created grid tables commonly used in CRM solutions). it has the column headings Title, View Count, Status, Image and Actions. The actions are Font Awesome icons for Edit, Comments and Delete, respectively. **Note**: the Comments icon cannot be used for non-admin users though.
+- You can use the search bar to the right of the news list to search for a news article using phrases, letters and words. Furthermore, the correspondent can also use the arrowheads (up and down) to sort the news articles by the column and control the amount of articles shown per page (if there are many articles) with the "Show Entries" dropdown.
+
+![News Index Non-Admin](NewsProjectMVC/wwwroot/images/news_index_page_non_admin.jpg)
