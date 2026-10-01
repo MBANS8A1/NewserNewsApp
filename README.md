@@ -256,7 +256,7 @@ You can get to this page by using the URL address bar of the browser and using t
 
 ![News Index Non-Admin](NewsProjectMVC/wwwroot/images/news_index_page_non_admin.jpg)
 
-- At the bottom of the News Index page you can see the pages you can select (at the moment only page 1  is showing but if you have multiple articles, then more pages will show) and the range of the entries.
+- At the bottom of the News Index page you can see the pages you can select (at the moment only page 1 is showing but if you have multiple articles, then more pages will show) and the range of the entries.
 
 ![News Index Bottom](NewsProjectMVC/wwwroot/images/news_entries_and_pages.jpg)
 
@@ -266,3 +266,24 @@ You can get to this page by using the URL address bar of the browser and using t
 - If they triy to access resources (menu items) only allowed for administrators (Menus, Dashboard, Categories, Tags, Comments, Users, Site Settings and Subscribers via the browser URL address bar (e.g. path "/admin/subscribers" or "/admin/settings/edit") they will be presented with an access denied page. From there the non-admin users can either go back, go to the home page or to the News section of the admin panel.
 
 ![Access Denied For Non-Admin Users](NewsProjectMVC/wwwroot/images/access_denied_for_non_admin.jpg)
+
+### <ins>Admin Panel Dashboard (For Administrators)</ins>
+
+- The dashboard has some features similar to the non-admin News Index portion of the admin panel (as previously mentioned above).
+- The first difference is that there are more menu items available to an administrator than just the News (Dashboard (currently on this), Menus, Categories, Tags, Comments, Users, Site Settings and Subscribers)
+- Also, at the top there are a row of metrics detailing the total number of news articles, comments, categories and tags.
+- Below the metrics is a dynamic chart made with Chart.js JavaScript library. It shows as lines graphs per month the amount of comments and news articles created for the year; it covers all comments and all news articles (regardless of whether they are published or unpublished).
+
+![Admin User Dashboard](NewsProjectMVC/wwwroot/images/admin_dashboard.jpg)
+
+- Also, the user profile (at the top right) is slightly different when clicked; as well as showing the Logout button it also has a "View Profile" button; when this button is clicked it will take the administrator to the user edit page, where he/she can change his/her login details or active status if required.
+
+![Admin Profile Avatar](NewsProjectMVC/wwwroot/images/admin_view_profile.jpg)
+
+![Admin User Edit Page](NewsProjectMVC/wwwroot/images/admin_profile_edit.jpg)
+
+
+
+
+
+
