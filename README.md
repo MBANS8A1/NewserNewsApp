@@ -246,9 +246,16 @@ You can get to this page by using the URL address bar of the browser and using t
 ### <ins>Admin Panel For Non-Admin Users (News Correspondents) After Logging In</ins>
 - When a user signs in, they will be presented with the news articles they have created only.
 - To the top-right is the user's avatar and name; if this is clicked it will expand to show where a "Logout" button, which when clicked will log the user out of their account.
+
+![Sign In Page](NewsProjectMVC/wwwroot/images/non_admin_logout_button.jpg)
+
 - In the black sidebar at the far left the only option available is the current News menu item; this is because "Jessica" is a non-admin user. None-admin users can only create, edit and delete news articles they have made. They cannot perform CRUD (Create Read Update Delete) on anything else.
 - Under the "News Index" text is the "Create News" so the non-admin user can add another news article to the news list.
 - The table for the News list is created using the datatables JavaScript library (which created grid tables commonly used in CRM solutions). it has the column headings Title, View Count, Status, Image and Actions. The actions are Font Awesome icons for Edit, Comments and Delete, respectively. **Note**: the Comments icon cannot be used for non-admin users though.
 - You can use the search bar to the right of the news list to search for a news article using phrases, letters and words. Furthermore, the correspondent can also use the arrowheads (up and down) to sort the news articles by the column and control the amount of articles shown per page (if there are many articles) with the "Show Entries" dropdown.
 
 ![News Index Non-Admin](NewsProjectMVC/wwwroot/images/news_index_page_non_admin.jpg)
+
+- At the bottom of the News Index page you can see the pages you can select (at the moment only page 1  is showing but if you have multiple articles, then more pages will show) and the range of the entries.
+
+![News Index Bottom](NewsProjectMVC/wwwroot/images/news_entries_and_pages.jpg)
