@@ -175,7 +175,7 @@ articles from their dedicated account. A general administrator has access to all
 
 ![Most Views News Area](NewsProjectMVC/wwwroot/images/portion_of_the_footer_area.jpg)
 
-### <ins>News Details Page (for a news article) </ins>
+### <ins>News Details Page (for a news article)</ins>
 
 You can get to this page by using the URL address bar of the browser and using the route "/news/{id of the news article}" if you know it. However, a more convenient way is just to click the name of the news article you are interested in on the home page or on this news details page.
 
@@ -213,3 +213,10 @@ You can get to this page by using the URL address bar of the browser and using t
 - After approval in the admin (Kaiadmin) panel by the administrator the comments will appear at the bottom of the page for the specific article.
 
 ![Comment After Approval](NewsProjectMVC/wwwroot/images/comments_shown_after_approval.jpg)
+
+### <ins>Search Page (query for news article(s)) </ins>
+
+- The visitor of the site can reach the "NewsMedia/Index" search page by using the search input bar on the home page (next to the weather information) and using the search bar on top of the "Popular Categories" on the news details page. They can also access it by clicking any category in the footer area or popular categories menu list.
+
+#### Filter News
+- In this are the visitor can s
