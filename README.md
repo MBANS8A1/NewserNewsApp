@@ -231,7 +231,13 @@ You can get to this page by using the URL address bar of the browser and using t
 
 ![Filter News No Result](NewsProjectMVC/wwwroot/images/no_match_search_page.jpg)
 
+
 ## News Agency Admin Panel
 
 ### <ins>Sign In Page</ins>
 
+- Administrators and non-admin users (correspondents) can get to the sign in page by clicking "Sign In" on the navbar area.
+- Enter your credentials (username and password)
+- Note: to allow continued access to the admin panel (e.g. when the browser window is closed and re-opened) you can check the box "Remember Me"; by default the cookies expiration time is 30 days, but you can override this within the Program.cs file, which I have done. In this case at the time of writing it is 10 days for the expiration of a cookie.
+
+![Sign In Page](NewsProjectMVC/wwwroot/images/sign_in_page.jpg)
