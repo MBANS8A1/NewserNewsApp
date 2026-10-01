@@ -200,3 +200,13 @@ You can get to this page by using the URL address bar of the browser and using t
 
 - Here are the pill-shaped tags, which are in fact links. These are added for search optimization. The associated a news article with a topic. Whenever the visitor clicks a tag they will be taken to "NewsMedia/Index" search page where other news article related to the topic will be shown.
 - In the "You Might Also Like" section are up to two news articles. These are related news articles, whcih belong to the same category as the current news article the vistior is reading. Each related news item has a thumbnail-sized image, title and estimated reading time.
+
+![Bottom of News Details Page](NewsProjectMVC/wwwroot/images/bottom_portion_of_news_details_page.jpg)
+ 
+- There is a comment form where visitors can comment their thoughts/opinions about the specific news article they have just read.
+- After submission of the comment (via entering their full name, email address and comment) the comment will not appear at the bottom of page in the comment section immediately, as comments need to be approved by the administrator first before they appear.
+
+![Comment Form](NewsProjectMVC/wwwroot/images/comment_form_filled_news_details_page.jpg)
+
+![Comment Awaiting Approval](NewsProjectMVC/wwwroot/images/comment_awaiting_approval_news_details_page.jpg)
+
