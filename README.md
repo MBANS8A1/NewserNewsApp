@@ -190,8 +190,13 @@ You can get to this page by using the URL address bar of the browser and using t
 
 #### Middle Portion of News Details Page
 
-- Here we see the metrics for the specfic news article (reading time, view count and the amount of comments for this news article).
+- Here we see the metrics for the specific news article (reading time, view count and the amount of comments for this news article).
 - To the right is the popular news, which are up to four news article segments with each news article having the following: a circular thumbnail image (having a superimposed view count on top), news title, and date of creation.
 - Also, the start of long description (text) for the news article can be seen.
 
-![Top of News Details Page](NewsProjectMVC/wwwroot/images/middle_portion_of_news_details_page.jpg)
+![Middle of News Details Page](NewsProjectMVC/wwwroot/images/middle_portion_of_news_details_page.jpg)
+
+#### Bottom Portion of News Details Page
+
+- Here are the pill-shaped tags, which are in fact links. These are added for search optimization. The associated a news article with a topic. Whenever the visitor clicks a tag they will be taken to "NewsMedia/Index" search page where other news article related to the topic will be shown.
+- In the "You Might Also Like" section are up to two news articles. These are related news articles, whcih belong to the same category as the current news article the vistior is reading. Each related news item has a thumbnail-sized image, title and estimated reading time.
