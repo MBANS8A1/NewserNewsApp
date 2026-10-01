@@ -259,3 +259,10 @@ You can get to this page by using the URL address bar of the browser and using t
 - At the bottom of the News Index page you can see the pages you can select (at the moment only page 1  is showing but if you have multiple articles, then more pages will show) and the range of the entries.
 
 ![News Index Bottom](NewsProjectMVC/wwwroot/images/news_entries_and_pages.jpg)
+
+### <ins>Restricted Authorization For Non-Admin Users</ins>
+
+- As hinted above, the news correspondents (non-admin users) only have access to the News Index page and the news articles they have created within their account.
+- If they triy to access resources (menu items) only allowed for administrators (Menus, Dashboard, Categories, Tags, Comments, Users, Site Settings and Subscribers via the browser URL address bar (e.g. path "/admin/subscribers" or "/admin/settings/edit") they will be presented with an access denied page. From there the non-admin users can either go back, go to the home page or to the News section of the admin panel.
+
+![Access Denied For Non-Admin Users](NewsProjectMVC/wwwroot/images/access_denied_for_non_admin.jpg)
