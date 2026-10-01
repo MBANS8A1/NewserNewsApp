@@ -231,5 +231,7 @@ You can get to this page by using the URL address bar of the browser and using t
 
 ![Filter News No Result](NewsProjectMVC/wwwroot/images/no_match_search_page.jpg)
 
+## News Agency Admin Panel
 
+### <ins>Sign In Page</ins>
 
