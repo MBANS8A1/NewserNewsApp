@@ -84,7 +84,7 @@ namespace NewsProjectMVC.Controllers
             var category = await _context.Categories.FirstOrDefaultAsync(c => c.Id == news.CategoryId);
 
             
-            var relatedNews = await _context.News.Where(x => x.CategoryId == category.Id && x.Id != news.Id).Take(2).ToListAsync();
+            var relatedNews = await _context.News.Where(n => n.CategoryId == category.Id && n.Id != news.Id).Take(2).ToListAsync();
 
             var currentNewsId = news.Id;
 
