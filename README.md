@@ -15,66 +15,66 @@ articles from their dedicated account. A general administrator has access to all
 
 1. Category
    1. Id (PK)
-   2. Title
-   3. Description
+   2. Title (nvarchar)
+   3. Description (nvarchar)
 2. Comment
    1. Id (PK)
-   2. FullName
-   3. Email
-   4. CommentText
-   5. CreatedAt
-   6. IsApproved
-   7. NewsId (FK)
+   2. FullName (nvarchar)
+   3. Email (nvarchar)
+   4. CommentText (nvarchar)
+   5. CreatedAt (datetime)
+   6. IsApproved (bit)
+   7. NewsId (FK) (int)
 3. Menu
    1. Id (PK)
-   2. Title
-   3. Link
-   4. ParentId (not null is sub-menu item)
-   5. Priority (controls the order of the menu item(s))
+   2. Title (nvarchar)
+   3. Link (nvarchar)
+   4. ParentId (not null is sub-menu item) (int)
+   5. Priority (controls the order of the menu item(s)) (smallint)
 4. Tag
    1. Id (PK)
-   2. Title
+   2. Title (nvarchar)
 5. User
    1. Id (PK)
-   2. FullName
-   3. Username
-   4. Password
-   5. IsActive
-   6. IsAdmin
+   2. FullName (nvarchar)
+   3. Username (nvarchar)
+   4. Password (nvarchar)
+   5. IsActive (bit)
+   6. IsAdmin (bit)
 6. News
    1. Id (PK)
-   2. Title
-   3. ShortDescription
-   4. LongDescription
-   5. CreatedAt
-   6. ViewCount
-   7. Status (Published or Unpublished)
-   8. ImageName
-   9. CategoryId (FK)
-   10. Tags
-   11. UserId (FK)
+   2. Title (nvarchar)
+   3. ShortDescription (nvarchar)
+   4. LongDescription (nvarchar)
+   5. CreatedAt (datetime)
+   6. ViewCount (int)
+   7. Status (Published or Unpublished) (nvarchar)
+   8. ImageName (nvarchar)
+   9. CategoryId (FK) (int)
+   10. Tags (nvarchar)
+   11. UserId (FK) (int)
 7. Settings
    1. Id (PK)
-   2. Title
-   3. Address
-   4. Email
-   5. Phone
-   6. Copyright
-   7. Facebook
-   8. X
-   9. Instagram
-   10. YouTube
-   11. LinkedIn
-   12. FeaturedNews
-   13. MainNews
-   14. TopStory
-   15. BestNews
-   16. MainPageCategories
+   2. Title (nvarchar)
+   3. Address (nvarchar)
+   4. Email (nvarchar)
+   5. Phone (nvarchar)
+   6. Copyright (nvarchar)
+   7. Facebook (nvarchar)
+   8. X (nvarchar)
+   9. Instagram (nvarchar)
+   10. YouTube (nvarchar)
+   11. LinkedIn (nvarchar)
+   12. FeaturedNews (nvarchar)
+   13. MainNews (int)
+   14. TopStory (int)
+   15. BestNews (nvarchar)
+   16. MainPageCategories (nvarchar)
 8. Subscriber
-   1. Id
-   2. Email
-   3. SubscribedAt
-   4. IsActive
+   1. Id (PK)
+   2. Email (nvarchar)
+   3. SubscribedAt (datetime)
+   4. IsActive (bit)
 
 <ins>Derived Views</ins>
 
