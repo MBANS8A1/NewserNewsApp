@@ -301,4 +301,9 @@ You can get to this page by using the URL address bar of the browser and using t
 - All the fields in this News Options tab make use of the Select2 jQuery plugin which is a JavaScript replacement for select boxes, which can be single item select or multi-item select.
 - The Main News Options and  Top Story are single select so you can type into the Select2 box and it will search for the single article you are looking for, since both these fields only take one news record.
 
-![Single_Select_Top_Story_Example](NewsProjectMVC/wwwroot/images/news_options_settings_select2_single_search_select.jpg)
+![Single_Select_Main_News_Options_Example](NewsProjectMVC/wwwroot/images/news_options_single_select_main_news_options.jpg)
+
+- The Featured News, Best News and Main Page Categories are a list of news articles and categories, respectively (not one item). So these use the multi-select feature of Select2. We can add multiple items to these fields.
+
+![Multiple_Select_MainPageCategories_Example](NewsProjectMVC/wwwroot/images/news_options_mainpagecategories_multi_select.jpg)
+
