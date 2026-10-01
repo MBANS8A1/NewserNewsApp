@@ -219,4 +219,17 @@ You can get to this page by using the URL address bar of the browser and using t
 - The visitor of the site can reach the "NewsMedia/Index" search page by using the search input bar on the home page (next to the weather information) and using the search bar on top of the "Popular Categories" on the news details page. They can also access it by clicking any category in the footer area or popular categories menu list.
 
 #### Filter News
-- In this are the visitor can s
+- In this area the visitor can use the form to search for one or more news articles by Title, Category (a dropdown list) and/or Tag.
+
+![Filter News Form](NewsProjectMVC/wwwroot/images/filter_news_search_page.jpg)
+
+- If there is one or more matches then the will be shown below the form as one or more cards. These cards contain a thumbnail-sized image, title, short description, a "Read More" button and the creation date of the news article.
+
+![News Card Result](NewsProjectMVC/wwwroot/images/news_card_result_search_page.jpg)
+
+- If there are no news articles matching the entered criterion/criteria then a message will be displayed showing no matches.
+
+![Filter News No Result](NewsProjectMVC/wwwroot/images/no_match_search_page.jpg)
+
+
+
