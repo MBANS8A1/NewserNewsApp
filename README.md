@@ -360,4 +360,29 @@ To delete a user click the red cross icon on a user's row in the User Index and 
 ![Menus_Index_Page_Admin_Panel](NewsProjectMVC/wwwroot/images/submenu_items_from_news_menu_item.jpg))
 
 
+### <ins>Comments Area(For Administrators Within The Admin Panel)</ins>
+
+- A comment added on the details page of a news article will not appear in the comments under an article immediated; it must be approved by an administrator.
+
+- Assume a person types a comment under a news article:
+
+![Adding_Comment_For_Submission](NewsProjectMVC/wwwroot/images/submitting_a_comment_on_news_article_details_page.jpg))
+
+- Now a notification appears about the comment being submitted and awaiting approval:
+
+![Comment_For_Article_Already Submitted](NewsProjectMVC/wwwroot/images/comment_submitted_and_awaiting_approval_for_admin_user.jpg))
+
+- If the administrator clicks the Comments from the sidebar they will now see the comment and its details in the datatable with the following columns: FullName, Email, CreatedAt and IsApproved. Note that the IsApproved checkbox for the newly submitted comment is not currently checked:
+
+![Comment_Listed_In_Comments_Index](NewsProjectMVC/wwwroot/images/comment_appears_in_comment_index_admin_panel.jpg))
+
+- Now click on the Font Awesome edit icon for the comment and then check the isApproved checkbox and press the "Save" button:
+
+![Comment_Edit_Page_Admin_Panel](NewsProjectMVC/wwwroot/images/check_isApproved_and_save_comment.jpg))
+
+- If you visit the same article where the comment was made it will now appear in the comments list:
+
+![Comment_Appears_In_Comments_List](NewsProjectMVC/wwwroot/images/comment_now_appears_within_the_comment_section.jpg))
+
+
 
