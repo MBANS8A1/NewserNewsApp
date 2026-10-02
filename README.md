@@ -344,8 +344,20 @@ To delete a user click the red cross icon on a user's row in the User Index and 
 ![Subscribers_Index_Page](NewsProjectMVC/wwwroot/images/subscribers_index_admin_panel.jpg)
 
 
+### <ins>Menu Area(For Administrators Within The Admin Panel)</ins>
 
+- The Menus index page controls and corresponds with the links that are visible within the navbar/header area of the news agency site.
+- The columns for the datatable are Title, Link, ParentId and Priority.
 
+![Home_Page_Menu_List](NewsProjectMVC/wwwroot/images/menu_on_home_page_and_sub_menu.jpg))
+
+![Menus_Index_Page_Admin_Panel](NewsProjectMVC/wwwroot/images/menus_index_admin_panel.jpg))
+
+- Also, note in the image above that I am hovered the cursor over the sub-menu Font Awesome icon. If a menu item has a sub-menu item within it then those sub-menu items will have a ParentId that is not null. The Priority controls the ordering the menu (sub-menu) items from left to right.
+
+- If you click on the "Sub Menus" icon for a main menu item, the administrator will be able to see (if any) the sub-menu items for a main menu item. Notice that they have associated ParentIds liking them to the main menu item.
+
+![Menus_Index_Page_Admin_Panel](NewsProjectMVC/wwwroot/images/submenu_items_from_news_menu_item.jpg))
 
 
 
