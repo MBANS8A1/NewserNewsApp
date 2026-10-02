@@ -307,15 +307,15 @@ You can get to this page by using the URL address bar of the browser and using t
 
 ![Multiple_Select_MainPageCategories_Example](NewsProjectMVC/wwwroot/images/news_options_mainpagecategories_multi_select.jpg)
 
-### <ins>Admin Panel Users(For Administrators)</ins>
+### <ins>Users(For Administrators Within The Admin Panel)</ins>
 
 - When an administrator clicks on the Users menu item they will be presented with rows of news correspondents with a datatable on the User Index. The grid-based table has the following columns: FullName, Username, Password, IsActive and IsAdmin. **Note**: at the time of writing there is only one administrator but technically there can be more.
 - At then end of each row are the edit (blue-coloured) and delete (red-coloured) icons, respectively.
-- Above the datatable is the "Create User" button.
+- Above the datatable is the "Add New User" button.
 
 ![User_Index_Admin_Panel](NewsProjectMVC/wwwroot/images/user_index_admin_panel.jpg)
 
-- If the administrator clicks the "Create User" button, they can add more non-admin or admin users by filling in the form and clicking "Create".
+- If the administrator clicks the "Add New User" button, they can add more non-admin or admin users by filling in the form and clicking the "Create" button.
 
 ![Create_User_Admin_Panel](NewsProjectMVC/wwwroot/images/create_user_admin_panel.jpg)
 
@@ -332,6 +332,18 @@ You can get to this page by using the URL address bar of the browser and using t
 To delete a user click the red cross icon on a user's row in the User Index and click the "Delete" button.
 
 ![Delete_A_User](NewsProjectMVC/wwwroot/images/delete_user_admin_panel.jpg)
+
+### <ins>Categories,Tags and Subscribers(For Administrators Within The Admin Panel)</ins>
+
+- The administrator also has access to the Categories, Tags and Subscribers from the sidebar of the admin panel. They have a similar appearance to the other sections mentioned previously with edit and delete icons and "Add" (similar to the "Create User" button). They also have the information on their Index page arranged in datatables.
+
+![Categories_Index_Page](NewsProjectMVC/wwwroot/images/categories__index_admin_panel.jpg)
+
+![Tags_Index_Page](NewsProjectMVC/wwwroot/images/tags_index_admin_panel.jpg)
+
+![Subscribers_Index_Page](NewsProjectMVC/wwwroot/images/subscribers_index_admin_panel.jpg)
+
+
 
 
 
