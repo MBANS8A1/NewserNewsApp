@@ -307,3 +307,33 @@ You can get to this page by using the URL address bar of the browser and using t
 
 ![Multiple_Select_MainPageCategories_Example](NewsProjectMVC/wwwroot/images/news_options_mainpagecategories_multi_select.jpg)
 
+### <ins>Admin Panel Users(For Administrators)</ins>
+
+- When an administrator clicks on the Users menu item they will be presented with rows of news correspondents with a datatable on the User Index. The grid-based table has the following columns: FullName, Username, Password, IsActive and IsAdmin. **Note**: at the time of writing there is only one administrator but technically there can be more.
+- At then end of each row are the edit (blue-coloured) and delete (red-coloured) icons, respectively.
+- Above the datatable is the "Create User" button.
+
+![User_Index_Admin_Panel](NewsProjectMVC/wwwroot/images/user_index_admin_panel.jpg)
+
+- If the administrator clicks the "Create User" button, they can add more non-admin or admin users by filling in the form and clicking "Create".
+
+![Create_User_Admin_Panel](NewsProjectMVC/wwwroot/images/create_user_admin_panel.jpg)
+
+- Also, and administrator is able to disable other users' accounts too. Let's assume the administrator wants to disable Rodrigo's account (he is the correspondent for Science news). To do so click the edit icon on Rodrigo's row in the User Index.
+
+- Now uncheck the checkbox for IsActive and press the "Save" button.
+
+![Edit_User_Admin_Panel_Rodrigo](NewsProjectMVC/wwwroot/images/edit_user_admin_panel.jpg)
+
+- Now that Rodrigo is an inactive user, if Rodrigo tries to sign into the admin panel, he will not be able to as his account has been disabled. For his account to be active again the administrator needs to go back to the edit pack and check the IsActive box. This procedure is more flexible than just deleting an account, which can still be done by an administrator.
+
+![Account_Disabled_Rodrigo](NewsProjectMVC/wwwroot/images/account_disabled_user_login_page.jpg)
+
+To delete a user click the red cross icon on a user's row in the User Index and click the "Delete" button.
+
+![Delete_A_User](NewsProjectMVC/wwwroot/images/delete_user_admin_panel.jpg)
+
+
+
+
+
