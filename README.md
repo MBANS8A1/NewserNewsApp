@@ -5,7 +5,9 @@ articles from their dedicated account. A general administrator has access to all
 
 **Programming languages used**: C# ASP.NET Core, JavaScript/AJAX (including plugins and libraries) and JQuery.
 
-**Markup used and styling**: HTML5, Bootstrap 5, CSS3, Font Awesome
+**Text Editor Used**: CKEditor.
+
+**Markup used and styling**: HTML5, Bootstrap 5, CSS3, Font Awesome.
 
 **Database(s) used**: SQL Server (via SSMS - SQL Server Management Studio)
 
@@ -383,6 +385,28 @@ To delete a user click the red cross icon on a user's row in the User Index and 
 - If you visit the same article where the comment was made it will now appear in the comments list:
 
 ![Comment_Appears_In_Comments_List](NewsProjectMVC/wwwroot/images/comment_now_appears_within_the_comment_section.jpg))
+
+
+### <ins>News Index Area(For Administrators Within The Admin Panel)</ins>
+
+- The News Index page for administrators is similar to that of non-admin users, except that the administrator has access to all news articles from all user accounts (administrator created news articles and those created by news correspondents). **Note**: I have the cursor hovered over the Comments Font Awesome icon as administrators are allowed to add comments under news articles directly without having to go to the specific news article on the site.
+
+![News_Index_For_Administrators](NewsProjectMVC/wwwroot/images/news_index_for_administrators_admin_panel.jpg)
+
+![Entried_On_News_Index_For_Administrators](NewsProjectMVC/wwwroot/images/access_to_all_correspondents_articles.jpg)
+
+- Click the "Add New Comment" button in order to create a new comment once you have selected the Comments icon as an administrator:
+
+![Comments_List_For_Article_For_Administrator](NewsProjectMVC/wwwroot/images/administrators_can_add_comments_under_articles_directly.jpg)
+
+- Now create the comment by filling in the fields and choosing where it should be an approved comment:
+
+![Creating_A_Comment_As_An_Administrator_For_An_Article](NewsProjectMVC/wwwroot/images/administrator_creating_a_comment.jpg)
+
+- If you click the "Add News" button on the News Index page, a new news article can be created (this is the same for administrators and non-admin accounts). Notice that for the "LongDescription" field that it makes use of the CKEditor; CKEditor is a text editing framework similar to what you find on word processing applications. It can be used with <textarea> to add font styling, media, images, bulleted lists,numbered lists, grid tables and much more.
+
+![Creating_A_News_Article_As_An_Administrator](NewsProjectMVC/wwwroot/images/create_news_ckeditor.jpg)
+
 
 
 
